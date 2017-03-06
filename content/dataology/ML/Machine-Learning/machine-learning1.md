@@ -1,6 +1,6 @@
 Title: 机器学习-1: 绪论
 Date: 2017-03-04
-Category: 机器学习
+Category: 数据科学
 Tags: 索引, 读书笔记, 机器学习
 
 Summary:
