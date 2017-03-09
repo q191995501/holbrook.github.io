@@ -103,10 +103,6 @@ JoinQuant
 
 # 比较
 
-
-
-
-
 分享一下在使用过程中的感受：
 
 优矿：
@@ -159,7 +155,7 @@ hs300双均线 60s 264s 150s
         * 现在已经几乎弃用优矿了，对他们很失望耶。。
 * Ricequant
     * 增加了很多数据，比如指数和分级基金等
-    * 现在回测也比较稳定了，感谢进度条
+    * 现在回测也比较稳定了，感谢进度条。已经支持Python编写回测了
     * 支持了分钟级的实盘仿真交易
     * 参加了一次比赛，名落孙山。。。
     * 新体会：
@@ -175,20 +171,21 @@ hs300双均线 60s 264s 150s
     * 新体会：
         * API总体来说用起来和Quantopian类似，很容易上手
         * 居然没有调仓神器order_target_percent？
-        * API的命名比较随意，如portoflio里的“unsell_positions”、“ starting_cash”、“ capital_used”，order里的“ add_time”，run_weekly中的“weekday”等。
-JoinQuant从API设计来看似乎并未经过深思熟虑。这个就我举的几个例子展开谈一下好了。
-* portfolio.unsell_positions[id]：英文语法上这是一个动宾结构，如果代表“无法卖出的仓位”，应该用frozen_positions。对比Ricequant的类似功能是portfolio.position[id].sellable，直接获得可以卖出的仓位，平仓时更好用。
-* starting_cash和capital_used，两者都代表现金，但一个用了cash，一个用了capital，且顺序不一样。后一个改成used_cash比较好。
-* order.add_time：这个又是一个语法上的动宾结构，不知所谓。如果代表创建时间，应该用creation_time更好，相应后来会有modification_time, cancellation_time。如果觉得太长，就用created_time, modified_time, canceled_time，add_time直译的确是“添加时间”，然而这是中式英语。
-* run_weekly参数中的weekday：这个在英文代表的是星期的意思，如果是weekday，对应的是Monday, Tuesday这些，然而看API描述对应的是Quantopian的offset，不如直接用offset。
-总结一下，我觉得功能和体验上优矿已经落后了，企业版的我没用过（没需求哇）。Ricequant的API比JoinQuant的好用，也更清爽，如果能加入微信提醒功能就好了。
+        * API的命名比较随意，从API设计来看似乎并未经过深思熟虑,如:
+          + portfolio.unsell_positions[id]：英文语法上这是一个动宾结构，如果代表“无法卖出的仓位”，
+            应该用frozen_positions。对比Ricequant的类似功能是portfolio.position[id].sellable，直接获得可以卖出的仓位，平仓时更好用。
+          + starting_cash和capital_used，两者都代表现金，但一个用了cash，一个用了capital，且顺序不一样。
+            后一个改成used_cash比较好。
+          + order.add_time：这个又是一个语法上的动宾结构，不知所谓。
+            如果代表创建时间，应该用creation_time更好，相应后来会有modification_time, cancellation_time。
+            如果觉得太长，就用created_time, modified_time, canceled_time，add_time直译的确是“添加时间”，
+            然而这是中式英语。
+          + run_weekly参数中的weekday：这个在英文代表的是星期的意思，如果是weekday，对应的是Monday, Tuesday这些，然而看API描述对应的是Quantopian的offset，不如直接用offset。
 
++ 对比
 
-
-
-
-
-早上收到了Ricequant的邮件，他们已经支持Python编写回测了。
+  我觉得功能和体验上优矿已经落后了，企业版的我没用过
+  Ricequant的API比JoinQuant的好用，也更清爽，如果能加入微信提醒功能就好了。
 
 我两边都有用过，作为一个业余人士，不知道谁比较强，只说个人感受。
 
@@ -213,24 +210,27 @@ JoinQuant从API设计来看似乎并未经过深思熟虑。这个就我举的�
 * Ricequant
     * 网速差的时候经常回测结果跑不出来
     * 好像其他没什么了。。就是功能少了点
-个人认为优矿的运营很接地气，但是产品细节并不亲民（功能是多了，但是比如分钟线回测真的是然并卵啊，日数据仿真有意义吗）；而Ricequant正好相反，感觉是一群比较踏实的人吧。
+
+个人认为优矿的运营很接地气，但是产品细节并不亲民（功能是多了，但是比如分钟线回测真的是然并卵啊，日数据仿真有意义吗）；
+而Ricequant正好相反，感觉是一群比较踏实的人吧。
 
 至于JoinQuant，我近期才注册，随便玩了一下。然而必须吐个槽。。
 
-数月前第一次看到Ricequant时我第一反应就是，我去，抄得真像。
+数月前第一次看到Ricequant时我第一反应就是，我去，抄得真像。然后看到了joinquant。
+发现Ricequant的界面真是诚意之作——抄的是交互设计，视觉设计完全不一样；后来看到了论坛的改版，简直惊艳。
 
-然后看到了joinquant。。发现Ricequant的界面真是诚意之作——抄的是交互设计，视觉设计完全不一样；后来看到了论坛的改版，简直惊艳。
+另外JoinQuant连API设计都是像素级拷贝（除了去掉了initialize）。
+是为了直接复制黏贴即可使用Quantopian的策略？
 
-另外JoinQuant连API设计都是像素级拷贝（除了去掉了initialize）。。是为了直接复制黏贴即可使用Quantopian的策略？
+当然，JoinQuant现在支持分钟线及每日数据回测，而且速度很快（目测甚至快过Quantopian）。
+同样是Python的平台（不知道后台是不是也用了Python写），性能也是有本质差距的。
 
-当然，JoinQuant现在支持分钟线及每日数据回测，而且速度很快（目测甚至快过Quantopian）。同样是Python的平台（不知道后台是不是也用了Python写），性能也是有本质差距的。
-
-我没有深入JoinQuant，不过看文档他们似乎只有基本的交易行情数据，跟前面两家平台还是有一定差距。但是就他们的技术能力来说，我认为还是很有潜力的。等哪天追上了再关注一下。
-
-
-
+我没有深入JoinQuant，不过看文档他们似乎只有基本的交易行情数据，跟前面两家平台还是有一定差距。
+但是就他们的技术能力来说，我认为还是很有潜力的。等哪天追上了再关注一下。
 
 
+
+-------
 
 题主说的这三家我都用过，但是个人感觉最强的应该是掘金！
 

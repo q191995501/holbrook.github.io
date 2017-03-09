@@ -1,5 +1,6 @@
 Title: 基于Python的数据科学环境
 Date: 2017-02-11
+Modified: 2017-03-09
 Category: 数据科学
 Tags: python, env
 Summary:
@@ -106,9 +107,15 @@ SciPy 的主要子模块包括：
 # matplotlib
 
 [Matplotlib](http://matplotlib.org/)为 python 提供了一整套和MATLAB类似的绘图函数集。
-Matplotlib 很强大，但是比较底层。高级的python 数据处理模块会调用 Matplotlib 实现更简单的绘图函数，
+
+Matplotlib 是众多 Python 可视化包的鼻祖。其功能非常强大，同时也非常复杂。
+直接使用 Matplotlib, 可能会需要花费很多工作来获得调整和美化图表。
+
+高级的python 数据处理模块会调用 Matplotlib 实现更简单的绘图函数，
 比如后面要提到的 Pandas, Seaborn等。
+
 但是要对图表进行精细的、个性化的调整时，还是需要掌握 Matplotlib 的函数。
+
 
 # 数据分析和处理
 
@@ -152,20 +159,51 @@ SymPy支持符号计算、高精度计算、模式匹配、绘图、解方程、
 
 # 可视化
 
+Pandas 本身就基于 Matplotlib 提供了内建的绘图功能，
+但一些专门的可视化库提供了更多的功能，或者使用起来更容易。
+这些可视化库不一定基于 Matplotlib， 也不一定
+
 ## Seaborn
 
 [Seaborn](http://seaborn.pydata.org/)
 是基于 Matplotlib 的高级统计绘图工具（类似 Pandas 与 NumPy 的关系），其功能类似 R 中的 lattice。
-Matplotlib很强大，但是也很复杂。因此推荐一开始使用Seaborn。
+Seaborn 可以与 pandas 很好地集成，其目标是使默认的数据可视化更加悦目，以及简化复杂图表的创建。
+比如，seaborn 支持多样的内置风格，可以快速地修改调色板。
+
+推荐一开始使用 Seaborn ，而不是直接使用 Pandas 进行绘图。
+
+
+## ggplot
+
+[ggplot](http://ggplot.yhathq.com/)
+与 Seaborn 类似，也是基于 Matplotlib 的高级绘图工具。 ggplot 的 API 更接近 R 中的 ggplot,
+风格不是很pythonic，不过功能很强大。
+
 
 ## Bokeh
 
 [Bokeh(Bokeh.js)](http://bokeh.pydata.org/en/latest/docs/user_guide.html)
-是一个 Python 交互式可视化库，支持现代化 Web 浏览器，提供非常完美的展示功能。
+不是基于 Matplotlib，并且其目标不是静态图片，而且基于 Web 浏览器的交互式可视化。
 
-Bokeh 的目标是使用 D3.js 样式提供优雅，简洁新颖的图形化风格，同时提供大型数据集的高性能交互功能。
+Bokeh 使用 D3.js 样式提供优雅，简洁新颖的图形化风格，
+可以快速的创建交互式的绘图，仪表盘和数据应用。
 
-Boken 可以快速的创建交互式的绘图，仪表盘和数据应用。
+Bokeh 支持大型数据集的高性能交互功能。
+
+
+## Pygal
+
+[Pygal](http://pygal.org/) 用于创建 svg 格式的图表，如果安装了正确的依赖，也可以保存为 png 格式。
+
+svg 文件在创建交互式图表时非常有用，同时, Pygal 创建的图表风格比较独特，而且极具视觉感染力。
+
+## Plot.ly
+
+[Plot.ly](https://plot.ly/)是一个分析和可视化的在线工具。它具有强大的 API 并包含一个 Python 版本。
+Plotly 与 pandas 可以无缝集成， 其绘制出的图表非常吸引人并且具有高度互动性。
+
+所有通过 Plot.ly 所做的东西都会发布到网上。但是，也可以将图表设为私有。
+
 
 ## TVTK
 
@@ -249,3 +287,4 @@ A UI layer that supports the visualization features of Traits. Implementations u
 [^3]: [用Python做科学计算(第二版)](http://hyry.dip.jp/tech/book/page/scipynew/index.html)
 [^4]: [Comprehensive learning path – Data Science in Python](https://www.analyticsvidhya.com/learning-paths-data-science-business-analytics-business-intelligence-big-data/learning-path-data-science-python/)
 [^5]: [Python for statistical computing](http://aliquote.org/memos/2011/02/07/python-for-statistical-computing)
+[^6]: [6 种 Python 数据可视化工具](http://www.tuicool.com/articles/mEB3quR)
