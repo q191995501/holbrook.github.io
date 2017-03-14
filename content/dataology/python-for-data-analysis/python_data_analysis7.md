@@ -16,9 +16,9 @@ pandas和Python标准库提供了一组高级的、灵活的、高效的核心�
 数据规整主要包含以下几方面的内容：
 
 - [合并数据集](/2017/03/10/python_data_analysis7-1.html)
-- [重塑和轴向旋转]()
-- [数据转换]()
-- [字符串操作]()
+- [重塑和轴向旋转](/2017/03/11/python_data_analysis7-2.html)
+- [数据转换](/2017/03/12/python_data_analysis7-3.html)
+- [字符串操作](/2017/03/13/python_data_analysis7-4.html)
 
 本章还给出了一个示例：
 

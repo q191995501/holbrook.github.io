@@ -119,6 +119,7 @@ Matplotlib 是众多 Python 可视化包的鼻祖。其功能非常强大，同�
 
 # 数据分析和处理
 
+
 ## Pandas
 
 [Pandas](http://pandas.pydata.org/), Python Data Analysis Library,
@@ -132,7 +133,8 @@ Pandas 很好的解决了数据分析的大部分任务，是所有中等规模�
 ## Statsmodels
 
 [Statsmodels](http://statsmodels.sourceforge.net/)
-是 Python 中一个强大的统计分析包，包含了描述统计、回归分析、时间序列分析、假设检验等等的功能。
+是 Python 中一个强大的统计分析包，包含了描述统计(mean,median,sd等)、
+回归分析、时间序列分析、假设检验、统计推断(t-test,F-test,chi-square..）等功能。
 
 一些主要的功能包括：
 
@@ -150,7 +152,7 @@ Pandas 很好的解决了数据分析的大部分任务，是所有中等规模�
 - Extensive unit tests to ensure correctness of results
 - Many more models and extensions in development
 
-
+更多的统计相关模块，可以参考[这里](http://www.astro.cornell.edu/staff/loredo/statpy/)。
 
 ## SymPy
 
