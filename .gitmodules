@@ -1,9 +1,6 @@
 [submodule "plugins/pelican-ipynb"]
 	path = plugins.custom/pelican-ipynb
 	url = http://github.com/danielfrg/pelican-ipynb.git
-[submodule "plugins/pelican-toc"]
-	path = plugins.custom/pelican-toc
-	url = http:///
 [submodule "themes/blueidea"]
 	path =  themes/blueidea
 	url = http:///

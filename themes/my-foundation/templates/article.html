@@ -56,6 +56,22 @@
 	<!-- JiaThis Button END -->
 
 
+	<div id="container"></div>
+	<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+	<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+	<script>
+	var gitment = new Gitment({
+	  //id: '页面 ID', // 可选。默认为 location.href
+	  owner: 'Holbrook',
+	  repo: 'holbrook.github.io',
+	  oauth: {
+	    client_id: '045698e7c3165e1533ad',
+	    client_secret: '027958ab0a277b5f93f70d8ad5d66ddbf2b086f1',
+	  },
+	})
+	gitment.render('container')
+	</script>
+
 	<div class="small-12 columns">
 		<h3>Comments</h3>
 		<!-- UY BEGIN -->

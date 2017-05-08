@@ -22,7 +22,7 @@ JINJA_EXTENSIONS = ['jinja2.ext.i18n']
 
 
 # 编译信息
-PLUGIN_PATHS = ['./plugins','./plugins.custom']
+PLUGIN_PATHS = ['../pelican-plugins','./plugins.custom']
 PLUGINS = [
     'tag_cloud',
     'pelican-ipynb.markup',
