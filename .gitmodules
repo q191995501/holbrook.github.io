@@ -5,8 +5,8 @@
 	path =  themes/blueidea
 	url = http:///
 [submodule "data"]
-    path = content/dataology/python-for-data-analysis/data
-    url = http:///
+	path = content/dataology/python-for-data-analysis/data
+	url = https://github.com/wesm/pydata-book.git
 [submodule "themes/pelican-bootstrap3"]
 	path = themes/pelican-bootstrap3
 	url = git@github.com:holbrook/pelican-bootstrap3.git
