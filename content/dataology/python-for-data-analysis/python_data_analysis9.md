@@ -14,9 +14,9 @@ pandas提供了 groupby 和 pivot， 可以方便的进行这些操作。
 
 - [groupby](/2017/07/19/python_data_analysis9-1.html)
 - [数据聚合](/2017/07/19/python_data_analysis9-2.html)
-- [分组运算和转换](#)
-- [透视表和交叉表](#)
+- [分组运算和转换](/2017/07/19/python_data_analysis9-3.html)
+- [透视表和交叉表](/2017/07/19/python_data_analysis9-4.html)
 
 本章还给出了一个示例：
 
-- [2012联邦选举委员会数据库](#)
+- [示例：2012联邦选举委员会数据库](/2017/07/19/python_data_analysis9-5.html)
