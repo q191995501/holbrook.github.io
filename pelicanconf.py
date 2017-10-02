@@ -43,7 +43,8 @@ PLUGINS = [
     'extract_toc',
     'tag_cloud',
     'sitemap',
-    'summary'
+    'summary',
+    'render_math'
 ]
 
 
