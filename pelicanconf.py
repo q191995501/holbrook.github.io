@@ -7,20 +7,6 @@ AUTHOR = 'Holbrook'
 SITENAME = u'心内求法'
 SITEURL = ''
 
-
-I18N_UNTRANSLATED_ARTICLES = "remove"
-
-MD_EXTENSIONS = ['admonition',
-                 'toc',
-                 'codehilite(css_class=highlight,linenums=False)',
-                 'extra']
-
-JINJA_EXTENSIONS = ['jinja2.ext.i18n']
-
-#JINJA_ENVIRONMENT = ['jinja2.ext.i18n']
-
-
-
 # 编译信息
 PLUGIN_PATHS = ['../pelican-plugins','./plugins.custom']
 PLUGINS = [
@@ -60,6 +46,29 @@ DATE_FORMATS = {
 }
 DEFAULT_DATE_FORMAT = '%Y-%m-%d'
 
+SITEMAP = {
+    'format': 'xml',
+    'priorities': {
+        'articles': 0.5,
+        'indexes': 0.5,
+        'pages': 0.5
+    },
+    'changefreqs': {
+        'articles': 'monthly',
+        'indexes': 'daily',
+        'pages': 'monthly'
+    }
+}
+
+
+I18N_UNTRANSLATED_ARTICLES = "remove"
+
+MD_EXTENSIONS = ['admonition',
+                 'toc',
+                 'codehilite(css_class=highlight,linenums=False)',
+                 'extra']
+
+JINJA_ENVIRONMENT = {'trim_blocks': True, 'lstrip_blocks': True}
 
 # relate_posts 插件
 RELATED_POSTS_MAX = 10
