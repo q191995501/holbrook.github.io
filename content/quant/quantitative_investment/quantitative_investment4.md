@@ -1,7 +1,7 @@
 Title: 《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记第4章：数据的探索
 Date: 2017-10-02
 Category: 量化交易
-Tags: 数据分析
+Tags: 数据分析, 读书笔记
 Summary: 数据探索(Data Exploratory)的方法，包括计算衍生、统计分析、可视化、样本选择和数据降维等。
 
 

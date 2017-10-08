@@ -1,5 +1,6 @@
 output
 __pycache__
 **/*.pyc
+**/*.pid
 **/.ipynb_checkpoints
 content/dataology/python-for-data-analysis/data/*
