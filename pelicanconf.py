@@ -68,6 +68,12 @@ MD_EXTENSIONS = ['admonition',
                  'codehilite(css_class=highlight,linenums=False)',
                  'extra']
 
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.tables':{},
+    }
+}
+
 JINJA_ENVIRONMENT = {'trim_blocks': True, 'lstrip_blocks': True}
 
 # relate_posts 插件
