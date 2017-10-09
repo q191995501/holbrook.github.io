@@ -38,6 +38,11 @@ PATH = 'content'
 MARKUP = ('md', 'ipynb')
 IGNORE_FILES = ['.ipynb_checkpoints']
 
+FILES_TO_COPY = (
+    ("extra/robots.txt", "robots.txt"),
+)
+
+
 DEFAULT_LANG = 'zh'
 TIMEZONE = 'Asia/Shanghai'
 DATE_FORMATS = {

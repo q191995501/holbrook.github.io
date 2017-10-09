@@ -5,7 +5,7 @@
 
 第一篇 基础篇
 
-- 第1章 绪论
+- [第1章 绪论]({filename}quantitative_investment1.md)
 - 第2章 数据挖掘的内容、过程及工具
 
 第二篇 技术篇
