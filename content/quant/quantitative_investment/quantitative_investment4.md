@@ -5,6 +5,10 @@ Tags: 数据分析, 读书笔记
 Summary: 数据探索(Data Exploratory)的方法，包括计算衍生、统计分析、可视化、样本选择和数据降维等。
 
 
+
+[《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({filename}quantitative_investment_index.md)
+
+
 数据探索(Data Exploratory)，是指在尽量少的先验假定下，通过作图、制表、方程拟合、计算特征量等手段，
 探索数据的结构和规律。
 
@@ -98,7 +102,7 @@ PCA的主要思想是用原始变量的线性组合作为新的变量，形成�
 
 
 
-
+[《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({filename}quantitative_investment_index.md)
 
 
 

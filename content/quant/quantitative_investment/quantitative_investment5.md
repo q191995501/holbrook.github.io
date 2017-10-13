@@ -4,6 +4,7 @@ Category: 量化交易
 Tags: 数据分析, 读书笔记
 Summary: 关联规则的挖掘，是发现数据项集之间的关联关系或相关关系。最常用的算法是 Aprior 算法和 FP-Groth 算法。
 
+[《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({filename}quantitative_investment_index.md)
 
 作为数据挖掘中最重要和研究最多的技术之一，关联规则挖掘在1993年由Agrawal首先提出（Agrawal，1993），
 被用来识别数据库中项目之间的关系。
@@ -138,5 +139,5 @@ Summary: 关联规则的挖掘，是发现数据项集之间的关联关系或�
 
 
 
-
+[《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({filename}quantitative_investment_index.md)
 

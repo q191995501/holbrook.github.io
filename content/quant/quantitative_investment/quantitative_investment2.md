@@ -6,6 +6,8 @@ Summary: 数据挖掘一般分为关联、回归、分类、聚类、预测和�
 数据挖掘的过程包括定义目标、准备数据、建立模型、评估模型、部署模型六个阶段。
 
 
+[《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({filename}quantitative_investment_index.md)
+
 # 数据挖掘的内容
 
 对数据的挖掘，主要有以下几种方法。
@@ -260,3 +262,5 @@ Summary: 数据挖掘一般分为关联、回归、分类、聚类、预测和�
 
 书中介绍了MATLAB、SAS、SPSS、WEKA、R等工具，并进行了比较。本书以Matlab作为示例。但我个人更倾向使用python。
 
+
+[《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({filename}quantitative_investment_index.md)

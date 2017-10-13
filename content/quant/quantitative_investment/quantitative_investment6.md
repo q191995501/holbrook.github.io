@@ -4,6 +4,9 @@ Category: 量化交易
 Tags: 数据分析, 读书笔记
 Summary: 回归方法，就是处理变量之间相关关系的一种数学方法
 
+
+[《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({filename}quantitative_investment_index.md)
+
 变量之间的关系可以分为两类：
 
 - 确定性关系(函数关系): 可以通过其他变量确定一个变量

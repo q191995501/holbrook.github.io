@@ -4,6 +4,8 @@ Category: 量化交易
 Tags: 数据分析, 读书笔记
 Summary: 数据的准备包括收集、质量分析和预处理。
 
+[《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({filename}quantitative_investment_index.md)
+
 # 量化投资的数据类别
 
 量化投资相关的数据主要包括：
@@ -159,3 +161,6 @@ Summary: 数据的准备包括收集、质量分析和预处理。
   离散化：将连续的属性值划分为若干段(bin)
 
   语义转换：如，将字符型变为离散的数值。
+
+
+[《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({filename}quantitative_investment_index.md)
