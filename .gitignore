@@ -1,5 +1,6 @@
 output
 __pycache__
+**/node_modules
 **/*.pyc
 **/*.pid
 **/.ipynb_checkpoints
