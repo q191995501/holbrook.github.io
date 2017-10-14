@@ -107,7 +107,7 @@ TAG_SAVE_AS = ('tag/{slug}.html')  #The location to save the tag page.
 
 
 THEME = 'themes/my-foundation'
-#THEME = 'themes/pelican-bootstrap3'
+#THEME = 'themes/my-octopress-bootstrap3'
 
 
 # Feed generation is usually not desired when developing
@@ -124,8 +124,8 @@ LINKS = (('Pelican', 'http://getpelican.com/'),
          ('You can modify those links in your config file', '#'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (('//TODO:', '#'),
+         )
 
 DEFAULT_PAGINATION = 10
 

@@ -1,6 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- Main Content -->
+						<div class="medium-9 small-12 columns" role="content">
+							{% if pagetitle is defined %}
+							<div class="row">
+								<div class="small-12 columns">
+									<h2>{{ pagetitle }}</h2>
+								</div>
+							</div>
+							{% endif %}
+
 {# show summaries of the latest articles #}
 {% if articles %}
 {% for article in (articles_page.object_list if articles_page else articles) %}
@@ -43,5 +53,49 @@
 </div>
 {% endif %}
 
+
+</div>
+						<!-- End Main Content -->
+						<!-- Sidebar -->
+						<aside class="medium-3 hide-for-small-only columns">
+							<!-- <div class="panel">
+								<h5>Places</h5>
+								<ul class="side-nav">
+									{% for name, link in LINKS %}
+									<li><a href="{{ link }}">{{ name }}</a></li>
+									{% endfor %}
+								</ul>
+							</div> -->
+
+							<div class="panel">
+								<h5>Tags</h5>
+								<ul class="tag-cloud">
+									{% for tag in tag_cloud %}
+									<li><a href="/tag/{{ tag.0.slug|lower|replace(' ', '-') }}.html" class="tag-{{ tag.1 }}">{{ tag.0 }}</a></li>
+									{% endfor %}
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Monthly Archives</h5>
+								<ul class="side-nav">
+									{% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}
+										{% for month, articles in date_year|groupby( 'date.month' )|sort(reverse=True) %}
+											<li><a href="/{{ year }}/{{ articles[0].date.strftime('%m') }}/">{{ articles[0].date.strftime('%Y-%m') }}  ({{ articles|count }})</a></li>
+										{% endfor %}
+									{% endfor %}
+								</ul>
+							</div>
+
+							<div class="panel">
+								<h5>Links</h5>
+								<ul class="side-nav">
+									{% for name, link in SOCIAL|sort %}
+									<li><a href="{{ link }}">{{ name }}</a></li>
+									{% endfor %}
+								</ul>
+							</div>
+						</aside>
+						<!-- End Sidebar -->
 {% endblock %}
 
