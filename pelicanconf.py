@@ -5,7 +5,12 @@ from __future__ import unicode_literals
 # blog 信息
 AUTHOR = 'Holbrook'
 SITENAME = u'心内求法'
-SITEURL = ''
+SITESUBTITLE = u'制心一境，住心观性，澄心外照，摄心内证'
+SITEURL = 'http://holbrook.github.io'
+MENUITEMS = [
+  (u'订阅','/feeds/all.atom.xml'),
+  (u'关于','/pages/about.html'),
+]
 
 # 编译信息
 PLUGIN_PATHS = ['../pelican-plugins','./plugins.custom']
@@ -105,9 +110,8 @@ ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 TAG_URL = ('tag/{slug}.html')     #The URL to use for a tag.
 TAG_SAVE_AS = ('tag/{slug}.html')  #The location to save the tag page.
 
-
+#THEME = 'themes/pelican-blueidea'
 THEME = 'themes/my-foundation'
-#THEME = 'themes/my-octopress-bootstrap3'
 
 
 # Feed generation is usually not desired when developing
