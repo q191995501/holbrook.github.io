@@ -110,9 +110,9 @@ ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 TAG_URL = ('tag/{slug}.html')     #The URL to use for a tag.
 TAG_SAVE_AS = ('tag/{slug}.html')  #The location to save the tag page.
 
+THEME = 'themes/pelican-bootstrap3'
+#THEME = 'themes/my-foundation'
 #THEME = 'themes/pelican-blueidea'
-THEME = 'themes/my-foundation'
-
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
