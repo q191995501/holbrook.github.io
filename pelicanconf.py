@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Holbrook'
 SITENAME = u'心内求法'
 SITESUBTITLE = u'制心一境，住心观性，澄心外照，摄心内证'
-SITEURL = 'http://holbrook.github.io'
+SITEURL = '/'
 MENUITEMS = [
   (u'订阅','/feeds/all.atom.xml'),
   (u'关于','/pages/about.html'),
@@ -15,7 +15,6 @@ MENUITEMS = [
 # 编译信息
 PLUGIN_PATHS = ['../pelican-plugins','./plugins.custom']
 PLUGINS = [
-    'tag_cloud',
     'pelican-ipynb.markup',
     'pelican-toc',
     'relate_posts',
@@ -38,6 +37,12 @@ PLUGINS = [
     'render_math'
 ]
 
+
+#### 标签云 for tag_cloud plugin #####
+TAG_CLOUD_STEPS = 4     #Count of different font sizes in the tag cloud.
+TAG_CLOUD_MAX_ITEMS = 100   #Maximum number of tags in the cloud.
+TAG_CLOUD_SORTING = 'alphabetically'   # The tag cloud ordering scheme. Valid values: random, alphabetically, alphabetically-rev, size and size-rev
+TAG_CLOUD_BADGE = True
 
 PATH = 'content'
 MARKUP = ('md', 'ipynb')
@@ -110,7 +115,7 @@ ARTICLE_SAVE_AS = '{date:%Y}/{date:%m}/{date:%d}/{slug}.html'
 TAG_URL = ('tag/{slug}.html')     #The URL to use for a tag.
 TAG_SAVE_AS = ('tag/{slug}.html')  #The location to save the tag page.
 
-THEME = 'themes/pelican-bootstrap3'
+THEME = 'themes/Nuja'
 #THEME = 'themes/my-foundation'
 #THEME = 'themes/pelican-blueidea'
 

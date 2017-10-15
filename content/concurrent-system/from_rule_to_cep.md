@@ -88,15 +88,15 @@ Drools定义了工作空间的多个入口点(WorkingMemoryEntryPoint)，每个�
 
   入口点不需要显式声明，在规则中引用的入口点都会在规则编译期间被自动识别和创建。比如：
 
-  ```
-  rule "authorize withdraw"
-      when
-          WithdrawRequest( $ai : accountId, $am : amount ) from entry-point "ATM Stream"
-          CheckingAccount( accountId == $ai, balance > $am )
-      then
-          // authorize withdraw
-  end
-  ```
+```
+rule "authorize withdraw"
+    when
+        WithdrawRequest( $ai : accountId, $am : amount ) from entry-point "ATM Stream"
+        CheckingAccount( accountId == $ai, balance > $am )
+    then
+        // authorize withdraw
+end
+```
 
   规则编译器会识别"ATM Stream"入口点，并在规则库中创建该入口点。
 
@@ -104,16 +104,16 @@ Drools定义了工作空间的多个入口点(WorkingMemoryEntryPoint)，每个�
 
   举例如下：
 
-  {% highlight java %}
-    // create your rulebase and your session as usual
-    StatefulKnowledgeSession session = ...
-    // get a reference to the entry point
-    WorkingMemoryEntryPoint atmStream =
-    session.getWorkingMemoryEntryPoint( "ATM Stream" );
-    // and start inserting your facts into the entry point
-    atmStream.insert( aWithdrawRequest );
+```
+  // create your rulebase and your session as usual
+  StatefulKnowledgeSession session = ...
+  // get a reference to the entry point
+  WorkingMemoryEntryPoint atmStream =
+  session.getWorkingMemoryEntryPoint( "ATM Stream" );
+  // and start inserting your facts into the entry point
+  atmStream.insert( aWithdrawRequest );
 
-  {% endhighlight %}
+```
 
   除了这种手工插入事实的方式之外，Drools还提供了一系列的管道API和适配器，可以将其他流(如JMS、IO流、Socket等)之间接入到入口点上。
 

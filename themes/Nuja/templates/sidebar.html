@@ -1,17 +1,36 @@
 <!-- Sidebar -->
 <aside class="span3 {%if articles_page%}remove-bs-margin{%endif%} hidden-phone hidden-tablet">
 
+    {%if article %}
+    {% if article.toc %}
     <div class="widget-external-links widget">
-	<h3 class="widget-header">External Links</h3>
-	<div class="widget-content">
-	    <ul class="widget-list">
-		{%if LINKS %}
-		{% for name, link in LINKS %}
-		<li class="widget-list-item"><a href="{{ link }}">{{name}}</a></li>{%endfor%} {%endif%}
-	    </ul>
-	</div>
+        <h3 class="widget-header">Table Of Content</h3>
+        <div class="widget-content">
+            {{article.toc}}
+        </div>
     </div>
-		{%if articles %}
+    {%endif%}
+    {% endif %}
+
+    <div class="widget-external-links widget">
+        <h3 class="widget-header">Tags</h3>
+        <div class="widget-content">
+            <ul class="tagcloud">
+                {% for tag in tag_cloud %}
+                <li class="tag-{{ tag.1 }}">
+                <a href="{{ SITEURL }}/{{ tag.0.url }}">
+                {{ tag.0 }}
+                    {% if TAG_CLOUD_BADGE %}
+                        <span class="badge">{{ tag.2 }}</span>
+                    {% endif %}
+                </a>
+                    {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+	{%if articles %}
     <div class="widget-external-links widget">
         <h3 class="widget-header">Recent Articles</h3>
 	<div class="widget-content">
@@ -23,7 +42,7 @@
 	</div>
     </div>
     {%endif%}
-    <div class="widget-archive-category widget">
+ <!--    <div class="widget-archive-category widget">
 	<h3 class="widget-header">Category</h3>
 	<div class="widget-content">
 	    <ul class="widget-list">
@@ -33,7 +52,19 @@
 		{%endfor%}
 	    </ul>
 	</div>
+    </div> -->
+
+    <div class="widget-external-links widget">
+    <h3 class="widget-header">External Links</h3>
+    <div class="widget-content">
+        <ul class="widget-list">
+        {%if LINKS %}
+        {% for name, link in LINKS %}
+        <li class="widget-list-item"><a href="{{ link }}">{{name}}</a></li>{%endfor%} {%endif%}
+        </ul>
     </div>
+    </div>
+
     <div class="widget">
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<!-- dgzen he -->
