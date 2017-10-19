@@ -1,13 +1,25 @@
 {% extends "base.html" %}
 {% block title %}{{SITENAME}}: You are now browsing through `{{tag}}` tag{% endblock %}
 {% block content %}
-{% for article in articles_page.object_list %}
-{% include 'particles/article_list_item_without_summary.html' %}
-{%if loop.last %}
-{% if articles_page.has_previous() or loop.length > 1 %}
+<article  class="entry hentry">
+    <header>
+        <h3>标签: {{tag}}</h3>
+    </header>
+    <div class="entry-content">
 
-	{% include 'nav.html' %}
+    {% for article in articles_page.object_list %}
+    {% include 'particles/article_list_item_without_summary.html' %}
+    {%if loop.last %}
+    {% if articles_page.has_previous() or loop.length > 1 %}
+
+    	{% include 'nav.html' %}
+        {%endif%}
     {%endif%}
-{%endif%}
-{%endfor%}
+    {%endfor%}
+    </div>
+</article>
+{% endblock %}
+
+{% block sidebar %}
+{% include 'particles/sidebar.html' %}
 {% endblock %}

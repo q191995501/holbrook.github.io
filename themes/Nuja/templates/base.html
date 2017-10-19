@@ -98,7 +98,15 @@
 
 	    </div>
 	    <div class="clearfix"></div>
-	    {% include 'term-block.html' %}
+
+	    <div class="row">
+    		<div class="span12 alpha">
+    			{% block topic %} {% endblock %}
+    		</div>
+		</div>
+
+		<div class="clearfix"></div>
+
 	    <div class="row">
 		<div class="span9">
 		    <div class="span10">
@@ -112,7 +120,11 @@
 				</div>
 		    </div>
 		</div>
-		{% include 'sidebar.html' %}
+		<!-- Sidebar -->
+		<aside class="span3 hidden-phone hidden-tablet">
+		{% block sidebar %}{% endblock %}
+
+		</aside>
 	    </div>
 	    <!--footer-->
 	    <div class="row">

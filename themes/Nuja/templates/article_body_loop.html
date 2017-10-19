@@ -22,7 +22,7 @@
 
 	    </div>
 
-	</aside> 
+	</aside>
 {# End of Date #}
 
     </div>
@@ -34,8 +34,8 @@
 		<header>
 		    <a href="{{ siteurl }}/{{ article.url }}" rel="bookmark" title="permalink for {{ article.title|striptags }}" ><h2>{{article.title}}</h2></a>
 		    <div class="author-details vcard">
-
-			by {% for author in article.authors %}<a  class="url fn" href="{{ siteurl }}/{{ author.url}}">{{ author }}</a>{% endfor %}  file under <a href="{{ siteurl }}/{{ article.category.url }}">{{ article.category }}</a>{% if article.tags %} with tags {% for tag in article.tags %}
+             file under <a href="{{ siteurl }}/{{ article.category.url }}">{{ article.category }}</a>{% if article.tags %} with tags
+            {% for tag in article.tags %}
 			<a href="{{SITEURL}}/{{tag.url}}" title="Browse tag: {{tag}}" rel="tag">{{tag}}</a>{%if not loop.last %}, {%endif%}{% endfor %}{% endif %}
 		    </div>
 		</header>

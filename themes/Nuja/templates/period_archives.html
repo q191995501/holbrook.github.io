@@ -1,19 +1,19 @@
 {% extends "base.html" %}
-{% block title %}Archives for {{SITENAME}}{% endblock %}
+{% block title %} Archives for {{SITENAME}}{% endblock %}
 {% block content %}
 <!-- begin article -->
-
-	    <article  class="entry">
-		<header>
-		    <a href="">
-
-		<h2>Archives for {{ period | reverse | join(' ')}}</h2>
-		    </a>
-		</header>
-		{% for article in dates %}
-		{% include 'particles/article_list_item_without_summary.html' %}
-		{%endfor%}
-	    </article>
+<article  class="entry">
+<header>
+	<h2>归档: {{ period |strftime('%Y-%m')}}</h2>
+</header>
+{% for article in dates %}
+{% include 'particles/article_list_item_without_summary.html' %}
+{%endfor%}
+</article>
 
 <!-- end article -->
+{% endblock %}
+
+{% block sidebar %}
+{% include 'particles/sidebar.html' %}
 {% endblock %}

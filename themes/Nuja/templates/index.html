@@ -1,21 +1,53 @@
 {% extends "base.html" %}
-{% block title %} 心内求法 {% endblock %}
+
+{% block title %}  {% endblock %}
 
 {% block content %}
 <article  class="entry hentry">
     <header>
         <a href=""><h2></h2></a>
     </header>
+    <div class="entry-content">
     {% for article in (articles_page.object_list if articles_page else articles) %}
         {% include 'particles/article_list_item_with_summary.html' %}
+
+        {%if loop.last %}
+        {% if articles_page.has_previous() or loop.length > 1 %}
+            {% include 'nav.html' %}
+        {%endif%}
+        {%endif%}
     {%endfor%}
+    </div>
+
+    {# deal with pagination #}
+    {% if articles_page and articles_paginator.num_pages > 1 %}
+    <div class="row">
+        <div class="small-12 columns text-center">
+            <div class="pagination-centered">
+                <ul class="pagination">
+                {% if articles_page.has_previous() %}
+                    {% set num = articles_page.previous_page_number() %}
+                    <li class="arrow"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">&larr; Previous</a></li>
+                {% else %}
+                    <li class="arrow unavailable"><a href="#">&larr; Previous</a></li>
+                {% endif %}
+                {% for num in range( 1, 1 + articles_paginator.num_pages ) %}
+                    <li class="{{ 'current' if num == articles_page.number else '' }}"><a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">{{ num }}</a></li>
+                {% endfor %}
+                {% if articles_page.has_next() %}
+                    <li class="arrow"><a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">Next &rarr;</a></li>
+                {% else %}
+                    <li class="arrow unavailable"><a href="#">&rarr; Next</a></li>
+                {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endif %}
 </article>
+{% endblock %}
 
-<div class="clearfix"></div>
-{%if loop.last %}
-    {% if articles_page.has_previous() or loop.length > 1 %}
-        {% include 'nav.html' %}
-    {%endif%}
-{%endif%}
 
+{% block sidebar %}
+{% include 'particles/sidebar.html' %}
 {% endblock %}

@@ -1,4 +1,4 @@
-	
+
 	<meta name="description" content="{{SITESUBTITLE}}">
     <meta name="author" content="{{AUTHOR}}">
 	<meta name="robots" content="index,follow">
@@ -7,8 +7,9 @@
 	<!-- OpenGraph -->
 	<meta property="og:property" content="{{ DEFAULT_LANG }}">
 	<meta property="og:image" content="/assets/images/favicons/apple-touch-icon-180x180.png">
-{%if article%}
-<meta property="og:title" content="{{article.title}}">
+
+	{%if article%}
+	<meta property="og:title" content="{{article.title}}">
 	{%elif page%}
 
 	<meta property="og:title" content="{{page.title}}">
