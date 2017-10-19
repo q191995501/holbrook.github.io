@@ -1,6 +1,6 @@
 Title: 《利用Python进行数据分析》小结
-Date: 
-Category: 数据科学
+Date:
+Category: 数据分析
 slug: python_for_data_analysis_index
 Tags: 读书笔记, python
 
@@ -86,7 +86,7 @@ pandas中简单的展示
 
 
 
-   
+
 
 
 NumPy(Numerical Python) 提供了大量的数值编程工具，

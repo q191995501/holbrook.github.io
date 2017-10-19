@@ -1,6 +1,6 @@
 Title: 利用Python进行数据分析(7)：数据规整化：清理、转换、合并、重塑
 Date: 2017-03-10
-Category: 数据科学
+Category: 数据分析
 Tags: 读书笔记, python
 Summary:
     《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。

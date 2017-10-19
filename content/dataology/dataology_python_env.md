@@ -1,7 +1,7 @@
 Title: 基于Python的数据科学环境
 Date: 2017-02-11
 Modified: 2017-03-09
-Category: 数据科学
+Category: 数据分析
 Tags: python, env
 Summary:
     在[《数据科学的知识体系》](http://holbrook.github.io/2017/02/05/index.html)中，
