@@ -1,7 +1,7 @@
 
     <div class="widget-external-links widget" id="myScrollspy" data-spy="affix"
         data-offset-top="10" style="background-color: #dee2e2;">
-        <h3 class="widget-header">Table Of Content</h3>
+        <h3 class="widget-header">目录</h3>
         <div class="widget-content" id="toc">
             {{article.toc}}
         </div>
@@ -27,27 +27,21 @@
 
     {%if articles %}
     <div class="widget-external-links widget">
-        <h3 class="widget-header">Recent Articles</h3>
-    <div class="widget-content">
+        <h3 class="widget-header">归档</h3>
+    <div class="widget-content header-container">
         <ul class="widget-list">
-        {%for article in articles[:10] %}
-        <li class="widget-list-item"><a href="{{SITEURL}}/{{article.url}}" title="Read: {{article.title|striptags}}">{{article.title}}</a></li>
+        {% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}
+        {% for month, articles in date_year|groupby( 'date.month' )|sort(reverse=True) %}
+
+        <li class="widget-list-item"><a href="{{SITEURL}}/{{ year }}/{{ articles[0].date.strftime('%m') }}/">{{ articles[0].date.strftime('%Y-%m') }}
+        <span>{{ articles|count }}</span></a></li>
+        {%endfor%}
         {%endfor%}
         </ul>
     </div>
     </div>
     {%endif%}
- <!--    <div class="widget-archive-category widget">
-    <h3 class="widget-header">Category</h3>
-    <div class="widget-content">
-        <ul class="widget-list">
-        {% for cat, articles in categories %}
-        <li class="widget-list-item"><a href="{{ SITEURL }}/{{cat.url}}">{{ cat }}.<span>{{ articles|length }}</span></a></li>
 
-        {%endfor%}
-        </ul>
-    </div>
-    </div> -->
 
     <div class="widget-external-links widget">
     <h3 class="widget-header">External Links</h3>
