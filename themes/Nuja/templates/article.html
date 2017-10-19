@@ -20,6 +20,10 @@
 {% endfor %}
 <meta property="article:section" content="{{article.category}}">
 {% endblock %}
+
 {% block content %}
+
 {% include 'article_body.html' %}
+{% include 'disqus.html' %}
+
 {% endblock %}

@@ -2,7 +2,7 @@
 {% block title %}{{SITENAME}}: You are now browsing through `{{tag}}` tag{% endblock %}
 {% block content %}
 {% for article in articles_page.object_list %}
-{% include 'article_body.html' %}
+{% include 'particles/article_list_item_without_summary.html' %}
 {%if loop.last %}
 {% if articles_page.has_previous() or loop.length > 1 %}
 

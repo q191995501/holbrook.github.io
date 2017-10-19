@@ -2,41 +2,20 @@
 {% block title %} 心内求法 {% endblock %}
 
 {% block content %}
-<div class="row">
-    <div class="{%if articles_page%}span7{%else%}span9 alpha{%endif%}">
-    <div class="entry-container ">
-        {% for article in (articles_page.object_list if articles_page else articles) %}
-        <article  class="entry hentry" >
-        <header>
-            <a href="{{ siteurl }}/{{ article.url }}" rel="bookmark" title="permalink for {{ article.title|striptags }}" ><h2 class="entry-title">{{article.title}}</h2></a>
-            <hr/>
-            <div class="author-details vcard">
-                {{ article.locale_date.format("%Y-%m-%d") }}
-                分类：<a href="{{ siteurl }}/{{ article.category.url }}">{{ article.category }}</a>
+<article  class="entry hentry">
+    <header>
+        <a href=""><h2></h2></a>
+    </header>
+    {% for article in (articles_page.object_list if articles_page else articles) %}
+        {% include 'particles/article_list_item_with_summary.html' %}
+    {%endfor%}
+</article>
 
-                {% if article.tags %} 标签:
-                {% for tag in article.tags %}
-            <a href="{{SITEURL}}/{{tag.url}}" title="Browse tag: {{tag}}" rel="tag">{{tag}}</a>{%if not loop.last %}, {%endif%}{% endfor %}{% endif %}
-            </div>
-        </header>
-        <div class="entry-content">
-        {{ article.content if FOUNDATION_FRONT_PAGE_FULL_ARTICLES else article.summary }}
-        </div>
-        </article>
+<div class="clearfix"></div>
+{%if loop.last %}
+    {% if articles_page.has_previous() or loop.length > 1 %}
+        {% include 'nav.html' %}
+    {%endif%}
+{%endif%}
 
-        <!--
-        in case any image breaks the theme
-        i was going to use :after but it didn't quite work for me, maybe next time-->
-        <div class="clearfix"></div>
-        {%if loop.last %}
-        {% if articles_page.has_previous() or loop.length > 1 %}
-
-            {% include 'nav.html' %}
-        {%endif%}
-        {%endif%}
-        {%endfor%}
-
-    </div>
-    </div>
-</div>
 {% endblock %}

@@ -61,8 +61,7 @@
 	<link href="{{ FEED_DOMAIN }}/{{ FEED_ALL_RSS }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
 	{% endif %}
 
-
-		<meta name="uyan_auth" content="05e9c08001" />
+	<meta name="uyan_auth" content="05e9c08001" />
 
     </head>
     <body>
@@ -102,17 +101,15 @@
 	    {% include 'term-block.html' %}
 	    <div class="row">
 		<div class="span9">
-
 		    <div class="span10">
-
-
-			{% block content %}
-			{% endblock %}
-
-
-			{%if article %}
-			{% include 'disqus.html' %}
-			{%endif%}
+		    	<div class="row">
+				    <div class="span9 alpha">
+						<div class="entry-container ">
+							{% block content %}{% endblock %}
+					    	<div class="clearfix"></div>
+						</div>
+    				</div>
+				</div>
 		    </div>
 		</div>
 		{% include 'sidebar.html' %}
