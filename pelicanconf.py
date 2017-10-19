@@ -42,7 +42,7 @@ PLUGINS = [
 TAG_CLOUD_STEPS = 4     #Count of different font sizes in the tag cloud.
 TAG_CLOUD_MAX_ITEMS = 100   #Maximum number of tags in the cloud.
 TAG_CLOUD_SORTING = 'alphabetically'   # The tag cloud ordering scheme. Valid values: random, alphabetically, alphabetically-rev, size and size-rev
-TAG_CLOUD_BADGE = True
+TAG_CLOUD_BADGE = False
 
 PATH = 'content'
 MARKUP = ('md', 'ipynb')

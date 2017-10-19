@@ -4,7 +4,7 @@
 <!-- begin article -->
 <article  class="entry">
 <header>
-	<h2>归档: {{ period |strftime('%Y-%m')}}</h2>
+	<h2>归档: {{ period }}</h2>
 </header>
 {% for article in dates %}
 {% include 'particles/article_list_item_without_summary.html' %}
