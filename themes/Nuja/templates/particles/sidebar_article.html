@@ -1,58 +1,8 @@
 
-    <div class="widget-external-links widget" id="myScrollspy" data-spy="affix"
-        data-offset-top="10" style="background-color: #dee2e2;">
-        <h3 class="widget-header">目录</h3>
-        <div class="widget-content" id="toc">
-            {{article.toc}}
-        </div>
+<div class="widget" id="myScrollspy" data-spy="affix"
+    data-offset-top="10" style="background-color: #dee2e2;">
+    <h3 class="widget-header">目录</h3>
+    <div class="widget-content" id="toc">
+        {{article.toc}}
     </div>
-
-    <div class="widget-external-links widget">
-        <h3 class="widget-header">Tags</h3>
-        <div class="widget-content">
-            <ul class="tag-cloud">
-                {% for tag in tag_cloud %}
-                <li>
-                <a class="tag-{{ tag.1 }}" href="{{ SITEURL }}/{{ tag.0.url }}">
-                {{ tag.0 }}
-                    {% if TAG_CLOUD_BADGE %}
-                        <span class="badge">{{ tag.2 }}</span>
-                    {% endif %}
-                </a>
-                    {% endfor %}
-            </ul>
-        </div>
-    </div>
-
-
-    {%if articles %}
-    <div class="widget-external-links widget">
-        <h3 class="widget-header">归档</h3>
-    <div class="widget-content header-container">
-        <ul class="widget-list">
-        {% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}
-        {% for month, articles in date_year|groupby( 'date.month' )|sort(reverse=True) %}
-
-        <li class="widget-list-item"><a href="{{SITEURL}}/{{ year }}/{{ articles[0].date.strftime('%m') }}/">{{ articles[0].date.strftime('%Y-%m') }}
-        <span>{{ articles|count }}</span></a></li>
-        {%endfor%}
-        {%endfor%}
-        </ul>
-    </div>
-    </div>
-    {%endif%}
-
-
-    <div class="widget-external-links widget">
-    <h3 class="widget-header">External Links</h3>
-    <div class="widget-content">
-        <ul class="widget-list">
-        {%if LINKS %}
-        {% for name, link in LINKS %}
-        <li class="widget-list-item"><a href="{{ link }}">{{name}}</a></li>{%endfor%} {%endif%}
-        </ul>
-    </div>
-    </div>
-
-    <div class="widget">
-    </div>
+</div>
