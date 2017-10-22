@@ -1,18 +1,15 @@
 [submodule "plugins/pelican-ipynb"]
 	path = plugins.custom/pelican-ipynb
 	url = http://github.com/danielfrg/pelican-ipynb.git
-[submodule "themes/blueidea"]
-	path =  themes/blueidea
-	url = http:///
+[submodule "plugins/pelican-toc"]
+	path = plugins.custom/pelican-toc
+	url = https://github.com/ingwinlu/pelican-toc.git
 [submodule "data"]
 	path = content/dataology/python-for-data-analysis/data
 	url = https://github.com/wesm/pydata-book.git
-[submodule "themes/pelican-bootstrap3"]
-	path = themes/pelican-bootstrap3
-	url = git@github.com:holbrook/pelican-bootstrap3.git
+[submodule "themes/Nuja"]
+	path = themes/Nuja
+	url = https://github.com/holbrook/Nuja.git
 [submodule "themes/pelican-blueidea"]
 	path = themes/pelican-blueidea
-	url = https://github.com/nasskach/pelican-blueidea.git
-[submodule "pelican-themes"]
-	path = pelican-themes
-	url = https://github.com/getpelican/pelican-themes.git
+	url = https://github.com/holbrook/pelican-blueidea.git
