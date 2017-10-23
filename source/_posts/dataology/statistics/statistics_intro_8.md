@@ -15,21 +15,20 @@ tags: [读书笔记, 统计学]
 
 比如：
 
-![sample-contingency-table](images/2013/statistics_intro/sample-contingency-table.png)
+{% asset_img sample-contingency-table.png sample-contingency-table %}
 
 上图记录了一个3x2x2的列连表，三个变量分别为收入（高、中、低）、观点（同意、反对）、性别（男，女）。
 
 软件处理时通常将列连表处理成二维表格，比如：
 
+{% asset_img sample-contingency-table1.png sample-contingency-table1 %}
 
-![sample-contingency-table1](images/2013/statistics_intro/sample-contingency-table1.png)
 
 # 二维列连表的检验
 
 比如以下的二维列连表：
 
-
-![sample-contingency-table2](images/2013/statistics_intro/sample-contingency-table2.png)
+{% asset_img sample-contingency-table2.png sample-contingency-table2 %}
 
 设定零假设和备选假设：
 

@@ -43,7 +43,7 @@ tags: [多线程]
 
 所谓的xx生命周期，其实就是某对象的包含产生和销毁的一张状态图。线程的生命周期如下图所示：
 
-![multi-thread-states](images/2013/multi_thread/thread_state.jpg)
+{% asset_img thread_state.jpg multi-thread-states %}
 
 各状态的说明如下：
 

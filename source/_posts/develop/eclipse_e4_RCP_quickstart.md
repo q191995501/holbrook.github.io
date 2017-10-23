@@ -7,9 +7,7 @@ tags: GUI,java
  尽管至今为止，仍然处于孵化器阶段(Incubation Phase)，但是e4代表了Eclipse的未来。e4提供的新特性包括：
 基于EMF的应用模型(Application Model)；依赖注入；基于CSS定义外观
 
----
-
-尽管至今为止，[Eclipse e4](http://www.eclipse.org/e4/)仍然处于孵化器阶段(Incubation Phase)，但是e4代表了Eclipse的未来。
+<!-- more -->
 
 e4是位于底层的Equinox、EMF、SWT/JFace和上层的Eclipse应用(Plugin、RCP、RAP等)之间的一个应用开发平台。
 从RCP的角度来说，e4的一个主要目标就是更轻松地编写和重用组件。
@@ -32,15 +30,15 @@ e4是位于底层的Equinox、EMF、SWT/JFace和上层的Eclipse应用(Plugin、
 
 生成的目录结构如下：
 
-![](images/e4/e4_project.png)
+{% asset_img e4_project.png  %}
 
 其中，`*.product`文件是Eclipse插件项目的产品配置文件，可以以“E4Application”的方式运行：
 
-![](images/e4/e4_product.png)
+{% asset_img e4_product.png  %}
 
 在`*.product`文件上右键-->Run As-->Eclipse Application，就可以启动一个e4应用：
 
-![](images/e4/e4_application.png)
+{% asset_img e4_application.png  %}
 
 整个工程可以导出(Export)为"Eclipse Product"，称为一个可以脱离Eclipse独立运行的、跨平台的RCP应用。
 
@@ -67,12 +65,11 @@ e4的应用模型基于抽象描述——应用模型只定义了需要哪些组
 
 模型中即描述了可视的组件，如 windows, parts (views 和 editors), menus, toolbars等，也可以描述非可视化组件如handlers, commands , key bindings等。所有能够在模型中描述的组件（包括可视化组件和非可视化组件），都实现了MApplicationElement接口，如下图：
 
-![](images/e4/e4_MApplicationElement.png)
-
+{% asset_img e4_MApplicationElement.png  %}
 
 用Eclipse 4 model editor打开`Application.e4xmi`，可以看到如下的视图：
 
-![](images/e4/e4_app_model.png)
+{% asset_img e4_app_model.png  %}
 
 `Application.e4xmi`是基于EMF定义的。其定义文件(.ecore）位于 org.eclipse.e4.ui.model.workbench 插件的model文件夹中。
 
@@ -86,13 +83,13 @@ e4中的可视化组件描述类都来自`MUIElement`，该接口当然也继承
 
   窗口。一个Eclipse 应用可以包含一个或多个窗口。
 
-  ![](images/e4/elements/window.png)
+  {% asset_img window.png  %}
 
 - Parts
 
   e4中不区分Views和editors，而是统一定义为Parts。Part能够放置在用户界面的任何位置，每个Part可以有自己的菜单、工具条，可以出来自己的模型数据。
 
-  ![](images/e4/elements/part.png)
+  {% asset_img part.png  %}
 
 
 - Perspective
@@ -108,7 +105,7 @@ e4中的可视化组件描述类都来自`MUIElement`，该接口当然也继承
 
   PartStack可以容纳多个Part，每次只能显示其中一个Part，以页签(tab)的形式进行切换，而PartSashContainer以水平或竖直布局的方式同时显示多个Part。如下图：
 
-  ![](images/e4/elements/partstack.png)
+  {% asset_img partstack.png  %}
 
   通过PartStack和PartSashContainer的组合，能够创建出非常复杂的布局：
 
@@ -198,7 +195,7 @@ public static void main(String[] args) {
 
 模型使用的资源即可以在运行时注入或更改，也可以在Eclipse 4 model editor中指定初始的资源：
 
-![](images/e4/e4_app_model.png)
+{% asset_img e4_app_model.png  %}
 
 任何形式的URI都可以作为资源使用。比如：`http://thinkinside.tk/assets/ico/favicon.png`。
 
@@ -310,7 +307,7 @@ Text {
 
 默认情况下，该CSS就会生效。因为在`plugin.xml`中，已经指定了CSS的扩展点：
 
-![](images/e4e4_css_extension.png)
+{% asset_img e4e4_css_extension.png  %}
 
 更灵活的使用CSS是通过主题管理器。
 

@@ -1,8 +1,9 @@
 output
 __pycache__
 db.json
+npm-debug.log
+public
 **/node_modules
 **/*.pyc
 **/*.pid
 **/.ipynb_checkpoints
-content/dataology/python-for-data-analysis/data/*

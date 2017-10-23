@@ -16,7 +16,7 @@ Salt的state配置比较复杂，官方文档也比较零散。初学者不易�
 下图是Salt state配置结构的逻辑图：
 
 
-![salt_functions](images/2013/salt_usage/salt_state_config_structure.png)
+{% asset_img salt_state_config_structure.png salt_functions %}
 
 配置的目标是通过master管理多个mision的状态，最终配置的实现是使用文件夹和文件。而Salt state的设计就是在二者之间建立逻辑关系。
 

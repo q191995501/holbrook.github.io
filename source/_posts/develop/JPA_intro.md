@@ -16,7 +16,7 @@ JPA1.0是[JSR-220](https://jcp.org/en/jsr/detail?id=220)（EJB3.0）规范的一
 
 JPA在应用中的位置如下图所示：
 
-![arcitecture](images/jpa/arcitecture.png)
+{% asset_img arcitecture.png arcitecture %}
 
 
 JPA维护一个Persistence Context（持久化上下文），在持久化上下文中维护实体的生命周期。主要包含三个方面的内容：
@@ -27,7 +27,7 @@ JPA维护一个Persistence Context（持久化上下文），在持久化上下�
 
 JPA的主要API都定义在javax.persistence包中。
 
-![arcitecture](images/jpa/api.png)
+{% asset_img api.png arcitecture %}
 
 如果你熟悉Hibernate，可以很容易做出对应：
 
@@ -71,7 +71,7 @@ JPA的主要API都定义在javax.persistence包中。
 
 JPA中实体的生命周期如下图：
 
-![arcitecture](images/jpa/lifecycle.png)
+{% asset_img lifecycle.png arcitecture %}
 
 
 1. New，新创建的实体对象，没有主键(identity)值
@@ -377,7 +377,7 @@ List<ServiceVisit> serviceHistory;
 # 4 事件及监听
 
 
-![events](images/jpa/events.png)
+{% asset_img events.png events %}
 
 通过在实体的方法上标注@PrePersist，@PostPersist等声明即可在事件发生时触发这些方法。
 

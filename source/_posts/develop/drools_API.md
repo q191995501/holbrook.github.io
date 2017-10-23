@@ -5,10 +5,11 @@ tags: 规则引擎
 ---
 
 
-    规则引擎中，将知识表达为规则（rules），要分析的情况定义为事实（facts）。二者在内存中的存储分别称为Production Memory和Working Memory。在外围，还会有一个执行引擎（Execution Engine）。
-    与此对应，规则引擎API也分成三个部分。在Drools中，分别叫做Knowledge API，Fact API和Execution API。
+规则引擎中，将知识表达为规则（rules），要分析的情况定义为事实（facts）。二者在内存中的存储分别称为Production Memory和Working Memory。在外围，还会有一个执行引擎（Execution Engine）。
 
----
+与此对应，规则引擎API也分成三个部分。在Drools中，分别叫做Knowledge API，Fact API和Execution API。
+
+<!-- more -->
 
 [如前所述](/2012/03/20/rule_engine_1.html)，
 规则引擎中，将知识表达为规则（rules），要分析的情况定义为事实（facts）。二者在内存中的存储分别称为Production Memory和Working Memory。在外围，还会有一个执行引擎（Execution Engine）。
@@ -25,11 +26,11 @@ Drools将知识库(KnowledgeBase)作为[JSR94](/2012/12/07/jsr94.html)中的规�
 规则包还可以从规则流(rule flow) 文件中获取。
 
 
-![KnowledgeBase](images/rule-engine/KnowledgeBase.png)
+{% asset_img KnowledgeBase.png KnowledgeBase %}
 
 与此对应，Drools定义了一组Knowledge API来操作知识库。
 
-![KnowledgeBase](images/rule-engine/KnowledgeAPI.png)
+{% asset_img KnowledgeAPI.png KnowledgeAPI %}
 
 构建知识库的一般过程为：
 

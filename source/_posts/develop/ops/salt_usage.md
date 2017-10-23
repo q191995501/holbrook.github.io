@@ -13,7 +13,7 @@ tags: [运维,]
 
 [Salt的介绍](/2013/06/24/salt_intro.html)中提到了Salt支持变更操作、配置管理、状态监控所需的一些功能，如下图：
 
-![salt_functions](images/2013/salt_usage/salt_functions.png)
+{% asset_img salt_functions.png salt_functions %}
 
 本文详细介绍如何使用这些功能。
 

@@ -10,12 +10,12 @@ tags: 软件过程
 
 众所周知，软件开发一般需要编码、构建、测试、打包、发布等步骤，如下图：
 
-{% graphviz %}
+{% viz %}
 digraph G{
     rankdir=LR
     Code -> Build -> Test -> Package -> Deploy
 }
-{% endgraphviz %}
+{% endviz %}
 
 在“个人英雄”时代，一个人完成所有的事情，一切都不是问题。
 
@@ -23,25 +23,25 @@ digraph G{
 
 很快，软件的规模就上升到了个人无法完成的程度。这就需要团队开发。在团队开发模式中，一定要解决代码共享的问题:
 
-{% graphviz %}
-        digraph G{
-          rankdir=LR
+{% viz %}
+digraph G{
+  rankdir=LR
 
-          subgraph cluster_process {
-            label="开发过程"
-            graph [rankdir=LR]
+  subgraph cluster_process {
+    label="开发过程"
+    graph [rankdir=LR]
 
-            Code -> Build -> Test -> Package -> Deploy
-          }
+    Code -> Build -> Test -> Package -> Deploy
+  }
 
-          repo1 [shape="folder" label="代码库"]
-          repo2 [shape="folder" label="配置库"  style="dashed"]
+  repo1 [shape="folder" label="代码库"]
+  repo2 [shape="folder" label="配置库"  style="dashed"]
 
 
-          Code -> repo1
-          Build -> repo2
-        }
-{% endgraphviz %}
+  Code -> repo1
+  Build -> repo2
+}
+{% endviz %}
 
 图中的“代码库”，通常由版本管理软件负责，比如git,svn。
 
@@ -51,7 +51,7 @@ digraph G{
 
 企业应用的环境中，通常开发团队和运维团队是分开的。这就形成了一堵墙:
 
-![](./assets/images/WallOfConfusion_Release.png)
+{% asset_img WallOfConfusion_Release.png  %}
 
 当软件系统从墙的一端(Dev)传递到另一端(Ops)时，会发生各种各样不可预知的情况发生。这些“异常”通常是由于交付了不正确的东西：
 
@@ -61,7 +61,7 @@ digraph G{
 
 在开发团队和运维团队之间，也应该有一个信息交换和缓冲带，主要是：
 
-{% graphviz %}
+{% viz %}
 
 digraph G{
   rankdir=LR
@@ -82,7 +82,7 @@ digraph G{
   Package -> repo3 -> Deploy
 }
 
-{% endgraphviz %}
+{% endviz %}
 
 -   配置库
 
@@ -100,7 +100,7 @@ digraph G{
 
 持续集成工具的主要功能如下图：
 
-{% graphviz %}
+{% viz %}
 
 digraph G{
   graph [layout="dot"]
@@ -131,7 +131,7 @@ digraph G{
 
 }
 
-{% endgraphviz %}
+{% endviz %}
 
 CI工具实现了与代码库关联的软件工程管理，能够自动执行构建、测试、打包、发布等操作。
 CI工具通常内置了配置库和交付库，在自动构建时可以从配置库获取配置信息，在自动发布时从交付库取得指定的软件版本并部署到服务器。
@@ -143,14 +143,16 @@ CI工具通常内置了配置库和交付库，在自动构建时可以从配置
 
 这个大概是最流行的CI工具了，使用Java开发。
 
-![](./assets/images/ci-hudson.jpg)
+{% asset_img ci-hudson.jpg  %}
 
 -   [BuildBot](http://buildbot.net/)
 
     使用Python语言开发。好用，但是有点小众。
 
-    ![](./assets/images/ci-buildbot.jpg)
+    {% asset_img ci-buildbot.jpg  %}
 
 -   [Jenkins](http://jenkins-ci.org/)
 
-也是使用Java开发。 ![](./assets/images/12323PJW.png)
+    也是使用Java开发。
+
+    {% asset_img 12323PJW.png %}

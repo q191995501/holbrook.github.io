@@ -18,7 +18,7 @@ Apache Karaf的主要竞争对手是[Eclipse Virgo](http://www.eclipse.org/virgo
 
 # Apache Karaf的功能
 
-![](images/fuse/Karaf.jpg)
+{% asset_img Karaf.jpg  %}
 
 Apache Karaf提供了如下“开箱即用”的功能：
 
@@ -62,13 +62,13 @@ Apache Karaf提供了如下“开箱即用”的功能：
 
 安装好Java环境，加压缩Karaf，执行`$KARAF_HOME/bin/karaf`，可以看到Karaf的启动界面：
 
-![](images/karaf/karaf1.png)
+{% asset_img karaf1.png  %}
 
 如图的提示，使用`<tab>`可以列出所有可用的命令，所有的命令支持`--help`参数。
 
 如果执行`list`命令，可以列出所有的bundles:
 
-![](images/karaf/karaf2.png)
+{% asset_img karaf2.png  %}
 
 还有很多其他的命令，比如
 

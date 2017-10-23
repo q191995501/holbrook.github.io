@@ -119,7 +119,7 @@ Maven-Bundle-Plugin的这种机制使得工程完全的”maven化”，更适�
 
 Felix runtime的主要内容包括：
 
-![](images/fuse/felix-tree.png)
+{% asset_img felix-tree.png  %}
 
 其中：
 
@@ -233,7 +233,7 @@ org.osgi.framework.storage.clean=onFirstInit
 
 配置完成了，先执行`mvn compile`生成需要的资源。此时使用命令`mvn exec:java -Dexec.mainClass="org.apache.felix.main.Main"`即可以启动Felix runtime：
 
-![](images/fuse/felix_launch_from_maven.png)
+{% asset_img felix_launch_from_maven.png  %}
 
 在Eclipse中，将这个工程作为`Java Application`运行，选择`org.apache.felix.main.Main`作为Main Class，就可以进行运行和调试。
 

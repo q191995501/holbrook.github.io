@@ -47,7 +47,7 @@ tags: [读书笔记, 统计学]
 
 对于两个自变量（水平分别为3个和4个）的一个模型，如果只考虑主效应，其线性模型为：
 
-![](images/statistics/9-1.png)
+{% asset_img 9-1.png  %}
 
 其中：
 
@@ -60,13 +60,13 @@ tags: [读书笔记, 统计学]
 
 此时的线性模型增加了交叉项：
 
-![](images/statistics/9-2.png)
+{% asset_img 9-2.png  %}
 
 # 考虑协变量
 
 此时的模型变成：
 
-![](images/statistics/9-3.png)
+{% asset_img 9-3.png  %}
 
 加上了一个自变量x，及其相关系数。
 

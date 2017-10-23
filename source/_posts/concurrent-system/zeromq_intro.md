@@ -11,7 +11,7 @@ zeroMQ不是TCP，不是socket，也不是消息队列，而是这些的综合�
 
 zeroMQ不是TCP，不是socket，也不是消息队列，而是这些的综合体。
 
-![ZeroMQ](images/2013/zeromq/logo.gif)
+{% asset_img logo.gif ZeroMQ %}
 
 # ZeroMQ是什么
 
@@ -140,7 +140,7 @@ ZeroMQ如何拯救世界
 
   Mongrel2是应用ZeroMQ的一个有趣的案例：所有入站消息通过“Push”套接字路由到Mongrel2，套接字可以自动实现负载均衡，将消息分发到连接处理器。反过来，连接处理器处理入站消息（通过Pull套接字），然后将处理结果发布到一个“Pub”套接字，Mongrel2服务器本身已订阅了该套接字，并且通过主题（topic）过滤器监听该套接字的进程号。如下图：
 
-  ![zmq-mongrel2](images/2013/zeromq/zmq-mongrel2.png)
+{% asset_img zmq-mongrel2.png zmq-mongrel2 %}
 
 ZeroMQ带来了一种新的分布式应用架构的思考方式。善用ZeroMQ，可以为应用带来非常强大的特性。
 

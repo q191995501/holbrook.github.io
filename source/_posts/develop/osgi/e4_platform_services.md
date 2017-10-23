@@ -9,7 +9,7 @@ tags: [OSGi, java, GUI]
 
 [前面](/2014/01/12/dependency_injection_in_e4.html)提到，e4中可以通过依赖注入进行服务的发布和获取。并且，”在Eclipse e4中，将全局的上下文分成了多个层次“：
 
-![](images/e4/e4_context_hierarchy.png)
+{% asset_img e4_context_hierarchy.png  %}
 
 e4提供了很多平台级的服务，注册于OSGi context之上的其他各个context层。这些服务提供了开发应用的很多通用的功能。一些常用的服务包括：
 
@@ -88,7 +88,7 @@ e4提供了很多平台级的服务，注册于OSGi context之上的其他各个
 
 在应用模型中，可以定义PartDescriptors。PartDescriptors可以作为创建Part的模板。
 
-![](images/e4/PartDescriptors.png)
+{% asset_img PartDescriptors.png  %}
 
 通过EPartService可以访问这些模板，比如：
 

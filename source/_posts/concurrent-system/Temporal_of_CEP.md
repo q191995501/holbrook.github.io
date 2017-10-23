@@ -21,7 +21,7 @@ Allen在《An Interval-based Representation of Temporal Knowledge》中描述了
 
 # After 和 Before(之前和之后)
 
-  ![After 和 Before](images/rule-engine/temporal-after_and_before.png)
+{% asset_img temporal-after_and_before.png After 和 Before %}
 
   ```
   // x∈[a,b]时，满足以下条件
@@ -38,7 +38,7 @@ Allen在《An Interval-based Representation of Temporal Knowledge》中描述了
 
 # Coincides（同时发生）
 
-  ![Coincides](images/rule-engine/temporal-coincides.png)
+{% asset_img temporal-coincides.png Coincides %}
 
   ```
   // x∈[0,a]，且y∈[0,b]时，满足以下条件
@@ -53,7 +53,7 @@ Allen在《An Interval-based Representation of Temporal Knowledge》中描述了
 
 # During 和 Includes（包含）
 
-  ![During 和 Includes](images/rule-engine/temporal-during.png)
+{% asset_img temporal-during.png During 和 Includes %}
 
   ```
   // x∈[a,b]，且y∈[c,d]时，满足以下条件
@@ -72,7 +72,7 @@ Allen在《An Interval-based Representation of Temporal Knowledge》中描述了
 # Finishes 和 Finished by（同时结束）
 
 
-  ![Finishes 和 Finished by](images/rule-engine/temporal-finishes.png)
+{% asset_img temporal-finishes.png Finishes 和 Finished by %}
 
   ```
   // x∈[0,a]时，满足以下条件
@@ -89,7 +89,7 @@ Allen在《An Interval-based Representation of Temporal Knowledge》中描述了
 
 # Meets 和 Met by（相邻）
 
-  ![Meets 和 Met by](images/rule-engine/temporal-after_and_before.png)
+{% asset_img temporal-after_and_before.png Meets 和 Met by %}
 
   ```
   // x∈[0,a]时，满足以下条件
@@ -105,7 +105,7 @@ Allen在《An Interval-based Representation of Temporal Knowledge》中描述了
 
 # Overlaps 和 Overlappd by（相交）
 
-  ![Overlaps 和 Overlappd by](images/rule-engine/temporal-overlaps.png)
+{% asset_img temporal-overlaps.png Overlaps 和 Overlappd by %}
 
   ```
   // x∈[a,b]时，满足以下条件
@@ -124,7 +124,7 @@ Allen在《An Interval-based Representation of Temporal Knowledge》中描述了
 # Starts 和 Started by（同时开始）
 
 
-  ![Starts 和 Started by](images/rule-engine/temporal-starts.png)
+{% asset_img temporal-starts.png Starts 和 Started by %}
 
   ```
   // x∈[0,a]时，满足以下条件

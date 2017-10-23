@@ -37,7 +37,7 @@ tags: cluster
 
 keepalived的设计如下图：
 
-![keepalived_architecture](images/2013/lvs/keepalived_architecture.jpg)
+{% asset_img keepalived_architecture.jpg keepalived_architecture %}
 
 - WatchDog：监控checkers和vrrp 进程
 - Checkers：服务器健康状态检查(healthchecking)。可以编写自定义的健康检查脚本。

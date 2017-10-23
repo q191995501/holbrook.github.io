@@ -1,4 +1,3 @@
----
 title: 开发和部署JBoss FUSE中的路由(Route)
 date: 2012-04-14
 category: 并发系统
@@ -29,7 +28,7 @@ archetype](http://maven.apache.org/guides/introduction/introduction-to-archetype
 
 会创建如下结构的一个工程：
 
-![](./assets/images/fuse/route-demo-structure.png)
+{% asset_img route-demo-structure.png  %}
 
 从 `pom.xml`
 来看，这是一个*使用maven-bundle-plugin构建的OSGibundle工程*。
@@ -78,7 +77,8 @@ Context。这个Context中定义了一个路由：
 
 如果使用FuseIDE，可以看到图形化的配置界面：
 
-![](./assets/images/fuse/route-design.png)
+{% asset_img route-design.png  %}
+
 部署到ServiceMix
 ================
 

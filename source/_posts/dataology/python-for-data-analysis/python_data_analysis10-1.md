@@ -5,9 +5,10 @@ tags: [读书笔记, python,]
 ---
 
 
-《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
+{% asset_link python_data_analysis10-1.ipynb 下载 ipynb %}
 
-[第10章](/2017/07/20/python_data_analysis10.html) 第1节。
+===
 
 
-{#% asset_ipynb python_data_analysis10-1.ipynb %#}
+
+{% asset_ipynb python_data_analysis10-1.ipynb %}

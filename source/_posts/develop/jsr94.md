@@ -18,7 +18,7 @@ JSR-94是JCP(Java Community Process)制定的关于Java规则引擎API的规范�
 
 规则管理API在javax.rules.admin中定义,主要包括以下类/接口：
 
-![javax.rules.admin](images/rule-engine/javax.rules.admin.png)
+{% asset_img javax.rules.admin.png javax.rules.admin %}
 
 
 - Rule：规则实体
@@ -38,7 +38,7 @@ JSR-94是JCP(Java Community Process)制定的关于Java规则引擎API的规范�
 
 运行时API在javax.rules中定义，主要包括以下类/接口：
 
-![javax.rules](images/rule-engine/javax.rules.png)
+{% asset_img javax.rules.png javax.rules %}
 
 - RuleServiceProviderManager: 通过URL注册/注销RuleServiceProvider
 - RuleServiceProvider: 提供对RuleRuntime和RuleAdministrator的访问
@@ -60,7 +60,7 @@ JSR-94是JCP(Java Community Process)制定的关于Java规则引擎API的规范�
 
 除了前面提到的主要类/接口外，JSR94还规定了规则引擎运行时及管理的一些异常，如下：
 
-![javax.rules.exceptions](images/rule-engine/javax.rules.exceptions.png)
+{% asset_img javax.rules.exceptions.png javax.rules.exceptions %}
 
 
 # 代码示例

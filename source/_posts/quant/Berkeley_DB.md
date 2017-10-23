@@ -42,7 +42,7 @@ tags: [交易系统,]
 
 [Berkeley DB](http://www.oracle.com/technetwork/cn/products/berkeleydb/overview/index.html)是满足上述4点要求的比较好的一款产品。Berkeley DB分为BDB、BDB Java版和BDB XML版。其总体架构如下图：
 
-![Berkeley DB](images/trade-system/berkeley-db.png)
+{% asset_img berkeley-db.png Berkeley DB %}
 
 BDB的三个版本的功能不完全相同。
 

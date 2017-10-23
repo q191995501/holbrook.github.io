@@ -9,7 +9,7 @@ tags: [图表, GUI, java]
 
 在[R学习笔记](/2013/05/03/r_notes_1_what.html)中，展示了这样一张图表：
 
-![](images/2013/r_notes/2.png)
+{% asset_img 2.png  %}
 
 现在需要在Eclipse e4应用中实现这样的图表。
 
@@ -145,7 +145,7 @@ GUI环境，也可以生成图片在Web环境中使用。后来又增加了对SW
 
 创建的图表如下所示：
 
-![](images/chart/sample1.png)
+{% asset_img sample1.png  %}
 
 # 设置样式
 
@@ -178,7 +178,7 @@ volumeAxis.setTickLabelPaint(Color.GRAY);
 
 调整后的图表如下所示：
 
-![](images/chart/sample2.png)
+{% asset_img sample2.png  %}
 
 # 去除非交易时段
 

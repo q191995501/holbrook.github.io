@@ -69,7 +69,7 @@ var hq_str_sh601005="重庆钢铁,2.50,2.50,2.49,2.51,2.48,2.49,2.50,1505600,376
 
 不管是价格信息还是成交信息，都关联到某一证券（Security）。
 
-![](images/analysis-pattern/price_and_transaction.png)
+{% asset_img price_and_transaction.png  %}
 
 
 # 场景
@@ -81,7 +81,7 @@ var hq_str_sh601005="重庆钢铁,2.50,2.50,2.49,2.51,2.48,2.49,2.50,1505600,376
 可以把这种聚合叫做场景（Scenario），场景关联到某一时间点（TimePoint)。一个场景可以有多个场景元素（ScenarioElement），场景元素作为证券和其他因素之间的关联，聚合到与时点相关的场景中。
 
 
-![](images/analysis-pattern/scenario.png)
+{% asset_img scenario.png  %}
 
 场景提供了一个把所有因素综合在一起的基础，从而可以很方便的在不同的情况之间进行比较。这就有较高的实用性。
 
@@ -92,17 +92,17 @@ var hq_str_sh601005="重庆钢铁,2.50,2.50,2.49,2.51,2.48,2.49,2.50,1505600,376
 
 有了场景和场景元素的定义，则价格和成交都是场景元素的一种实现：
 
-![](images/analysis-pattern/quotation.png)
+{% asset_img quotation.png  %}
 
 # 多数据源
 
 实际应用中，可能需要从多个数据源获取数据。
 
-![](images/analysis-pattern/multi_source.png)
+{% asset_img multi_source.png  %}
 
 # 价格指标
 
 通过其他场景元素计算获取
 
-![](images/analysis-pattern/indicator.png)
+{% asset_img indicator.png  %}
 

@@ -17,7 +17,7 @@ tags: [数据分析,]
 
 先上图：
 
-![MetroMap to Data Scientist](/images/long-road-to-data-scientist.png)
+{% asset_img long-road-to-data-scientist.png MetroMap to Data Scientist %}
 
 
 # 1.基本原理(Fundamentals)

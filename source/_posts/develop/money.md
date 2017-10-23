@@ -28,7 +28,7 @@ tags: 领域模型
 
 我们不可能为每个币种设计一种条目，所以需要抽象出一个货币类——Money，适用于各种不同的币种：
 
-![Money类](images/posts/domain/money/money.png)
+{% asset_img money.png Money类 %}
 
 
 

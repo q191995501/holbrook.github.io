@@ -166,9 +166,8 @@ Vbundle就会自动安装或更新前面配置好的插件
 
 如果已经有一定的基础，还可以使用vim cheat sheet。下面的图分别可以用于打印版或者桌面背景。
 
-![打印版，Eng](images/2013/vim_addon_manager/vi-vim-cheat-sheet.gif)
+{% asset_img vi-vim-cheat-sheet.gif 打印版，Eng %}
 
-![打印版，Chs](images/2013/vim_addon_manager/vi-vim-cheat-sheet-sch.gif)
+{% asset_img vi-vim-cheat-sheet-sch.gif 打印版，Chs %}
 
-![桌面版，Eng](images/2013/vim_addon_manager/vi-vim_cheat_sheet_dark.png)
-
+{% asset_img vi-vim_cheat_sheet_dark.png 桌面版，Eng %}

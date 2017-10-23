@@ -72,7 +72,7 @@ execute -> compare;
 
 执行命令`dot -Tpng example.dot -o example.png`，就可以生成如下的图形：
 
-![](images/graphviz/example.png)
+{% asset_img example.png  %}
 
 DOT通过属性可以设置node和edge的样式，比如：
 
@@ -88,7 +88,7 @@ graph graphname {
 
 生成的图形如下：
 
-![](images/graphviz/a.png)
+{% asset_img a.png  %}
 
 更多的属性设置可以参考[官方文档](http://www.graphviz.org/content/attrs)。
 

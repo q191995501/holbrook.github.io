@@ -203,7 +203,7 @@ Salt底层使用公钥-私钥证书来保证通信信道的安全。具体的机
 
 Salt对上述三个方面提供了完美的支持，事实上，Salt提供的功能比我需要的还要多。下图是Salt的主要功能：
 
-![salt_functions](images/2013/salt_usage/salt_functions.png)
+{% asset_img salt_functions.png salt_functions %}
 
 具体的功能使用在[这篇文章](/2013/06/25/salt_usage.html)中详细说明。
 

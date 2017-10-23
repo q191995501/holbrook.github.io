@@ -49,7 +49,7 @@ yum install pulse piranha
 
 点击"Login"按钮，使用用户名`piranha`和刚才设置的密码登录，可以看到管理界面：
 
-![1](images/2013/lvs_nginx_practice/piranha1.png)
+{% asset_img piranha1.png 1 %}
 
 依次配置全局设置(GLOBAL SETTINGS), 备机设置(REDUNDANCY, 可选)，虚拟服务器(VIRTUAL SERVERS)，即可。
 

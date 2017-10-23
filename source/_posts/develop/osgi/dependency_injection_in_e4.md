@@ -137,11 +137,11 @@ Declarative Service的方式与Spring的服务组装很类似。但是Spring中�
 
 从Eclipse e4开始，已经支持使用[JSR330:依赖注入规范](/2013/12/31/jsr330.html)实现服务的注入。
 
-![](images/e4/e4_inject.png)
+{% asset_img e4_inject.png  %}
 
 在e4增加的服务编程模型中，引入了上下文（context），所有的依赖对象都被上下文管理并通过上下文获取：
 
-![](images/e4/e4_context.png)
+{% asset_img e4_context.png  %}
 
 在Eclipse e4中，将全局的上下文分成了多个层次：
 
@@ -149,8 +149,7 @@ Declarative Service的方式与Spring的服务组装很类似。但是Spring中�
 
 下层的context可以获取上层context中定义的对象，比如：
 
-![](images/e4/e4_context_hierarchy_example.png)
-
+{% asset_img e4_context_hierarchy_example.png  %}
 
 e4中，可以使用[JSR330中基本的`@Inject`、`@Named`等注解](/2013/12/31/jsr330.html#menuIndex3),用于构造器、方法和属性。同时,e4在`org.eclipse.e4.core.di.annotations`包中也定义了一些扩展的注解，包括：
 

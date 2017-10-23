@@ -19,7 +19,7 @@ tags: [OSGi, java]
 
 Buleprint容器规范规定了一个OSGi容器(不是OSGi rumtime)的方方面面：
 
-![](images/fuse/Blueprint_Container_Specification_list.png)
+{% asset_img Blueprint_Container_Specification_list.png  %}
 
 Buleprint(或者说，OSGi Enterprise)目前有两个主要的实现：[Eclipse Gemini](http://www.eclipse.org/gemini/)和[Apache Aries](http://aries.apache.org/)。
 
@@ -180,7 +180,7 @@ Blueprint使用XML文件描述装配关系，下面是一个例子：
 
 Blueprint XML中可以标记`bean`，`service`、`reference-list`等元素，用于bean管理、service管理和service引用管理。
 
-![](images/fuse/blueprint_config.png)
+{% asset_img blueprint_config.png  %}
 
 - Bean管理
 

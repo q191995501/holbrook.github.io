@@ -3,9 +3,6 @@ title: 系统交易和交易系统
 date: 2013-12-16
 category: 量化交易
 tags: [交易系统,]
-
-
-
 ---
 
 
@@ -53,7 +50,7 @@ tags: [交易系统,]
 
 能够做到这些，就可以称之为“系统化交易”。
 
-![](images/trade-system/trade.png)
+{% asset_img trade.png  %}
 
 - 选股：筛选交易对象
 - 择时：对行情进行判断，选择合适的操作时机
@@ -93,7 +90,7 @@ tags: [交易系统,]
 上述种种，需要某种工具来辅助，姑且称之为“交易系统”。
 
 
-![](images/trade-system/goal.png)
+{% asset_img goal.png  %}
 
 如上图，交易的“铁三角”是交易者、交易资本和交易对象，而交易系统的主要作用是：
 
@@ -110,7 +107,7 @@ tags: [交易系统,]
 
 一个交易策略提出后，要经过一系列的阶段，直到最终被废弃。交易策略的生命周期如下图所示：
 
-![](images/trade-system/lifecycle.png)
+{% asset_img lifecycle.png  %}
 
 1. 公式化
 
