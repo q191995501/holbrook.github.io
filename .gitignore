@@ -1,5 +1,6 @@
 output
 __pycache__
+db.json
 **/node_modules
 **/*.pyc
 **/*.pid
