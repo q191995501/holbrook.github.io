@@ -40,15 +40,21 @@ tags: [读书笔记, python]
 
 # 例子：分析网站的用户访问数据
 
+{% asset_link python_data_analysis2-1.ipynb 下载ipynb %}
+
 {% asset_ipynb python_data_analysis2-1.ipynb %}
 
 
 # 例子：电影评分数据分析
 
+{% asset_link python_data_analysis2-2.ipynb 下载ipynb %}
+
 {% asset_ipynb python_data_analysis2-2.ipynb %}
 
 
 # 例子：全美婴儿姓名分析
+
+{% asset_link python_data_analysis2-3.ipynb 下载ipynb %}
 
 {% asset_ipynb python_data_analysis2-3.ipynb %}
 
