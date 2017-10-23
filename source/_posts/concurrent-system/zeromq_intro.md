@@ -2,10 +2,12 @@
 title: ZeroMQ简介
 date: 2013-07-03
 category: 并发系统
-tags: 消息中间件
-
- zeroMQ不是TCP，不是socket，也不是消息队列，而是这些的综合体。
+tags: [消息中间件]
 ---
+
+zeroMQ不是TCP，不是socket，也不是消息队列，而是这些的综合体。
+
+<!-- more -->
 
 zeroMQ不是TCP，不是socket，也不是消息队列，而是这些的综合体。
 

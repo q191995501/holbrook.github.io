@@ -1,12 +1,13 @@
-Title: 《机器学习》
-Date: 2017-03-04
-Category: 数据分析
-Tags: 索引, 读书笔记, 机器学习
-
+title: 《机器学习》
+date: 2017-03-04
+category: 数据分析
+tags: [索引, 读书笔记, 机器学习]
+---
 
     [《机器学习》](https://book.douban.com/subject/1102235/),  作者: (美)Tom Mitchell ，译者: 曾华军 / 张银奎 / 等
     读书笔记目录。
 
+<!-- more -->
 
 [《机器学习》](https://book.douban.com/subject/1102235/),  作者: (美)Tom Mitchell ，译者: 曾华军 / 张银奎 / 等
 读书笔记目录。

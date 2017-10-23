@@ -1,13 +1,12 @@
 ---
-Title: CEP中的时间推理（Temporal）
-Date: 2013-12-21
-Category: 并发系统
-Tags: CEP
-
-
-    时间推理（Temporal）是CEP中特有的条件判断（LHS）。本文介绍13种时间推理运算符及其DRL表示。
-
+title: CEP中的时间推理（Temporal）
+date: 2013-12-21
+category: 并发系统
+tags: [CEP]
 ---
+
+时间推理（Temporal）是CEP中特有的条件判断（LHS）。本文介绍13种时间推理运算符及其DRL表示。
+
 
 [CEP](/2012/11/06/about_cep.html)中的[事件(Event)](/2013/12/21/event_in_CEP.html)具有两个与时间相关的属性。一个是timestamp，标记事件发生的时间；另一个是duration，标记事件持续的时间间隔。
 

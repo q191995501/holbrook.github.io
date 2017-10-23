@@ -1,8 +1,8 @@
 title: Apache Karaf：OSGi中间件
 date: 2014-02-20
 category: 软件开发
-tags: OSGi
-
+tags: [OSGi]
+---
 
 # 为什么需要“OSGi中间件”
 

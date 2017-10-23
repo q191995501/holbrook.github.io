@@ -1,13 +1,14 @@
-Title: 《利用Python进行数据分析》小结
-Date:
-Category: 数据分析
+title: 《利用Python进行数据分析》小结
+date:
+category: 数据分析
 slug: python_for_data_analysis_index
-Tags: 读书笔记, python
-
+tags: [读书笔记, python]
+---
 
 
     《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记的总结。
 
+<!-- more -->
 
 《利用Python进行数据分析(Python for　Data Analysis)》，这本书的作者 Wes McKinney 就是 pandas 的作者。
 

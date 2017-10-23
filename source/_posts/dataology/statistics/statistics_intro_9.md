@@ -1,7 +1,7 @@
 title: 《统计学》读书笔记(9/17:方差分析)
 date: 2013-12-11
-Category: 数据分析
-Tags: 读书笔记, 统计学
+category: 数据分析
+tags: [读书笔记, 统计学]
 ---
 
  统计学：从数据到结论，ISBN：9787503749964，作者：吴喜之 @[豆瓣](http://book.douban.com/subject/2193810/)

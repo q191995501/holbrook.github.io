@@ -1,8 +1,8 @@
-Title: 机器学习总结
-Date: 2017-10-13
-Category: 数据分析
-Tags: 机器学习
-
+title: 机器学习总结
+date: 2017-10-13
+category: 数据分析
+tags: [机器学习]
+---
 
 
 # 机器学习的本质

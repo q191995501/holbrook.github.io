@@ -1,7 +1,7 @@
 title: 搭建一个“现代化”的web开发环境
 date: 2015-05-04
-tags: web, env
 category: 软件开发
+tags: [web, env]
 ---
 
     使用yoeman, bower, grunt等工具开发web。

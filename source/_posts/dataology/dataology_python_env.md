@@ -1,15 +1,16 @@
-Title: 基于Python的数据科学环境
-Date: 2017-02-11
+title: 基于Python的数据科学环境
+date: 2017-02-11
 Modified: 2017-03-09
-Category: 数据分析
-Tags: python, env
-
+category: 数据分析
+tags: [python, env]
+---
 
     在[《数据科学的知识体系》](http://holbrook.github.io/2017/02/05/index.html)中，
     列出了进行数据科学研究所需的知识。但Swami Chandrasekaran明显更喜欢 R 。
     我个人更倾向于 python。而且 python 和 R可以互相调用[]
     本文列出数据科学相关的 python 模块。
 
+<!-- more -->
 
 在[《数据科学的知识体系》](http://holbrook.github.io/2017/02/05/index.html)中，
 列出了进行数据科学研究所需的知识。但Swami Chandrasekaran明显更喜欢 R 。

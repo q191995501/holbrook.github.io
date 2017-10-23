@@ -1,7 +1,9 @@
-Title: 利用Python进行数据分析(10)：时间序列
-Date: 2017-07-20
-Category: 数据分析
-Tags: 读书笔记, python
+title: 利用Python进行数据分析(10)：时间序列
+date: 2017-07-20
+category: 数据分析
+tags: [读书笔记, python]
+---
+
 
 
     《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。

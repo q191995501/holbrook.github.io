@@ -1,12 +1,13 @@
-Title: windows下面的包管理器：Chocolatey
-Date: 2017-02-11
-Category: 软件开发
-Tags: env
+title: windows下面的包管理器：Chocolatey
+date: 2017-02-11
+category: 软件开发
+tags: [env]
 ---
 
+操作系统级别的包管理器，Linux 下面有 yum, apt, Mac OS 下面有 Homebrew。
+Windows 下面可以使用 windows下面的包管理器：[Chocolatey](https://chocolatey.org/)。
 
-    操作系统级别的包管理器，Linux 下面有 yum, apt, Mac OS 下面有 Homebrew。
-    Windows 下面可以使用 windows下面的包管理器：[Chocolatey](https://chocolatey.org/)。
+<!-- more -->
 
 # 系统级别的包管理器
 

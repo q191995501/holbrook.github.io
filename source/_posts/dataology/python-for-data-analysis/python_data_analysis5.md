@@ -1,7 +1,9 @@
-Title: 利用Python进行数据分析(5)：Pandas 入门
-Date: 2017-02-23
-Category: 数据分析
-Tags: 读书笔记, python
+title: 利用Python进行数据分析(5)：Pandas 入门
+date: 2017-02-23
+category: 数据分析
+tags: [读书笔记, python]
+---
+
 
 
     《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。

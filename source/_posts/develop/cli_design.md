@@ -1,7 +1,7 @@
-Title: 命令行界面设计
-Date: 2014-01-30
-Category: 软件开发
-Tags: CLI
+title: 命令行界面设计
+date: 2014-01-30
+category: 软件开发
+tags: CLI
 ---
 
     尽管8年后的1973年出现了图形界面程序，

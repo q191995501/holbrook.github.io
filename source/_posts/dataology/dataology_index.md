@@ -1,13 +1,14 @@
-Title: 数据科学的知识体系
-Date: 2017-02-05
-Category: 数据分析
-Tags:
+title: 数据科学的知识体系
+date: 2017-02-05
+category: 数据分析
+tags:[,]
+---
 
 
-    数据科学是利用计算机的运算能力对数据进行处理，从数据中提取信息，进而形成“知识”。
-    然而要实现这一点并不容易。Swami Chandrasekaran在他的[《Becoming a Data Scientist》](http://nirvacana.com/thoughts/becoming-a-data-scientist/)中，规划了“数据科学家”之路，让我们共勉。
+数据科学是利用计算机的运算能力对数据进行处理，从数据中提取信息，进而形成“知识”。
+然而要实现这一点并不容易。Swami Chandrasekaran在他的[《Becoming a Data Scientist》](http://nirvacana.com/thoughts/becoming-a-data-scientist/)中，规划了“数据科学家”之路，让我们共勉。
 
-
+<!-- more -->
 
 数据科学是利用计算机的运算能力对数据进行处理，从数据中提取信息，进而形成“知识”。
 然而要实现这一点并不容易。Swami Chandrasekaran在他的[《Becoming a Data Scientist》](http://nirvacana.com/thoughts/becoming-a-data-scientist/)中，规划了“数据科学家”之路，让我们共勉。

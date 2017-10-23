@@ -2,7 +2,7 @@
 title: Apache Camel的核心概念
 date: 2014-02-10
 category: 并发系统
-tags:
+tags: []
 
 
 ---

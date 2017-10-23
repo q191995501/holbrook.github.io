@@ -2,12 +2,13 @@
 title: 从规则引擎到复杂事件处理(CEP)
 date: 2013-12-22
 category: 并发系统
-tags: CEP
-
-
-    Drools Fusion既是规则引擎，又可以作为CEP。除了[事件定义]({filename}event_in_CEP.md)和
-    [时间推理]({filename}Temporal_of_CEP.md)之外，对于引擎本身也会有一些不同的使用。主要体现在会话时钟、流模式、滑动窗口和对事件的内存管理。
+tags: [CEP]
 ---
+
+Drools Fusion既是规则引擎，又可以作为CEP。除了[事件定义]({filename}event_in_CEP.md)和
+
+[时间推理]({filename}Temporal_of_CEP.md)之外，对于引擎本身也会有一些不同的使用。主要体现在会话时钟、流模式、滑动窗口和对事件的内存管理。
+
 
 
 Drools Fusion既是规则引擎，又可以作为CEP。除了[事件定义]({filename}event_in_CEP.md)和
