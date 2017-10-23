@@ -1,8 +1,9 @@
 output
+public
+.deploy_git
 __pycache__
 db.json
 npm-debug.log
-public
 **/node_modules
 **/*.pyc
 **/*.pid
