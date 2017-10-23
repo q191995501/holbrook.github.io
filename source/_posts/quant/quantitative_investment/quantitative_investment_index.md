@@ -7,7 +7,7 @@ tags: [数据分析, 读书笔记,]
 
  目录和总结
 
-
+<!-- more -->
 
 
 [《量化投资：数据挖掘技术与实践（MATLAB版）》](https://book.douban.com/subject/26415529/)

@@ -7,7 +7,7 @@ tags: [数据分析, 读书笔记,]
 
  回归方法，就是处理变量之间相关关系的一种数学方法
 
-
+<!-- more -->
 
 [《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({% post_link quantitative_investment_index %})
 

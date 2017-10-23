@@ -8,7 +8,7 @@ tags: [数据分析, 读书笔记,]
 
  数据探索(Data Exploratory)的方法，包括计算衍生、统计分析、可视化、样本选择和数据降维等。
 
-
+<!-- more -->
 
 
 [《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({% post_link quantitative_investment_index %})

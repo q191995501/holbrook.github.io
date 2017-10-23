@@ -7,7 +7,7 @@ tags: [数据分析, 读书笔记,]
 
  数据的准备包括收集、质量分析和预处理。
 
-
+<!-- more -->
 
 
 [《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记目录]({% post_link quantitative_investment_index %})

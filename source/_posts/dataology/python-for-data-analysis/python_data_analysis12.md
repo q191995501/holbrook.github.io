@@ -6,9 +6,10 @@ tags: [读书笔记, python]
 
 
 
-    《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
-    第 12 章：NumPy高级应用
+《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
+第 12 章：NumPy高级应用
 
+<!-- more -->
 
 本章内容包括：
 

@@ -87,7 +87,7 @@ Processing）的出现解决了上述两个方面的问题，在实时性和复�
 。在连续数据的快速移动过程中进行分析处理。
 这样的方式不需要很大的数据加载，完全可以在内存中进行，从而能够快速产生结果。
 
-![数据流](./assets/images/rule_engine/cep.png)
+{% asset_img cep.png 数据流 %}
 
 处理复杂性
 ----------
@@ -97,12 +97,12 @@ Processing）的出现解决了上述两个方面的问题，在实时性和复�
 
 这一类的问题通常通过基于规则的推理机（即规则引擎）来实现。
 
-![复杂性](./assets/images/rule_engine/complex.png)
+{% asset_img complex.png 复杂性 %}
 
 CEP的架构
 ---------
 
-![CEP的架构](./assets/images/rule_engine/cep_architecture.png)
+{% asset_img cep_architecture.png CEP的架构 %}
 
 综上所述，CEP在逻辑上应该包括：
 

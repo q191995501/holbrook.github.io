@@ -1,10 +1,8 @@
 title: 机器学习-1：绪论
 date: 2017-03-04
-category: 数据分析
-tags: [索引, 读书笔记, 机器学习]
+category: 机器学习
+tags: [读书笔记, 机器学习]
 ---
-
-
 
 [《机器学习》](https://book.douban.com/subject/1102235/),  作者: (美)Tom Mitchell ，译者: 曾华军 / 张银奎 / 等。
 

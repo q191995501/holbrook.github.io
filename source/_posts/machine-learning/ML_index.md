@@ -1,9 +1,12 @@
 title: 机器学习总结
 date: 2017-10-13
-category: 数据分析
+category: 机器学习
 tags: [机器学习]
 ---
 
+小结。
+
+<!-- more -->
 
 # 机器学习的本质
 

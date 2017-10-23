@@ -1,7 +1,8 @@
 title: 数据科学的知识体系
 date: 2017-02-05
 category: 数据分析
-tags:[,]
+tags: [数据分析,]
+
 ---
 
 

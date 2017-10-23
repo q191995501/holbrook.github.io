@@ -6,9 +6,10 @@ tags: [读书笔记, python]
 
 
 
-    《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
-    第 11 章：金融和经济数据应用
+《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
+第 11 章：金融和经济数据应用
 
+<!-- more -->
 
 自2005年开始，python在金融行业中的应用越来越多。
 

@@ -6,9 +6,9 @@ tags: [读书笔记, python]
 
 
 
-    《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
-    第 10 章：时间序列。
-
+《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
+第 10 章：时间序列。
+<!-- more -->
 
 时间序列(time series)，是一种重要的结构化数据形式，在很多领域都有应用。
 
