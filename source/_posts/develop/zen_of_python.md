@@ -6,6 +6,8 @@ tags: python
 
  Python之禅, 中英对照
 
+ <!-- more -->
+
 # [The Zen of Python](http://www.python.org/dev/peps/pep-0020/)
 
 by Tim Peters

@@ -1,7 +1,7 @@
 title: JPA概要
 date: 2012-12-30
 category: 软件开发
-tags: java
+tags: [java,]
 ---
 
 JPA定义了Java ORM及实体操作API的标准。本文摘录了JPA的一些关键信息以备查阅。如果有hibernate的基础，通过本文也可以快速掌握JPA的基本概念及使用。

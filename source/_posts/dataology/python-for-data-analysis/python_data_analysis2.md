@@ -4,16 +4,11 @@ category: 数据分析
 tags: [读书笔记, python]
 ---
 
-
-
-    《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
-    第 2 章：引言
-    介绍数据分析的一般步骤，并用三个实例说明如何用 python 进行数据分析。
-
-
 《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
 第 2 章：引言
 介绍数据分析的一般步骤，并用三个实例说明如何用 python 进行数据分析。
+
+<!-- more -->
 
 所有用到的数据可以从[作者的 github](https://github.com/wesm/pydata-book)下载。
 
@@ -22,7 +17,6 @@ tags: [读书笔记, python]
 - 数据加载
 
    从各种格式的数据文件和数据库加载数据
-
 
 - 数据准备
 
@@ -43,10 +37,19 @@ tags: [读书笔记, python]
 
   通过静态或交互式的方式，展示结果
 
-# 用 python 进行数据分析的例子
 
-- [分析网站的用户访问数据](/2017/02/14/python_data_analysis2-1.html)
+# 例子：分析网站的用户访问数据
 
-- [电影评分数据分析](/2017/02/15/python_data_analysis2-2.html)
+{% asset_ipynb python_data_analysis2-1.ipynb %}
 
-- [全美婴儿姓名分析](/2017/02/16/python_data_analysis2-3.html)
+
+# 例子：电影评分数据分析
+
+{% asset_ipynb python_data_analysis2-2.ipynb %}
+
+
+# 例子：全美婴儿姓名分析
+
+{% asset_ipynb python_data_analysis2-3.ipynb %}
+
+
