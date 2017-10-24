@@ -26,7 +26,8 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-
+  - '*.html'
+  - '_posts/dataology/python-for-data-analysis/data/**'
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -94,4 +95,4 @@ math:
 deploy:
   type: git
   repo: git@github.com:holbrook/holbrook.github.io.git
-  
+
