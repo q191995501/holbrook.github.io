@@ -8,9 +8,10 @@ tags: [读书笔记, python]
 
 《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
 第 10 章：时间序列。
-<!-- more -->
 
 时间序列(time series)，是一种重要的结构化数据形式，在很多领域都有应用。
+
+<!-- more -->
 
 时间序列数据的形式主要有：
 
@@ -28,16 +29,77 @@ pandas提供了一组标准的时间序列处理工具和算法，可以高效�
 这些数据对金融和经济数据尤为有用，也可以用于日志分析。
 
 
-本章内容包括：
 
-- [日期和时间数据类型及工具](/2017/07/20/python_data_analysis10-1.html)
-- [时间序列基础](/2017/07/20/python_data_analysis10-2.html)
-- [日期的范围、频率以及移动](/2017/07/20/python_data_analysis10-3.html)
-- [时区处理](/2017/07/20/python_data_analysis10-4.html)
-- [时期及其算数运算](/2017/07/20/python_data_analysis10-5.html)
-- [重采样及频率转换](/2017/07/21/python_data_analysis10-6.html)
-- [时间序列绘图](/2017/07/24/python_data_analysis10-7.html)
-- [移动窗口函数](/2017/07/24/python_data_analysis10-8.html)
-- [性能和内存使用方面的注意事项](/2017/07/24/python_data_analysis10-9.html)
+# 日期和时间数据类型及工具
+
+
+{% asset_link python_data_analysis10-1.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis10-1.ipynb %}
+
+
+# 时间序列基础
+
+{% asset_link python_data_analysis10-2.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis10-2.ipynb %}
+
+
+# 日期的范围、频率以及移动
+
+{% asset_link python_data_analysis10-3.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis10-3.ipynb %}
+
+
+
+# 时区处理
+
+{% asset_link python_data_analysis10-4.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis10-4.ipynb %}
+
+
+
+# 时期及其算数运算
+
+{% asset_link python_data_analysis10-5.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis10-5.ipynb %}
+
+
+
+# 重采样及频率转换
+
+
+{% asset_link python_data_analysis10-6.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis10-6.ipynb %}
+
+
+# 时间序列绘图
+
+{% asset_link python_data_analysis10-7.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis10-7.ipynb %}
+
+
+
+# 移动窗口函数
+
+{% asset_link python_data_analysis10-8.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis10-8.ipynb %}
+
+
+
+# 性能和内存使用方面的注意事项
+
+{% asset_link python_data_analysis10-9.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis10-9.ipynb %}
+
+
+
 
 

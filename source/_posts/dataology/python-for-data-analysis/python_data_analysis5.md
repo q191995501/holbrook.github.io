@@ -4,16 +4,10 @@ category: 数据分析
 tags: [读书笔记, python]
 ---
 
-
-
-    《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
-    第 5 章：Pandas 入门。
-    NumPy虽然提供了方便的数组处理功能，但是它还是缺少许多数据处理、分析所需的一些快速工具。
-    Pandas基于NumPy构建，提供众多更高级的数据处理功能，使得以 NumPy 为中心的数据处理工作更便捷。
-
-
 NumPy虽然提供了方便的数组处理功能，但是它还是缺少许多数据处理、分析所需的一些快速工具。
 Pandas基于NumPy构建，提供众多更高级的数据处理功能，使得以 NumPy 为中心的数据处理工作更便捷。
+
+<!-- more -->
 
 pandas的作者在设计 Pandas 时，主要考虑以下几个方面：
 
@@ -36,11 +30,43 @@ import pandas as pd
 
 本章内容较多，每节的内容拆分成一个 ipython notebook:
 
-- [数据结构](/2017/02/24/python_data_analysis5-1.html)
-- [基本功能](/2017/02/24/python_data_analysis5-2.html)
-- [汇总和描述性统计](/2017/02/27/python_data_analysis5-3.html)
-- [处理缺失数据](/2017/02/28/python_data_analysis5-4.html)
-- [层次化索引](/2017/03/01/python_data_analysis5-5.html)
-- [其他](/2017/03/01/python_data_analysis5-6.html)
+# 数据结构
 
+ Pandas中两个主要的数据结构是 Series 和 DataFrame，两个数据结构中都使用了索引(Index)对象。
+
+{% asset_link python_data_analysis5-1.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis5-1.ipynb %}
+
+# 基本功能
+
+{% asset_link python_data_analysis5-2.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis5-2.ipynb %}
+
+# 汇总和描述性统计
+
+{% asset_link python_data_analysis5-3.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis5-3.ipynb %}
+
+
+# 处理缺失数据
+
+{% asset_link python_data_analysis5-4.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis5-4.ipynb %}
+
+# 层次化索引
+
+{% asset_link python_data_analysis5-5.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis5-5.ipynb %}
+
+# 其他
+
+
+{% asset_link python_data_analysis5-6.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis5-6.ipynb %}
 

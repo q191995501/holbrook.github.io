@@ -3,7 +3,7 @@ layout: post
 title: "Zest: Eclipse中的轻量级绘图组件"
 description: ""
 category: 软件开发
-tags: [eclipse]
+tags: [chart, java]
 lastmod: 
 ---
 

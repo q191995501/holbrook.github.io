@@ -6,14 +6,11 @@ tags: [读书笔记, python]
 
 
 
-    《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
-    第 3 章：IPython——一种交互式计算和开发环境。
-    介绍 IPython 及其使用。
-
-
 《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
 第 3 章：IPython——一种交互式计算和开发环境。
 介绍 IPython 及其使用。
+
+<!-- more -->
 
 IPython 的设计哲学是鼓励一种“执行-探索”(execute explore)的工作模式，而不是传统编程的“编辑-编译-运行”(edit-complie-run)模式。
 由于大部分的数据分析工作都需要“探索式操作”(试误法和迭代法)，可以说 IPython 就是为了用 python 进行数据分析而生的。

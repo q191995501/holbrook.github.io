@@ -121,6 +121,7 @@ scheme: Pisces
 social:
   GitHub: https://github.com/holbrook || github
   E-Mail: mailto:wanghaikuo@tsinghua.org.cn || envelope
+  豆瓣: https://www.douban.com/people/168633248/ || douban
   #Google: https://plus.google.com/yourname || google
   #Twitter: https://twitter.com/yourname || twitter
   #FB Page: https://www.facebook.com/yourname || facebook
@@ -132,7 +133,7 @@ social:
 
 social_icons:
   enable: true
-  icons_only: false
+  icons_only: true
   transition: false
 
 # Blog rolls

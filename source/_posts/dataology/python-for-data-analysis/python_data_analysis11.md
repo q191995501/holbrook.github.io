@@ -4,12 +4,10 @@ category: 数据分析
 tags: [读书笔记, python]
 ---
 
-
-
 《[利用Python进行数据分析](https://book.douban.com/subject/25779298/)》读书笔记。
 第 11 章：金融和经济数据应用
 
-<!-- more -->
+
 
 自2005年开始，python在金融行业中的应用越来越多。
 
@@ -29,12 +27,27 @@ Python还是一种非常好的粘合层，可以非常轻松为C或C++编写的�
 
 面板数据既可以表示为层次化索引的DataFrame，也可以表示为三维的Panel pandas对象。
 
+<!-- more -->
+
+# 数据规整化方面的话题
+
+{% asset_link python_data_analysis11-1.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis11-1.ipynb %}
+
+# 分组变换和分析
+
+{% asset_link python_data_analysis11-2.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis11-2.ipynb %}
 
 
-本章内容包括：
+# 更多示例应用
 
-- [数据规整化方面的话题](/2017/07/24/python_data_analysis11-1.html)
-- [分组变换和分析](/2017/07/24/python_data_analysis11-2.html)
-- [更多示例应用](/2017/07/24/python_data_analysis11-3.html)
+{% asset_link python_data_analysis11-3.ipynb 下载ipynb %}
+
+{% asset_ipynb python_data_analysis11-3.ipynb %}
+
+
 
 
