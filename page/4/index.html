@@ -1798,7 +1798,7 @@ Eclipse BIRT是Eclipse平台下的报表框架。其中的图表组件可以单�
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://holbrook.github.io/software_technology/dependency_injection_in_e4.html">
+    <link itemprop="mainEntityOfPage" href="http://holbrook.github.io/software_technology/e4_platform_services.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Holbrook">
@@ -1817,7 +1817,7 @@ Eclipse BIRT是Eclipse平台下的报表框架。其中的图表组件可以单�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/software_technology/dependency_injection_in_e4.html" itemprop="url">Eclipse e4：从OSGi-DS到依赖注入</a></h1>
+                <a class="post-title-link" href="/software_technology/e4_platform_services.html" itemprop="url">Eclipse e4中的平台服务</a></h1>
         
 
         <div class="post-meta">
@@ -1869,7 +1869,7 @@ Eclipse BIRT是Eclipse平台下的报表框架。其中的图表组件可以单�
 
           
           
-             <span id="/software_technology/dependency_injection_in_e4.html" class="leancloud_visitors" data-flag-title="Eclipse e4：从OSGi-DS到依赖注入">
+             <span id="/software_technology/e4_platform_services.html" class="leancloud_visitors" data-flag-title="Eclipse e4中的平台服务">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -1902,12 +1902,14 @@ Eclipse BIRT是Eclipse平台下的报表框架。其中的图表组件可以单�
       
         
           
-           e4开始，可以不使用代码或xml进行服务注册和寻找，而使用依赖注入进行装配
-MANIFEST.MF为了管理一组Java类和资源，通常我们会将其打包为JAR(Java Archive File，java存档文件)，该文件以ZIP格式进行打包。在JAR文件中，会包含一个META-INF/MANIFES
+          概述前面提到，e4中可以通过依赖注入进行服务的发布和获取。并且，”在Eclipse e4中，将全局的上下文分成了多个层次“：
+
+e4提供了很多平台级的服务，注册于OSGi context之上的其他各个context层。这些服务提供了开发应用的很多通用的功能。一些常用的服务包括：
+展现层MVC的视图、
           ...
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/software_technology/dependency_injection_in_e4.html#more" rel="contents">
+            <a class="btn" href="/software_technology/e4_platform_services.html#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
