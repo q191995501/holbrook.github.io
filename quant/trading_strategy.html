@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="交易系统,规则引擎," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="心内求法" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="交易策略的要点前面提到，交易策略是系统化交易的核心。但是要注意的是，风险管理比交易策略要重要10倍。 交易策略的一些要点整理如下：  交易策略是一套完整的交易规则体系 这些规则对投资决策的各个环节做出明确规定 这些规则必须客观、唯一 所谓完整，至少要包括入场和出场两个规则——完成一个完整的交易周期，入场和出场信号必须确定会发生 出场策略比入场策略要重要10倍 越简单的策略越可靠 要有错误处理机制">
+<meta name="keywords" content="交易系统,规则引擎">
+<meta property="og:type" content="article">
+<meta property="og:title" content="交易策略与规则引擎">
+<meta property="og:url" content="http://holbrook.github.io/quant/trading_strategy.html">
+<meta property="og:site_name" content="心内求法">
+<meta property="og:description" content="交易策略的要点前面提到，交易策略是系统化交易的核心。但是要注意的是，风险管理比交易策略要重要10倍。 交易策略的一些要点整理如下：  交易策略是一套完整的交易规则体系 这些规则对投资决策的各个环节做出明确规定 这些规则必须客观、唯一 所谓完整，至少要包括入场和出场两个规则——完成一个完整的交易周期，入场和出场信号必须确定会发生 出场策略比入场策略要重要10倍 越简单的策略越可靠 要有错误处理机制">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-26T10:54:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="交易策略与规则引擎">
+<meta name="twitter:description" content="交易策略的要点前面提到，交易策略是系统化交易的核心。但是要注意的是，风险管理比交易策略要重要10倍。 交易策略的一些要点整理如下：  交易策略是一套完整的交易规则体系 这些规则对投资决策的各个环节做出明确规定 这些规则必须客观、唯一 所谓完整，至少要包括入场和出场两个规则——完成一个完整的交易周期，入场和出场信号必须确定会发生 出场策略比入场策略要重要10倍 越简单的策略越可靠 要有错误处理机制">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '2D390ZMGCJ',
+      apiKey: '98fe25d384567f4447d37429b35a233e',
+      indexName: 'thinkinside',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holbrook.github.io/quant/trading_strategy.html"/>
+
+
+
+
+
+  <title>交易策略与规则引擎 | 心内求法</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?16d951e9b49ded5f2e821a0e61d77797";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">心内求法</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Holbrook的个人博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holbrook.github.io/quant/trading_strategy.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Holbrook">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心内求法">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">交易策略与规则引擎</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-12-19T00:00:00+08:00">
+                2013-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/量化交易/" itemprop="url" rel="index">
+                    <span itemprop="name">量化交易</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/quant/trading_strategy.html" class="leancloud_visitors" data-flag-title="交易策略与规则引擎">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="交易策略的要点"><a href="#交易策略的要点" class="headerlink" title="交易策略的要点"></a>交易策略的要点</h1><p><a href="/2013/12/16/trade_system.html">前面</a>提到，交易策略是系统化交易的核心。但是要注意的是，风险管理比交易策略要重要10倍。</p>
+<p>交易策略的一些要点整理如下：</p>
+<ul>
+<li>交易策略是一套完整的交易规则体系</li>
+<li>这些规则对投资决策的各个环节做出明确规定</li>
+<li>这些规则必须客观、唯一</li>
+<li>所谓完整，至少要包括入场和出场两个规则——完成一个完整的交易周期，入场和出场信号必须确定会发生</li>
+<li>出场策略比入场策略要重要10倍</li>
+<li>越简单的策略越可靠</li>
+<li>要有错误处理机制</li>
+</ul>
+<h1 id="交易策略的种类"><a href="#交易策略的种类" class="headerlink" title="交易策略的种类"></a>交易策略的种类</h1><p>所谓<a href="/2012/03/20/rule_engine_1.html">规则，规定了一组确定的条件和此条件所产生的结果</a>。根据条件的类别不同，可以把交易策略分成以下几种：</p>
+<h2 id="基于技术指标"><a href="#基于技术指标" class="headerlink" title="基于技术指标"></a>基于技术指标</h2><ol>
+<li><p>例1</p>
+<ul>
+<li>规则定义<ul>
+<li>入场规则：短期均线上穿长期均线</li>
+<li>出场规则：短期均线下穿长期均线</li>
+</ul>
+</li>
+<li><p>评价</p>
+<p>简单但完整的交易策略</p>
+</li>
+</ul>
+</li>
+<li><p>例2</p>
+<ul>
+<li>规则定义<ul>
+<li>入场规则：RSI&lt;10</li>
+<li>出场规则：RSI&gt;90</li>
+</ul>
+</li>
+<li><p>评价</p>
+<p>有严重的设计缺陷。因为RSI可能长期不能趋近于某一极值，从而得不到对应的操作信号，长期无法完成完整的买卖周期。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="基于统计分析"><a href="#基于统计分析" class="headerlink" title="基于统计分析"></a>基于统计分析</h2><p>此类策略要研究市场数据的统计分布特征，需要较强的数学功底</p>
+<ol>
+<li><p>例1</p>
+<ul>
+<li>规则定义<ul>
+<li>入场规则：跳空高开若干</li>
+<li>出场规则：利润达到x值或收盘价，或者损失达到y止损</li>
+</ul>
+</li>
+<li><p>评价</p>
+<p>其思想是捕捉跳空开盘对后市的影响</p>
+</li>
+</ul>
+</li>
+<li><p>例2</p>
+<ul>
+<li>规则定义<ul>
+<li>入场规则：突破跳空</li>
+<li>出场规则：衰竭跳空</li>
+</ul>
+</li>
+<li>评价<br>两个问题：1）跳空不一定会出现，从而导致交易周期不完整；2）过于主观随意</li>
+</ul>
+</li>
+<li><p>例3</p>
+<ul>
+<li>规则定义<ul>
+<li>入场规则：迪马克波动系数终点</li>
+<li>出场规则：反向迪马克波动系数终点</li>
+</ul>
+</li>
+<li><p>评价</p>
+<p>交易周期不完整</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="基于图形分析"><a href="#基于图形分析" class="headerlink" title="基于图形分析"></a>基于图形分析</h2><p>这类是最传统、最常见的交易策略</p>
+<ol>
+<li><p>例1</p>
+<ul>
+<li>规则定义<ul>
+<li>入场规则：维克多突破</li>
+<li>出场规则：反向维克多突破</li>
+</ul>
+</li>
+<li><p>评价</p>
+<p>简单但完整</p>
+</li>
+</ul>
+</li>
+<li><p>例2</p>
+<ul>
+<li>规则定义<ul>
+<li>入场规则：罗斯钩式突破</li>
+<li>出场规则：反向罗斯钩式突破</li>
+</ul>
+</li>
+<li><p>评价</p>
+<p>完整</p>
+</li>
+</ul>
+</li>
+<li><p>例3</p>
+<ul>
+<li>规则定义<ul>
+<li>入场规则：卡尔汉数突破</li>
+<li>出场规则：反向卡尔汉数突破</li>
+</ul>
+</li>
+<li>评价</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>例4</p>
+<ul>
+<li>规则定义<ul>
+<li>入场规则：W型反转</li>
+<li>出场规则：M型反转</li>
+</ul>
+</li>
+<li><p>评价</p>
+<p>不一定会发生，交易周期不完整</p>
+</li>
+</ul>
+</li>
+<li><p>例5</p>
+<ul>
+<li>规则定义<ul>
+<li>入场规则：晨星式</li>
+<li>出场规则：昏星式</li>
+</ul>
+</li>
+<li><p>评价</p>
+<p>不一定会发生，交易周期不完整</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="基于数学理论"><a href="#基于数学理论" class="headerlink" title="基于数学理论"></a>基于数学理论</h2><p>   需要较强的金融投资理论背景</p>
+<ol>
+<li><p>例1：飞镖系统</p>
+<ul>
+<li><p>规则定义</p>
+<ul>
+<li>入场规则：飞镖击中的股票</li>
+<li>出场规则：持有至规定期限</li>
+</ul>
+</li>
+<li><p>评价</p>
+<p>其收益战胜了华尔街股票分析家，验证了投资学术界的随机行走理论</p>
+</li>
+</ul>
+</li>
+</ol>
+<ol>
+<li><p>例2：以满月为买入信号，以新月为卖出信号。</p>
+<p>这是一个以金融占星术理论为基础的交易系统。该方法以月球引力场的变化来解释地球生态系统的周期性变比。</p>
+</li>
+<li><p>例3：硬币法——以随机选择过程为基础</p>
+<p>（略）</p>
+</li>
+</ol>
+<h2 id="基于基本分析"><a href="#基于基本分析" class="headerlink" title="基于基本分析"></a>基于基本分析</h2><ol>
+<li>P/E小于某一值时买入，P/E大于某一值时卖出</li>
+<li>收益增长率大于某一值时买入，收益增长率小于某一值时卖出</li>
+<li>每年某月买入白糖合约，若干月后平仓（季节波动）</li>
+<li>新建住房开工率持续上升若干月买入铜合约，若干月后平仓（因果关系）</li>
+</ol>
+<h2 id="基于心理分析"><a href="#基于心理分析" class="headerlink" title="基于心理分析"></a>基于心理分析</h2><p>例： 传言开始是进场，传言证实后出场</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>基于人工智能、神经网络、混沌理论（Chaos)等</p>
+<h1 id="用规则引擎驱动交易策略"><a href="#用规则引擎驱动交易策略" class="headerlink" title="用规则引擎驱动交易策略"></a>用规则引擎驱动交易策略</h1><p>尽管要求交易策略要尽可能简单，但是交易信号产生的条件可能五花八门。为了使交易系统具备更好的适应性，还是应该使用<a href="/2012/03/20/rule_engine_1.html">规则引擎</a>来驱动。这就需要将交易策略规则化。</p>
+<p>一般来说，交易策略的规则化需要经过确定规则（定性）、确定参数（定量）以及用规则语言描述（实现）三个步骤。</p>
+<ul>
+<li><p>策略定性</p>
+<p>将交易策略表示为条件与交易信号。对于最简单的交易策略，可能只有入场信号和出场信号。但也会有一些稍复杂的情况需要处理：</p>
+<ul>
+<li>对于期货交易，入场信号可以区分为“做多”和“做空”，出场信号均为“平仓”</li>
+<li>有些交易策略的入场、出场信号可能会划分出不同的风险级别——风险越高的信号，产生的时间越早，可能的获利越大，但判断失误的风险也更大</li>
+<li>完善的交易系统，对于(正确入场,正确出场)、(正确入场,错误出场)、(错误入场,正确出场)、(错误入场,错误出场)  等情况都要考虑到，针对这些情况都要及时给出交易信号</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><p>确定参数</p>
+<p>将策略中可变的部分定义为参数。这些参数可以在引擎中进行设置，以调整策略的具体行为。</p>
+<p>参数可能要经过实际检验，才能得出最优的参数。</p>
+</li>
+<li><p>定义事件</p>
+<p>交易信号都是由某些数据触发，<a href="#menuIndex1">如前</a>所述，这些数据可能是行情、指标、基本面等。</p>
+<p>不管是哪种数据，从规则引擎的角度，都需要定义为<a href="/2013/12/21/event_in_CEP.html">事件(Event)</a>。</p>
+</li>
+<li><p>定义操作</p>
+<p>规则匹配的结果就是产生某种<a href="/2012/12/06/rule_language.html#menuIndex4">操作</a>。<br>考虑到交易策略要与后续的<a href="">资金管理</a>等策略结合，这里将操作也定义为事件，作为资金管理策略的输入。</p>
+</li>
+<li><p>描述规则</p>
+<p>使用前面定义好的参数、事件和操作，用<a href="http://thinkinside.tk/2012/12/06/rule_language.html" target="_blank" rel="external">规则描述语言</a>将定性的策略描述为定量的规则。</p>
+</li>
+</ul>
+<h1 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h1><p>以“简单算术平均线”策略为例，其实现过程如下：</p>
+<ul>
+<li><p>规则定性</p>
+<ol>
+<li>规则1：当短期平均线向上穿越长期平均线时，买入</li>
+<li>规则2：当短期平均线向下穿越长期平均线时，卖出</li>
+</ol>
+</li>
+<li><p>确定参数</p>
+<p>这个策略中，可以作为参数的变量包括：</p>
+<ol>
+<li>选用哪种价格，比如开盘价、收盘价、最高价、最低价等</li>
+<li>短期和长期均线的长度</li>
+</ol>
+<p>为简单起见，这里只把均线的长度作为参数。</p>
+<p>可以在DRL的global部分用全局变量定义规则的参数。这些参数将用于事件属性或规则条件中，用于调整策略的具体行为。如下：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">global</span> <span class="selector-tag">java</span><span class="selector-class">.lang</span><span class="selector-class">.Integer</span> <span class="selector-tag">SHORT_LENGTH</span>;</div><div class="line"><span class="selector-tag">global</span> <span class="selector-tag">java</span><span class="selector-class">.lang</span><span class="selector-class">.Integer</span> <span class="selector-tag">LONG_LENGTH</span>;</div></pre></td></tr></table></figure>
+<p>global参数可以使用在规则引擎会话中，使用<a href="/2013/12/20/drools_API.html#menuIndex1">KnowledgeSession</a>的<code>setGlobal()</code>方法进行设置。</p>
+</li>
+</ul>
+<ul>
+<li><p>事件定义</p>
+<p>定义一个“均线事件”(MAEvent):</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MAEvent</span> &#123;</span></div><div class="line"></div><div class="line">  <span class="keyword">public</span> Date datetime;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">long</span> duration;</div><div class="line"></div><div class="line">  <span class="keyword">public</span> <span class="keyword">int</span> length;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">double</span> average;</div><div class="line">  <span class="keyword">public</span> <span class="keyword">double</span> price;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span></span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="string">""</span>+<span class="keyword">this</span>.getDatetime().toLocaleString()+<span class="string">":MA"</span>+<span class="keyword">this</span>.length+<span class="string">"="</span>+average+<span class="string">"\t("</span>+price+<span class="string">")"</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>并在规则文件中进行声明：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> my.<span class="keyword">package</span>.MAEvent</div><div class="line">……</div><div class="line">declare MAEvent</div><div class="line">  <span class="meta">@role(event)</span></div><div class="line">  <span class="meta">@timestamp( datetime )</span></div><div class="line">  <span class="meta">@duration( duration )</span></div><div class="line">end</div></pre></td></tr></table></figure>
+</li>
+<li><p>定义操作</p>
+<p>这里使用一个“操作信号事件”(SingalEvent)作为操作，符合条件时将该事件<a href="/2012/12/06/rule_language.html#menuIndex4">insert</a>到规则引擎：</p>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">public <span class="class"><span class="keyword">class</span> <span class="title">SignalEvent</span> <span class="keyword">extends</span> <span class="title">AbstractEvent</span></span>&#123;</div><div class="line"></div><div class="line">  public enum <span class="type">SignalType</span>&#123;<span class="type">LONG</span>,<span class="type">SHORT</span>&#125;</div><div class="line"></div><div class="line">  public <span class="type">Date</span> datetime;</div><div class="line">  public long duration;</div><div class="line"></div><div class="line"></div><div class="line">  public <span class="type">SignalType</span> <span class="class"><span class="keyword">type</span></span>;</div><div class="line">  public <span class="type">String</span> strategyName;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在规则文件中声明：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">declare</span> SignalEvent</div><div class="line">  @<span class="keyword">role</span>(<span class="keyword">event</span>)</div><div class="line">  @<span class="keyword">timestamp</span>(datetime)</div><div class="line">  @<span class="keyword">duration</span>(<span class="keyword">duration</span>)</div><div class="line"><span class="keyword">end</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>描述规则</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">rule <span class="string">"LONG SIGNAL"</span></div><div class="line">    when</div><div class="line">        <span class="variable">$MA5_1</span>:MAEvent(<span class="attribute">length</span>==SHORT_LENGTH);</div><div class="line">        <span class="variable">$MA5_0</span>:MAEvent(<span class="attribute">length</span>==SHORT_LENGTH,this meets[1d] <span class="variable">$MA5_1</span>);</div><div class="line">        <span class="variable">$MA20_1</span>:MAEvent(<span class="attribute">length</span>==LONG_LENGTH,this coincides <span class="variable">$MA5_1</span>,average&gt;=<span class="variable">$MA5_1</span>.average);</div><div class="line">        <span class="variable">$MA20_0</span>:MAEvent(<span class="attribute">length</span>==LONG_LENGTH,this meets[1d] <span class="variable">$MA20_1</span>,this coincides <span class="variable">$MA5_0</span>,</div><div class="line">          average&lt;=<span class="variable">$MA5_0</span>.average</div><div class="line">        );</div><div class="line"></div><div class="line">    then</div><div class="line"></div><div class="line">      SignalEvent e = new SignalEvent();</div><div class="line">      e.datetime = <span class="variable">$MA5_1</span>.datetime;</div><div class="line">      e.strategyName = <span class="string">"简单移动平均线策略"</span>;</div><div class="line">      e.type = SignalEvent.SignalType.LONG;</div><div class="line">      e.price = <span class="variable">$MA5_1</span>.price;</div><div class="line">        insert(e);</div><div class="line"></div><div class="line">    System.out.println(e);</div><div class="line">end</div><div class="line"></div><div class="line">rule <span class="string">"SHORT SIGNAL"</span></div><div class="line">    when</div><div class="line">        <span class="variable">$MA5_1</span>:MAEvent(<span class="attribute">length</span>==SHORT_LENGTH);</div><div class="line">        <span class="variable">$MA5_0</span>:MAEvent(<span class="attribute">length</span>==SHORT_LENGTH,this meets[1d] <span class="variable">$MA5_1</span>);</div><div class="line">        <span class="variable">$MA20_1</span>:MAEvent(<span class="attribute">length</span>==LONG_LENGTH,this coincides <span class="variable">$MA5_1</span>,average&lt;=<span class="variable">$MA5_1</span>.average);</div><div class="line">        <span class="variable">$MA20_0</span>:MAEvent(<span class="attribute">length</span>==LONG_LENGTH,this meets[1d] <span class="variable">$MA20_1</span>, this coincides <span class="variable">$MA5_0</span>,</div><div class="line">          average&gt;=<span class="variable">$MA5_0</span>.average</div><div class="line">        );</div><div class="line"></div><div class="line">    then</div><div class="line">        SignalEvent e = new SignalEvent();</div><div class="line">      e.datetime = <span class="variable">$MA5_1</span>.datetime;</div><div class="line">      e.strategyName = <span class="string">"简单移动平均线策略"</span>;</div><div class="line">      e.type = SignalEvent.SignalType.SHORT;</div><div class="line">      e.price = <span class="variable">$MA5_1</span>.price;</div><div class="line">        insert(e);</div><div class="line"></div><div class="line">        System.out.println(e);</div><div class="line"></div><div class="line">end</div></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/交易系统/" rel="tag"># 交易系统</a>
+          
+            <a href="/tags/规则引擎/" rel="tag"># 规则引擎</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/quant/Berkeley_DB.html" rel="next" title="使用Oracle Berkeley DB持久化股票行情数据">
+                <i class="fa fa-chevron-left"></i> 使用Oracle Berkeley DB持久化股票行情数据
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/software_technology/drools_API.html" rel="prev" title="Drools规则引擎API概述">
+                Drools规则引擎API概述 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Holbrook</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">91</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/holbrook" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:wanghaikuo@tsinghua.org.cn" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.douban.com/people/168633248/" target="_blank" title="豆瓣">
+                    
+                      <i class="fa fa-fw fa-douban"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#交易策略的要点"><span class="nav-number">1.</span> <span class="nav-text">交易策略的要点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#交易策略的种类"><span class="nav-number">2.</span> <span class="nav-text">交易策略的种类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于技术指标"><span class="nav-number">2.1.</span> <span class="nav-text">基于技术指标</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于统计分析"><span class="nav-number">2.2.</span> <span class="nav-text">基于统计分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于图形分析"><span class="nav-number">2.3.</span> <span class="nav-text">基于图形分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于数学理论"><span class="nav-number">2.4.</span> <span class="nav-text">基于数学理论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于基本分析"><span class="nav-number">2.5.</span> <span class="nav-text">基于基本分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基于心理分析"><span class="nav-number">2.6.</span> <span class="nav-text">基于心理分析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他"><span class="nav-number">2.7.</span> <span class="nav-text">其他</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#用规则引擎驱动交易策略"><span class="nav-number">3.</span> <span class="nav-text">用规则引擎驱动交易策略</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例"><span class="nav-number">4.</span> <span class="nav-text">实例</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Holbrook</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7-rc3/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'zUfVbs5n4oyicDn3XvALUDTT-gzGzoHsz',
+        app_key: '0jvfoj6veWsDfOsYNd976DMC',
+        placeholder: 'Comment input placeholder'
+    });
+  </script>
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("zUfVbs5n4oyicDn3XvALUDTT-gzGzoHsz", "0jvfoj6veWsDfOsYNd976DMC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
