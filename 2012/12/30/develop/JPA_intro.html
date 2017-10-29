@@ -1,0 +1,1172 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="心内求法" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="JPA定义了Java ORM及实体操作API的标准。本文摘录了JPA的一些关键信息以备查阅。如果有hibernate的基础，通过本文也可以快速掌握JPA的基本概念及使用。 1 JPA概述JPA（Java Persistence API，Java持久化API），定义了对象-关系映射（ORM）以及实体对象持久化的标准接口。 JPA1.0是JSR-220（EJB3.0）规范的一部分，在JSR-220中规">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JPA概要">
+<meta property="og:url" content="http://holbrook.github.io/2012/12/30/develop/JPA_intro.html">
+<meta property="og:site_name" content="心内求法">
+<meta property="og:description" content="JPA定义了Java ORM及实体操作API的标准。本文摘录了JPA的一些关键信息以备查阅。如果有hibernate的基础，通过本文也可以快速掌握JPA的基本概念及使用。 1 JPA概述JPA（Java Persistence API，Java持久化API），定义了对象-关系映射（ORM）以及实体对象持久化的标准接口。 JPA1.0是JSR-220（EJB3.0）规范的一部分，在JSR-220中规">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holbrook.github.io/2012/12/30/develop/JPA_intro.html/arcitecture.png">
+<meta property="og:image" content="http://holbrook.github.io/2012/12/30/develop/JPA_intro.html/api.png">
+<meta property="og:image" content="http://holbrook.github.io/2012/12/30/develop/JPA_intro.html/lifecycle.png">
+<meta property="og:image" content="http://holbrook.github.io/2012/12/30/develop/JPA_intro.html/events.png">
+<meta property="og:updated_time" content="2017-10-26T10:54:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JPA概要">
+<meta name="twitter:description" content="JPA定义了Java ORM及实体操作API的标准。本文摘录了JPA的一些关键信息以备查阅。如果有hibernate的基础，通过本文也可以快速掌握JPA的基本概念及使用。 1 JPA概述JPA（Java Persistence API，Java持久化API），定义了对象-关系映射（ORM）以及实体对象持久化的标准接口。 JPA1.0是JSR-220（EJB3.0）规范的一部分，在JSR-220中规">
+<meta name="twitter:image" content="http://holbrook.github.io/2012/12/30/develop/JPA_intro.html/arcitecture.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '2D390ZMGCJ',
+      apiKey: '98fe25d384567f4447d37429b35a233e',
+      indexName: 'thinkinside',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holbrook.github.io/2012/12/30/develop/JPA_intro.html"/>
+
+
+
+
+
+  <title>JPA概要 | 心内求法</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?16d951e9b49ded5f2e821a0e61d77797";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">心内求法</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Holbrook的个人博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holbrook.github.io/2012/12/30/develop/JPA_intro.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Holbrook">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心内求法">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">JPA概要</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2012-12-30T00:00:00+08:00">
+                2012-12-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件开发/" itemprop="url" rel="index">
+                    <span itemprop="name">软件开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2012/12/30/develop/JPA_intro.html" class="leancloud_visitors" data-flag-title="JPA概要">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JPA定义了Java ORM及实体操作API的标准。本文摘录了JPA的一些关键信息以备查阅。如果有hibernate的基础，通过本文也可以快速掌握JPA的基本概念及使用。</p>
+<h1 id="1-JPA概述"><a href="#1-JPA概述" class="headerlink" title="1 JPA概述"></a>1 JPA概述</h1><p>JPA（Java Persistence API，Java持久化API），定义了对象-关系映射（ORM）以及实体对象持久化的标准接口。</p>
+<p>JPA1.0是<a href="https://jcp.org/en/jsr/detail?id=220" target="_blank" rel="external">JSR-220</a>（EJB3.0）规范的一部分，在JSR-220中规定实体对象（EntityBean）由JPA进行支持。</p>
+<p>后来，JPA2.0迁移到<a href="https://jcp.org/en/jsr/detail?id=317" target="_blank" rel="external">JSR-317</a>（Java Persistence 2.0），已经不局限于EJB3.0，而是作为POJO持久化的标准规范，可以脱离容器独立运行，开发和测试更加方便。</p>
+<p>JPA在应用中的位置如下图所示：</p>
+<img src="/2012/12/30/develop/JPA_intro.html/arcitecture.png" alt="arcitecture" title="arcitecture">
+<p>JPA维护一个Persistence Context（持久化上下文），在持久化上下文中维护实体的生命周期。主要包含三个方面的内容：</p>
+<ul>
+<li>ORM元数据。JPA支持annotion或xml两种形式描述对象-关系映射。</li>
+<li>实体操作API。实现对实体对象的CRUD操作。</li>
+<li>查询语言。约定了面向对象的查询语言JPQL（Java Persistence Query Language）。</li>
+</ul>
+<p>JPA的主要API都定义在javax.persistence包中。</p>
+<img src="/2012/12/30/develop/JPA_intro.html/api.png" alt="arcitecture" title="arcitecture">
+<p>如果你熟悉Hibernate，可以很容易做出对应：</p>
+<table style="border-collapse: collapse;" border="2" frame="hsides" rules="groups" cellspacing="0" cellpadding="6"><caption>&nbsp;</caption><colgroup><col class="left" style="margin-left: 0px; margin-right: auto; text-align: left;"><col class="left" style="margin-left: 0px; margin-right: auto; text-align: left;"><col class="left" style="margin-left: 0px; margin-right: auto; text-align: left;"></colgroup><br><thead><br><tr><th class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: center;" scope="col">org.hibernate</th><th class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: center;" scope="col">javax.persistence</th><th class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: center;" scope="col">说明</th></tr><br></thead><br><tbody><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">cfg.Configuration</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">Persistence</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">读取配置信息</td><br></tr><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">SessionFactory</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">EntityManagerFactory</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">用于创建会话/实体管理器的工厂类</td><br></tr><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">Session</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">EntityManager</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">提供实体操作API，管理事务，创建查询</td><br></tr><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">Transaction</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">EntityTransaction</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">管理事务</td><br></tr><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">Query</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">Query</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">执行查询</td><br></tr><br></tbody><br></table>
+
+
+<h1 id="2-实体生命周期"><a href="#2-实体生命周期" class="headerlink" title="2 实体生命周期"></a>2 实体生命周期</h1><p>实体生命周期是JPA中非常重要的概念，描述了实体对象从创建到受控、从删除到游离的状态变换。对实体的操作主要就是改变实体的状态。</p>
+<p>JPA中实体的生命周期如下图：</p>
+<img src="/2012/12/30/develop/JPA_intro.html/lifecycle.png" alt="arcitecture" title="arcitecture">
+<ol>
+<li>New，新创建的实体对象，没有主键(identity)值</li>
+<li>Managed，对象处于Persistence Context(持久化上下文）中，被EntityManager管理</li>
+<li>Detached，对象已经游离到Persistence Context之外，进入Application Domain</li>
+<li>Removed, 实体对象被删除</li>
+</ol>
+<p>EntityManager提供一系列的方法管理实体对象的生命周期，包括：</p>
+<ol>
+<li>persist, 将新创建的或已删除的实体转变为Managed状态，数据存入数据库。</li>
+<li>remove，删除受控实体</li>
+<li>merge，将游离实体转变为Managed状态，数据存入数据库。</li>
+</ol>
+<p>如果使用了事务管理，则事务的commit/rollback也会改变实体的状态。</p>
+<h1 id="3-实体关系映射（ORM）"><a href="#3-实体关系映射（ORM）" class="headerlink" title="3 实体关系映射（ORM）"></a>3 实体关系映射（ORM）</h1><h2 id="3-1-基本映射"><a href="#3-1-基本映射" class="headerlink" title="3.1 基本映射"></a>3.1 基本映射</h2><table style="border-collapse: collapse;" border="2" frame="hsides" rules="groups" cellspacing="0" cellpadding="6"><caption>&nbsp;</caption><colgroup><col class="left" style="margin-left: 0px; margin-right: auto; text-align: left;"><col class="left" style="margin-left: 0px; margin-right: auto; text-align: left;"><col class="left" style="margin-left: 0px; margin-right: auto; text-align: left;"><col class="left" style="margin-left: 0px; margin-right: auto; text-align: left;"></colgroup><br><thead><br><tr><th class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: center;" scope="col">对象端</th><th class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: center;" scope="col">数据库端</th><th class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: center;" scope="col">annotion</th><th class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: center;" scope="col">可选annotion</th></tr><br></thead><br><tbody><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">Class</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">Table</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@Entity</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@Table(name=”table_name”)</td><br></tr><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">property</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">column</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">–</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@Column(name = “column_name”)</td><br></tr><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">property</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">primary key</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@Id</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@GeneratedValue 详见ID生成策略</td><br></tr><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">property</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">NONE</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@Transient</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">&nbsp;</td><br></tr><br></tbody><br></table>
+
+
+<h2 id="3-2-ID生成策略"><a href="#3-2-ID生成策略" class="headerlink" title="3.2 ID生成策略"></a>3.2 ID生成策略</h2><p>ID对应数据库表的主键，是保证唯一性的重要属性。JPA提供了以下几种ID生成策略：</p>
+<ol>
+<li>GeneratorType.AUTO ，由JPA自动生成</li>
+<li>GenerationType.IDENTITY，使用数据库的自增长字段，需要数据库的支持（如SQL Server、MySQL、DB2、Derby等）</li>
+<li>GenerationType.SEQUENCE，使用数据库的序列号，需要数据库的支持（如Oracle）</li>
+<li><p>GenerationType.TABLE，使用指定的数据库表记录ID的增长 需要定义一个TableGenerator，在@GeneratedValue中引用。例如：</p>
+<p>@TableGenerator( name=”myGenerator”, table=”GENERATORTABLE”, pkColumnName = “ENTITYNAME”, pkColumnValue=”MyEntity”, valueColumnName = “PKVALUE”, allocationSize=1 )</p>
+<p>@GeneratedValue(strategy = GenerationType.TABLE,generator=”myGenerator”)</p>
+</li>
+</ol>
+<h2 id="3-3-关联关系"><a href="#3-3-关联关系" class="headerlink" title="3.3 关联关系"></a>3.3 关联关系</h2><p>JPA定义了one-to-one、one-to-many、many-to-one、many-to-many 4种关系。</p>
+<p>对于数据库来说，通常在一个表中记录对另一个表的外键关联；对应到实体对象，持有关联数据的一方称为owning-side，另一方称为inverse-side。</p>
+<p>为了编程的方便，我们经常会希望在inverse-side也能引用到owning-side的对象，此时就构建了双向关联关系。 在双向关联中，需要在inverse-side定义mappedBy属性，以指明在owning-side是哪一个属性持有的关联数据。</p>
+<p>对关联关系映射的要点如下：</p>
+<table style="border-collapse: collapse;" border="2" frame="hsides" rules="groups" cellspacing="0" cellpadding="6"><caption>&nbsp;</caption><colgroup><col class="left" style="margin-left: 0px; margin-right: auto; text-align: left;"><col class="left" style="margin-left: 0px; margin-right: auto; text-align: left;"><col class="left" style="margin-left: 0px; margin-right: auto; text-align: left;"></colgroup><br><thead><br><tr><th class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: center;" scope="col">关系类型</th><th class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: center;" scope="col">Owning-Side</th><th class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: center;" scope="col">Inverse-Side</th></tr><br></thead><br><tbody><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">one-to-one</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@OneToOne</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@OneToOne(mappedBy=”othersideName”)</td><br></tr><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">one-to-many / many-to-one</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@ManyToOne</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@OneToMany(mappedBy=”xxx”)</td><br></tr><br><tr><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">many-to-many</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@ManyToMany</td><br><td class="left" style="vertical-align: top; margin-left: 0px; margin-right: auto; text-align: left;">@ManyToMany(mappedBy =”xxx”)</td><br></tr><br></tbody><br></table>
+
+
+<p>其中 many-to-many关系的owning-side可以使用@JoinTable声明自定义关联表，比如Book和Author之间的关联表：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@JoinTable</span>(name = <span class="string">"BOOKAUTHOR"</span>, joinColumns = &#123; <span class="variable">@JoinColumn</span>(name = <span class="string">"BOOKID"</span>, referencedColumnName = <span class="string">"id"</span>) &#125;, inverseJoinColumns = &#123; <span class="variable">@JoinColumn</span>(name = <span class="string">"AUTHORID"</span>, referencedColumnName = <span class="string">"id"</span>) &#125;)</div></pre></td></tr></table></figure>
+<p>关联关系还可以定制延迟加载和级联操作的行为（owning-side和inverse-side可以分别设置）：</p>
+<p>通过设置fetch=FetchType.LAZY 或 fetch=FetchType.EAGER来决定关联对象是延迟加载或立即加载。</p>
+<p>通过设置cascade={options}可以设置级联操作的行为，其中options可以是以下组合：</p>
+<ul>
+<li>CascadeType.MERGE 级联更新</li>
+<li>CascadeType.PERSIST 级联保存</li>
+<li>CascadeType.REFRESH 级联刷新</li>
+<li>CascadeType.REMOVE 级联删除</li>
+<li>CascadeType.ALL 级联上述4种操作</li>
+</ul>
+<h2 id="3-4-继承关系"><a href="#3-4-继承关系" class="headerlink" title="3.4 继承关系"></a>3.4 继承关系</h2><p>JPA通过在父类增加@Inheritance(strategy=InheritanceType.xxx)来声明继承关系。A支持3种继承策略：</p>
+<ul>
+<li>单表继承（InheritanceType.SINGLETABLE），所有继承树上的类共用一张表，在父类指定（@DiscriminatorColumn）声明并在每个类指定@DiscriminatorValue来区分类型。</li>
+<li>类表继承（InheritanceType.JOINED），父子类共同的部分公用一张表，其余部分保存到各自的表，通过join进行关联。</li>
+<li>具体表继承（InheritanceType.TABLEPERCLASS)，每个具体类映射到自己的表。</li>
+</ul>
+<p>其中1和2能够支持多态，但是1需要允许字段为NULL，2需要多个JOIN关系；3最适合关系数据库，对多态支持不好。具体应用时根据需要取舍。</p>
+<h2 id="3-5-值对象、关联表"><a href="#3-5-值对象、关联表" class="headerlink" title="3.5 值对象、关联表"></a>3.5 值对象、关联表</h2><p>在领域驱动设计(DDD)中，值对象不具有唯一标识，而是依附在实体上，只能通过实体获取。</p>
+<p>通常，值对象的字段作为所嵌入的实体对象对应的表中的字段。如有必要，也可以通过<code>@SecondaryTable</code>和<code>@AttributeOverrides</code>注解将值对象的字段放到关联表中。</p>
+<p>JPA使用<code>@Embeddable</code>标记一个类为值对象；在实体对象中使用<code>@Embedded</code>使用值对象作为属性。</p>
+<p>比如：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@Embeddable</span></div><div class="line">public class Address &#123;</div><div class="line">    <span class="selector-tag">private</span> <span class="selector-tag">String</span> <span class="selector-tag">street</span>;</div><div class="line">    <span class="selector-tag">private</span> <span class="selector-tag">String</span> <span class="selector-tag">city</span>;</div><div class="line">    <span class="selector-tag">private</span> <span class="selector-tag">String</span> <span class="selector-tag">state</span>;</div><div class="line">    @<span class="selector-tag">Column</span>(name=<span class="string">"ZIP_CODE"</span>)</div><div class="line">    <span class="selector-tag">private</span> <span class="selector-tag">String</span> <span class="selector-tag">zip</span>;</div><div class="line">    ……</div><div class="line">&#125;</div><div class="line"></div><div class="line">@<span class="selector-tag">Entity</span></div><div class="line">@<span class="selector-tag">Table</span>(name=<span class="string">"EMP"</span>)</div><div class="line">@<span class="selector-tag">SecondaryTable</span>(name=<span class="string">"EMP_ADDRESS"</span>,</div><div class="line">                pkJoinColumns=<span class="variable">@PrimaryKeyJoinColumn</span>(name=<span class="string">"EMP_ID"</span>))</div><div class="line"><span class="selector-tag">public</span> <span class="selector-tag">class</span> <span class="selector-tag">Professor</span> &#123;</div><div class="line">    <span class="variable">@Id</span> private int id;</div><div class="line">    <span class="selector-tag">private</span> <span class="selector-tag">String</span> <span class="selector-tag">name</span>;</div><div class="line">    @<span class="selector-tag">Embedded</span></div><div class="line">    @<span class="selector-tag">AttributeOverrides</span>(&#123;</div><div class="line">        <span class="variable">@AttributeOverride</span>(name=<span class="string">"street"</span>, column=<span class="variable">@Column</span>(table=<span class="string">"EMP_ADDRESS"</span>)),</div><div class="line">        <span class="variable">@AttributeOverride</span>(name=<span class="string">"city"</span>, column=<span class="variable">@Column</span>(name=<span class="string">"CITY"</span>, table=<span class="string">"EMP_ADDRESS"</span>)),</div><div class="line">        <span class="variable">@AttributeOverride</span>(name=<span class="string">"state"</span>, column=<span class="variable">@Column</span>(name=<span class="string">"STATE"</span>, table=<span class="string">"EMP_ADDRESS"</span>)),</div><div class="line">        <span class="variable">@AttributeOverride</span>(name=<span class="string">"zip"</span>,</div><div class="line">                           column=<span class="variable">@Column</span>(name=<span class="string">"ZIP_CODE"</span>, table=<span class="string">"EMP_ADDRESS"</span>))</div><div class="line">    &#125;)</div><div class="line">    <span class="selector-tag">private</span> <span class="selector-tag">Address</span> <span class="selector-tag">address</span>;</div><div class="line">    ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="3-6-复合主键"><a href="#3-6-复合主键" class="headerlink" title="3.6 复合主键"></a>3.6 复合主键</h2><p>JPA中，可以使用<code>@EmbeddedId</code>主键将一个值对象声明为复合主键。作为复合主键的值对象要实现<code>Serializable</code>接口，<br>并覆盖<code>equals</code>和<code>hashCode</code>方法：</p>
+<p>比如：</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Embeddable</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SectionPK</span> <span class="title">implements</span> <span class="title">Serializable</span></span>&#123;</div><div class="line">  <span class="meta">@ManyToOne</span></div><div class="line">  <span class="keyword">private</span> Security target;</div><div class="line">  <span class="keyword">private</span> Interval interval;</div><div class="line">  <span class="keyword">private</span> Date datetime;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="keyword">public</span> int hashCode() &#123;</div><div class="line">      <span class="keyword">final</span> int prime = <span class="number">31</span>;</div><div class="line">      int result = <span class="number">1</span>;</div><div class="line">      result = prime * result + ((target == <span class="literal">null</span>) ? <span class="number">0</span> : target.hashCode());</div><div class="line">      result = prime * result</div><div class="line">              + ((datetime == <span class="literal">null</span>) ? <span class="number">0</span> : datetime.hashCode());</div><div class="line">      result = prime * result +</div><div class="line">          ((interval == <span class="literal">null</span>) ? <span class="number">0</span> : interval.hashCode());</div><div class="line">      <span class="keyword">return</span> result;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="meta">@Override</span></div><div class="line">  <span class="keyword">public</span> boolean equals(Object obj) &#123;</div><div class="line">      <span class="keyword">if</span> (<span class="keyword">this</span> == obj)</div><div class="line">          <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">      <span class="keyword">if</span> (obj == <span class="literal">null</span>)</div><div class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">      <span class="keyword">if</span> (getClass() != obj.getClass())</div><div class="line">          <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line"></div><div class="line">      SectionPK other = (SectionPK) obj;</div><div class="line">      <span class="keyword">if</span>(!isEqual(<span class="keyword">this</span>.getDatetime(),other.getDatetime()))</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">      <span class="keyword">if</span>(!isEqual(<span class="keyword">this</span>.getInterval(),other.getInterval()))</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">      <span class="keyword">if</span>(!isEqual(<span class="keyword">this</span>.getTarget(),other.getTarget()))</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">      <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">private</span> boolean isEqual(Object obj1,Object obj2)&#123;</div><div class="line">    <span class="keyword">if</span>(obj1==<span class="literal">null</span>)&#123;</div><div class="line">      <span class="keyword">if</span>(obj2!=<span class="literal">null</span>)</div><div class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;<span class="keyword">else</span> <span class="keyword">if</span>(!obj1.equals(obj2))&#123;</div><div class="line">      <span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Entity</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Section</span> </span>&#123;</div><div class="line">  <span class="meta">@EmbeddedId</span></div><div class="line">  SectionPK key;</div><div class="line">  ……</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="3-7-集合映射"><a href="#3-7-集合映射" class="headerlink" title="3.7 集合映射"></a>3.7 集合映射</h2><p>从JPA2.0开始，不仅支持实体集合的映射，还支持基本类型(如String,Integer等）集合以及值对象(Embeded)集合的映射。</p>
+<p>JPA通过<code>@ElementCollection</code>注解集合映射，可以自动检测元素类型，也可以通过<code>targetClass</code>参数指定。</p>
+<p>通过<code>@CollectionTable</code>注解可以指定集合表的详细信息。当然，也可以使用<code>@JoinTable</code>注解进行指定。</p>
+<p>比如，基本类型集合的映射：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Set</span></div><div class="line">    <span class="variable">@ElementCollection</span></div><div class="line">    <span class="variable">@JoinTable</span>(name = <span class="string">"item"</span>, joinColumns = &#123; <span class="variable">@JoinColumn</span>(nullable = false, name = <span class="string">"item_id"</span>, referencedColumnName = <span class="string">"id"</span>) &#125;)</div><div class="line">    <span class="variable">@Column</span>(name = <span class="string">"filename"</span>, nullable = false)</div><div class="line">    private Set&lt;String&gt; images = new HashSet&lt;String&gt;();</div><div class="line"></div><div class="line"><span class="comment">//List</span></div><div class="line">    <span class="variable">@ElementCollection</span>(targetClass = java.lang.String.class)</div><div class="line">    <span class="variable">@JoinTable</span>(name = <span class="string">"item"</span>, joinColumns = &#123; <span class="variable">@JoinColumn</span>(nullable = false, name = <span class="string">"item_id"</span>) &#125;)</div><div class="line">    <span class="variable">@IndexColumn</span>(name = <span class="string">"position"</span>, base = <span class="number">1</span>)</div><div class="line">    <span class="variable">@Column</span>(name = <span class="string">"filename"</span>, nullable = false)</div><div class="line">    <span class="variable">@OrderBy</span>(clause=<span class="string">"item_id desc"</span>)</div><div class="line">    private List&lt;String&gt; listImages = new ArrayList&lt;String&gt;();</div><div class="line"></div><div class="line"><span class="comment">//Map</span></div><div class="line">    <span class="variable">@ElementCollection</span></div><div class="line">    <span class="variable">@JoinTable</span>(name=<span class="string">"item"</span>, joinColumns=&#123; <span class="variable">@JoinColumn</span>(nullable=false, name=<span class="string">"item_id"</span>)&#125;)</div><div class="line">    <span class="variable">@MapKeyColumn</span>(name=<span class="string">"map_key"</span>)</div><div class="line">    <span class="variable">@Column</span>(name=<span class="string">"filename"</span>, nullable=false)</div><div class="line">    private Map&lt;String, String&gt; mapImages = new HashMap&lt;String, String&gt;();</div></pre></td></tr></table></figure>
+<p>值对象集合映射：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">public enum FeatureType &#123; AC, CRUISE, PWR, BLUETOOTH, TV, ... &#125;</div><div class="line"></div><div class="line">@Embeddable</div><div class="line">public class ServiceVisit &#123;</div><div class="line">……</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">@Entity</div><div class="line">public class Vehicle &#123;</div><div class="line">@Id</div><div class="line">int vin;</div><div class="line"></div><div class="line">@ElementCollection</div><div class="line">@CollectionTable(name="VEH_OPTNS")</div><div class="line">@Column(name="FEAT")</div><div class="line">Set&lt;FeatureType&gt; optionalFeatures;</div><div class="line"></div><div class="line">@ElementCollection</div><div class="line">@CollectionTable(name="VEH_SVC")</div><div class="line">@OrderBy("serviceDate")</div><div class="line">List&lt;ServiceVisit&gt; serviceHistory;</div></pre></td></tr></table></figure>
+<h1 id="4-事件及监听"><a href="#4-事件及监听" class="headerlink" title="4 事件及监听"></a>4 事件及监听</h1><img src="/2012/12/30/develop/JPA_intro.html/events.png" alt="events" title="events">
+<p>通过在实体的方法上标注@PrePersist，@PostPersist等声明即可在事件发生时触发这些方法。</p>
+<h1 id="5-Query-Language-查询语言"><a href="#5-Query-Language-查询语言" class="headerlink" title="5 Query Language 查询语言"></a>5 Query Language 查询语言</h1><p>JPA提供两种查询方式，一种是根据主键查询，使用EntityManager的find方法：</p>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">T find(<span class="keyword">Class</span> entityClass, <span class="keyword">Object</span> primaryKey)</div></pre></td></tr></table></figure>
+<p>另一种就是使用JPQL查询语言。JPQL是完全面向对象的，具备继承、多态和关联等特性，和hibernate HQL很相似。</p>
+<p>使用EntityManager的createQuery方法：</p>
+<figure class="highlight lisp"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Query createQuery(<span class="name">String</span> qlString)</div></pre></td></tr></table></figure>
+<h2 id="5-1-使用参数"><a href="#5-1-使用参数" class="headerlink" title="5.1 使用参数"></a>5.1 使用参数</h2><p>可以在JPQL语句中使用参数。JPQL支持命名参数和位置参数两种参数，但是在一条JPQL语句中所有的参数只能使用同一种类型。</p>
+<p>举例如下：</p>
+<ul>
+<li><p>命令参数</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Query query = em.createQuery("<span class="keyword">select</span> p <span class="keyword">from</span> Person p <span class="keyword">where</span> p.personid=:<span class="keyword">Id</span><span class="string">");</span></div><div class="line"><span class="string">query.setParameter("</span><span class="keyword">Id</span><span class="string">",new Integer(1));</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>位置参数</p>
+</li>
+</ul>
+  <figure class="highlight stata"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">Query</span> <span class="keyword">query</span> = em.createQuery(<span class="string">"select p from Person p where p.personid=?1"</span>);</div><div class="line"><span class="keyword">query</span>.setParameter(1,new Integer(1));</div></pre></td></tr></table></figure>
+<h2 id="5-2-命名查询"><a href="#5-2-命名查询" class="headerlink" title="5.2 命名查询"></a>5.2 命名查询</h2><p>如果某个JPQL语句需要在多个地方使用，还可以使用<code>@NamedQuery</code> 或者 <code>@NamedQueries</code>在实体对象上预定义命名查询。</p>
+<p>在需要调用的地方只要引用该查询的名字即可。</p>
+<p>例如：</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="variable">@NamedQuery</span>(name=<span class="string">"getPerson"</span>, query= <span class="string">"FROM Person WHERE personid=?1"</span>)</div><div class="line"></div><div class="line"><span class="variable">@NamedQueries</span>(&#123; <span class="variable">@NamedQuery</span>(name=<span class="string">"getPerson1"</span>, query= <span class="string">"FROM Person WHERE personid=?1"</span>), <span class="variable">@NamedQuery</span>(name=<span class="string">"getPersonList"</span>, query= <span class="string">"FROM Person WHERE age&gt;?1"</span>) &#125;)</div><div class="line"></div><div class="line">Query query = em.createNamedQuery(<span class="string">"getPerson"</span>);</div></pre></td></tr></table></figure>
+<h2 id="5-3-排序"><a href="#5-3-排序" class="headerlink" title="5.3 排序"></a>5.3 排序</h2><p>JPQL也支持排序，类似于SQL中的语法。例如：</p>
+<figure class="highlight n1ql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Query query = em.createQuery("<span class="keyword">select</span> p <span class="keyword">from</span> Person p <span class="keyword">order</span> <span class="keyword">by</span> p.age, p.birthday <span class="keyword">desc</span><span class="string">");</span></div></pre></td></tr></table></figure>
+<h2 id="5-4-聚合查询"><a href="#5-4-聚合查询" class="headerlink" title="5.4 聚合查询"></a>5.4 聚合查询</h2><p>JPQL支持AVG、SUM、COUNT、MAX、MIN五个聚合函数。例如：</p>
+<figure class="highlight ebnf"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="attribute">Query query</span> = em.createQuery(<span class="string">"select max(p.age) from Person p"</span>);</div><div class="line"><span class="attribute">Object result</span> = query.getSingleResult(); <span class="attribute">S</span><span class="attribute">t</span><span class="attribute">r</span><span class="attribute">i</span><span class="attribute">n</span><span class="attribute">g</span> <span class="attribute">m</span><span class="attribute">a</span><span class="attribute">x</span><span class="attribute">A</span><span class="attribute">g</span><span class="attribute">e</span> = result.toString();</div></pre></td></tr></table></figure>
+<h2 id="5-5-更新和删除"><a href="#5-5-更新和删除" class="headerlink" title="5.5 更新和删除"></a>5.5 更新和删除</h2><p>JPQL不仅用于查询，还可以用于批量更新和删除。如：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Query query = em.createQuery("<span class="keyword">update</span> <span class="keyword">Order</span> <span class="keyword">as</span> o <span class="keyword">set</span> o.amount=o.amount+<span class="number">10</span><span class="string">"); //update 的记录数 int result = query.executeUpdate();</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">Query query = em.createQuery("</span><span class="keyword">delete</span> <span class="keyword">from</span> OrderItem item <span class="keyword">where</span> item.order <span class="keyword">in</span>(<span class="keyword">from</span> <span class="keyword">Order</span> <span class="keyword">as</span> o <span class="keyword">where</span> o.amount&lt;<span class="number">100</span>)<span class="string">");</span></div><div class="line"><span class="string">query.executeUpdate();</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">query = em.createQuery("</span><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">Order</span> <span class="keyword">as</span> o <span class="keyword">where</span> o.amount&lt;<span class="number">100</span><span class="string">");</span></div><div class="line"><span class="string">query.executeUpdate();//delete的记录数</span></div></pre></td></tr></table></figure>
+<h2 id="5-6-更多"><a href="#5-6-更多" class="headerlink" title="5.6 更多"></a>5.6 更多</h2><p>与SQL类似，JPQL还涉及到更多的语法，可以参考<a href="http://docs.oracle.com/cd/E11035_01/kodo41/full/html/ejb3_langref.html" target="_blank" rel="external">这里</a>。</p>
+<h2 id="6-事务管理"><a href="#6-事务管理" class="headerlink" title="6 事务管理"></a>6 事务管理</h2><p>JPA支持本地事务管理（RESOURCELOCAL）和容器事务管理（JTA），容器事务管理只能用在EJB/Web容器环境中。</p>
+<p>事务管理的类型可以在persistence.xml文件中的“transaction-type”元素配置。</p>
+<p>JPA中通过EntityManager的getTransaction()方法获取事务的实例（EntityTransaction），之后可以调用事务的begin()、commit()、rollback()方法。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2012/12/07/develop/jsr94.html" rel="next" title="Java规则引擎规范：JSR94">
+                <i class="fa fa-chevron-left"></i> Java规则引擎规范：JSR94
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/01/01/develop/money.html" rel="prev" title="你真的会数钱吗？">
+                你真的会数钱吗？ <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Holbrook</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/holbrook" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:wanghaikuo@tsinghua.org.cn" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.douban.com/people/168633248/" target="_blank" title="豆瓣">
+                    
+                      <i class="fa fa-fw fa-douban"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-JPA概述"><span class="nav-number">1.</span> <span class="nav-text">1 JPA概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-实体生命周期"><span class="nav-number">2.</span> <span class="nav-text">2 实体生命周期</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-实体关系映射（ORM）"><span class="nav-number">3.</span> <span class="nav-text">3 实体关系映射（ORM）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-基本映射"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 基本映射</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-ID生成策略"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 ID生成策略</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-关联关系"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 关联关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-4-继承关系"><span class="nav-number">3.4.</span> <span class="nav-text">3.4 继承关系</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-5-值对象、关联表"><span class="nav-number">3.5.</span> <span class="nav-text">3.5 值对象、关联表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-6-复合主键"><span class="nav-number">3.6.</span> <span class="nav-text">3.6 复合主键</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-7-集合映射"><span class="nav-number">3.7.</span> <span class="nav-text">3.7 集合映射</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-事件及监听"><span class="nav-number">4.</span> <span class="nav-text">4 事件及监听</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-Query-Language-查询语言"><span class="nav-number">5.</span> <span class="nav-text">5 Query Language 查询语言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#5-1-使用参数"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 使用参数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-2-命名查询"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 命名查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-3-排序"><span class="nav-number">5.3.</span> <span class="nav-text">5.3 排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-4-聚合查询"><span class="nav-number">5.4.</span> <span class="nav-text">5.4 聚合查询</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-5-更新和删除"><span class="nav-number">5.5.</span> <span class="nav-text">5.5 更新和删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-6-更多"><span class="nav-number">5.6.</span> <span class="nav-text">5.6 更多</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-事务管理"><span class="nav-number">5.7.</span> <span class="nav-text">6 事务管理</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Holbrook</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7-rc3/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'zUfVbs5n4oyicDn3XvALUDTT-gzGzoHsz',
+        app_key: '0jvfoj6veWsDfOsYNd976DMC',
+        placeholder: 'Comment input placeholder'
+    });
+  </script>
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("zUfVbs5n4oyicDn3XvALUDTT-gzGzoHsz", "0jvfoj6veWsDfOsYNd976DMC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>

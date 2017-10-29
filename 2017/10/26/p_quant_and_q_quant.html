@@ -1,0 +1,1062 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="心内求法, 博客" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="心内求法" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="Q 度量和 P 度量Q是指风险中性测度。风险中性的意思主要是说历史数据不能帮助你预测未来的走势，所以你的决策是没有风险补偿的。这当然是一个非常虚幻的假设，但是由此而得的模型可以给出漂亮的数学性质，而且可以在缺乏数据的情况下得到一些结论，所以有一定的实际意义。涉及的数学技术主要是随机过程，偏微分方程之类。在数学派系里，这些显得相对高端，一般人概念里都是那些脑袋不太正常的人类捣鼓的玩意。 P是指真实概">
+<meta property="og:type" content="article">
+<meta property="og:title" content="心内求法">
+<meta property="og:url" content="http://holbrook.github.io/2017/10/26/p_quant_and_q_quant.html">
+<meta property="og:site_name" content="心内求法">
+<meta property="og:description" content="Q 度量和 P 度量Q是指风险中性测度。风险中性的意思主要是说历史数据不能帮助你预测未来的走势，所以你的决策是没有风险补偿的。这当然是一个非常虚幻的假设，但是由此而得的模型可以给出漂亮的数学性质，而且可以在缺乏数据的情况下得到一些结论，所以有一定的实际意义。涉及的数学技术主要是随机过程，偏微分方程之类。在数学派系里，这些显得相对高端，一般人概念里都是那些脑袋不太正常的人类捣鼓的玩意。 P是指真实概">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-10-26T10:54:39.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="心内求法">
+<meta name="twitter:description" content="Q 度量和 P 度量Q是指风险中性测度。风险中性的意思主要是说历史数据不能帮助你预测未来的走势，所以你的决策是没有风险补偿的。这当然是一个非常虚幻的假设，但是由此而得的模型可以给出漂亮的数学性质，而且可以在缺乏数据的情况下得到一些结论，所以有一定的实际意义。涉及的数学技术主要是随机过程，偏微分方程之类。在数学派系里，这些显得相对高端，一般人概念里都是那些脑袋不太正常的人类捣鼓的玩意。 P是指真实概">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '2D390ZMGCJ',
+      apiKey: '98fe25d384567f4447d37429b35a233e',
+      indexName: 'thinkinside',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holbrook.github.io/2017/10/26/p_quant_and_q_quant.html"/>
+
+
+
+
+
+  <title> | 心内求法</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?16d951e9b49ded5f2e821a0e61d77797";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">心内求法</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Holbrook的个人博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holbrook.github.io/2017/10/26/p_quant_and_q_quant.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Holbrook">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心内求法">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-26T18:54:39+08:00">
+                2017-10-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/10/26/p_quant_and_q_quant.html" class="leancloud_visitors" data-flag-title="">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Q-度量和-P-度量"><a href="#Q-度量和-P-度量" class="headerlink" title="Q 度量和 P 度量"></a>Q 度量和 P 度量</h1><p>Q是指风险中性测度。风险中性的意思主要是说历史数据不能帮助你预测未来的走势，所以你的决策是没有风险补偿的。这当然是一个非常虚幻的假设，但是由此而得的模型可以给出漂亮的数学性质，而且可以在缺乏数据的情况下得到一些结论，所以有一定的实际意义。涉及的数学技术主要是随机过程，偏微分方程之类。在数学派系里，这些显得相对高端，一般人概念里都是那些脑袋不太正常的人类捣鼓的玩意。</p>
+<p>P是指真实概率测度。所谓真实，主要是说模型依赖的概率分布是从历史数据上估算出来的。严格来讲我个人不认为这种东西叫做“真实”，最多只能说是从真实数据上估算出来的，显然没有什么东西保证历史一定会重演（比如黑天鹅）。但是这个是目前大家公认的说法，所以咱们不较真。从定义可以看出这套方法主要依赖数据，数据量越大估算的效果越好。涉及的技术主要是时间序列（ARIMA，GARCH之类），Bayesian，以及现在流行的机器学习等方法。不难看出，为了倒腾数据，这套方法练到上层就要开始刷装备。在电子化时代这最终演化为拼机房的军备竞赛。</p>
+<p>两者对比可以看出，Q重模型而轻数据，P则重数据而轻模型。当然两者也都要即有模型也有数据，但从应用上来讲，Q者是模型固定，用数据来精化模型的参数（calibration）；而P者则可以有若干备选模型，由数据的计算结果来选择最佳的模型（estimation）。</p>
+<p>q quant来自于q measure，也就是风险中性测度。<br>资产定价理论中最基本的原理，就是风险中性测度对应着无套利，无套利对应着可以完美对冲各种风险。<br>所以q quant主要是协助structuring desk和exotic trading desk来做衍生品定价。<br>银行卖那些复杂的衍生品是为了赚手续费（1%左右），并不是与客户对赌。</p>
+<p>在q quant的协助下，银行把衍生品卖出去，对冲掉所有风险，收客户一笔手续费，这才是sell-side最本职的工作。</p>
+<p>而p quant来自于physical prob measure，也就是“预测未来走势”，常见于买方和卖方的自营交易部。<br>所谓预测未来走势，无非就是寻找under-priced risks/over-priced risks（不好意思不会翻译），<br>也就是所谓的“找alpha”，因此p quant也叫alpha quant。</p>
+<p>所以，<br>q quant做的是“如何不承担风险”。<br>p quant做的是“承担哪些风险”。</p>
+<p>这两类quant的界限其实可以很不明显。举个例子，volatility trading做的就是对冲掉股票价格风险（q measure），预测未来波动率走势（p measure）。</p>
+<p>不过很有可能很多人是看不明白背后的逻辑的，比如说 为什么叫Q 为什么叫P<br>（其实就是两个二叉树的 概率，此处有人把上面那只写为q 下面的概率就是1-q了 当然也有人相反，我学这个的时候的老师 就是下面的是定义为q）</p>
+<p>我本科生学计算数学的 我以一个数学的稍微形象一些的比喻来形容下<br>Stochastic Calculus 就好比是 求解析解<br>而Statistical Learning 就好比是求 数值解</p>
+<p>你问为什么既要求解析解又要求数值解的<br>因为 现在的金融体系的基础假设有一些时候是不一定成立的，比如最出名最经典的B-S model<br>假设波动率是固定的，事实的情况是 黑色星期一以后 波动率不固定了<br>出现隐含波动率了 原有的假设的根基就不存在了 怎么办？</p>
+<p>求隐含波动率 用隐含波动率算局部波动率 然后再用局部波动率进行回推吧（这地方是derman的研究领域）具体的得参见他的东西，我就是随便那么一说 不严谨的。derman就是写宽客人生那位。</p>
+<p>至于到底是因为什么 波动率微笑了 那就又得扯到行为金融学角度的东西了 跟本篇内容不大。</p>
+<p>重点是 如何来衡量这种波动率微笑 这就得Statistical Learning这方面来做了。</p>
+<p>也就是我说的类似于求数值解，并不一定需要精确的知道这个的原理是什么 而是需要知道我们通过什么样的方式能够求得近似的可用的解（可以理解为对asset定价），同时知道这种计算得到的解的精度是多少，在什么条件下可用。这就足够了。</p>
+<p>同样我个人也同样第一的回答，认为未来是Statistical Learning 的这个方向。<br>这个上面说的很明白了，其实这种认识跟我很早之前怀疑过数学的往计算数学发展方向不对，后期又认为计算数学才是现今数学的发展主流一样。（最后这个仅个人观点）</p>
+<p>二叉树的那个例子实际上是指两个不同的概率测度：真实概率测度和风险中性测度。你可能会有疑问，在风险中性测度下的定价在真实世界是否适用？正统的回答是两个测度是等价的，所以在一种概率测度下几乎必然有效的对冲，在另一种测度下也几乎必然有效。更学术的推导和论证推荐参考Shreve的《金融随机分析》。</p>
+<h1 id="量化投资模型的分类"><a href="#量化投资模型的分类" class="headerlink" title="量化投资模型的分类"></a>量化投资模型的分类</h1><p>量化投资模型可分为两大类，Q测度和P测度。</p>
+<p>Q测度代表了衍生品定价，它的任务是预测当下趋势。</p>
+<p>P测度代表了量化风险和投资组合管理，它的任务是构建未来模型。</p>
+<p>　　总的来说，Q测度多用于汇率衍生品的量化投资，又称风险中性测度。<br>注重使用包括随机过程和偏微方程在内的数学模型制定低价机制。<br>对数据的要求不要，甚至可以使用随机数字，因为在Q测度中历史数据不参与测定金融市场的未来走势。<br>Q测度的核心课题在于基础量化投资模型得出了投资组合如何才能不承担风险。</p>
+<p>　　而P测度多用于股票量化投资，又称真是概率测度。<br>注重数据的选取，一数据统计为基石分析金融市场的未来走向，<br>P测度中量化投资模型的数据量与预测精度成正相关，换句话说P测度就是大数据(Big Data)。<br>P测度的核心课题在于量化投资模型得出了投资组合讲承担哪些风险。</p>
+<p>　　虽然P测度和Q测度模型所得出了量化投资结果有很大不同，但在不同领域中这两种测度也有相同点，比如风险溢价计算，随机过程，数值计算法，套期保值，套利统计等方面。</p>
+<h2 id="Q-测度"><a href="#Q-测度" class="headerlink" title="Q 测度"></a>Q 测度</h2><p>　　衍生品定价的目标是流动性证券基于供需定价的规则之下，为一个给定的证券制定合适的价格，<br>这类证券包括奇异期权，抵押贷款支持证券，可转换证券和结构性产品等。<br>一旦价格被确定，卖方就能在市场上对该证券组织买卖。<br>所以，衍生品定价通常是卖方为了保持证券在货币市场上的价值所采取的一系列推断。Q测度最大的难点在于校准。</p>
+<h2 id="P-测度"><a href="#P-测度" class="headerlink" title="P 测度"></a>P 测度</h2><p>　　P测度代表了量化投资模型对风险和资产投资组合的演算。<br>风险和投资组合的目标在于在一个给定的未来投资模板中计算市场价格的概率分布。<br>市场的这种真实概率测度就由P测度来表示。而Q表示风险中性测度。</p>
+<p>投资者根据P测度决定购买何种证券以提高投资组合的收益并且降低风险。</p>
+<p>　　P测度的数据展现了历史价格的动态模型以及其他的金融变量，这些数据在离散的时间节点采集并根据时间先后排列。<br>P测度在量化投资领域最大的挑战是预估。对不同时间段的分析需要先进的多元统计和计量经济学算法。<br>在P测度框架下，预估证券的联合分布至关重要，所以与Q测度不同，P测度不主张分析单个证券。</p>
+<p>因此以线性因子模型为代表的降维技术在P测度中尤为重要。近年来，在量化投资领域中，P测度很受青睐，<br>有不少原本投向Q测度的资源都转投了P测度。</p>
+<h2 id="二者关系"><a href="#二者关系" class="headerlink" title="二者关系"></a>二者关系</h2><p>好吧，我相信你已经晕了——为什么在真实概率空间外，还会有一个Q概率空间，这不是一下子可以说清楚的问题，我就给一个简单的例子，剩下的如果你还有兴趣可以再自己研究：</p>
+<p>假设现在只有两种资产，一种是股票，一种是债券，假设一年后这个世界只有两种情景，一种是好市场，一种是坏市场，各自出现的概率是60%和40%。我们画一个表格，就有：<br>t=0 | t=1 Good (60%) | t=1 Bad (40%)<br>Stock 1 | 1.2 | 0.8<br>Bond 1 | 1.1 | 1.1</p>
+<p>表格里面的数字代表价格，比如第一行表示股票今天1元，一年后在好的情况下变成1.2元，而坏的情况下变成0.8元；第二行因为债券是固定收益，两种请都是10%的收益。</p>
+<p>那么在P概率空间（真实概率空间），股票的Expected Return就是：</p>
+<p>也就是4%，那么这不符合金融数学均衡思想，因为其期望收益和无风险回报不相等（10%）。所有Q measure下面的两种情况的概率应该是75%和25%，这样股票的回报就成了：</p>
+<p>这样满足了理论微观经济学的各种假设，你就可以基于此概率去定价一个期权了，或者其它更加复杂的衍生产品。</p>
+<p>这套体系由Arrow在1965年建立，之后他也成为了诺奖得主。而基于这一体系诞生了Black Scholes（1973）期权定价公式，在很长一段时间内被业界奉为圭臬。</p>
+<p>但是这一体系太理论化了，在实际做交易的时候会缺少指导意义。就好比Wolf of Wall Street里面，Can you sell the pen now，那支笔有理论价值，比如市场同类的价格是多少，成本是多少，不能偏差太多，不然就有套利，但是你的交易价格可能远远偏离这个价格，因为这一单取决于购买者的现实需求，而这或许可以从历史交易数据中得出，这就是统计学习方法可以应用的场景。</p>
+<p>在业界呆了一段时间后，我开始重新思考这个问题——为什么1960到2000年大量的金融研究在随机微积分领域开展，而2000年后，大量的金融研究开始应用越来越复杂的计量经济学和机器学习方法。我个人的看法是——早期数据的缺失，使得数学建模——随机微积分成为唯一可行的方法，而2000年后数据的蓬勃发展，使得统计学习成为可能。要知道Fama在1970写有效市场理论市场的数据是Dow Jones里面30支股票的10年日交易数据，这是当时的大数据，而现在，所有股票的每单级别的数据也不罕见了，数据——信息驱动研究的变化，在每个领域都是一样。这不难解释为什么机器学习逐渐主流了——30年前没有数据，何来金融统计分析？</p>
+<p>这两种方法（Q世界与P世界）在一定假设下可以得到相同的结果，比如你设定同样的无套利、经济人理性等条件，随机微积分与统计学习可以得到非常接近的期权定价。但是统计学习的好处是，你知道这个世界的不完美，你可以随意放松无套利和理性交易这些太过严格的假设，依然获得鲁棒性不错的模型。</p>
+<p>那么在今天的Quant世界，这两者的应用是怎样的呢？做风险和定价的Quant，还是采用传统的随机微积分为纲领，这种方法算出来的价格被交易员用来作为交易和对冲的指导，但是交易员的报价还是根据自己的判断来进行；在山的另一边，做程序化做市（Automatic Market Making）、资产配置或者高频交易的Quant，无一例外的活动在P世界——基于大数据和先进的机器学习来发现交易机会。</p>
+<p>是信息行业的发展重塑了整个金融研究，但这不意外——要知道数百年前就是提前获得的关于英法战争结果信息帮助了罗斯柴尔德家族成为欧洲金融霸主——信息一直就是金融中最关键的edge。</p>
+<p>从Quant自身来说，我觉得P世界——统计学习方向是未来，随着数据越来越多，实证方法很有可能长期成为主流——甚至随机微积分的传统强势领域也可能为之侵蚀。但是随机微积分领域的很多理论与方法是古典经济学的集大成之作，如果你想获得更好的直觉，这些是必须深入研究的，不然你很可能沦为反复在同一数据上使用不同的统计包碰运气的data miner。</p>
+<h1 id="模型角度"><a href="#模型角度" class="headerlink" title="模型角度"></a>模型角度</h1><p>从Quantitative Modeling的角度来说，有两大主流的方向：Stochastic Calculus（随机微积分）和Statistical Learning（统计学习）。这两个主流方向基本涵盖了你所有可能用到的技术——随机微积分，或者说金融数学，提供了各种衍生产品的风险估计基础，也是处理新型资产定价的常用方式；而统计学习，则包罗计量经济学、时间序列分析和各种机器学习方法。我个人比较喜欢用Q measure世界和P measure世界来指代这两种方法，因为统计学习主要在真实概率空间进行分析，而随机微积分在基于无套利假定而设立的Q概率空间进行分析。</p>
+<h1 id="算法角度"><a href="#算法角度" class="headerlink" title="算法角度"></a>算法角度</h1><h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p>[^1]: <a href="https://www.zhihu.com/question/24820388" target="_blank" rel="external">P Quant 和 Q Quant 到底哪个是未来？</a><br>[^2]: <a href="http://www.idwzx.com/post/p-quantq-quant" target="_blank" rel="external">P Quant和Q Quant,量化投资的逼格担当</a><br>[^3]: <a href="http://quant.dataguru.cn/article-5826-1.html" target="_blank" rel="external">Q Quant VS. P Quant：量化投资江湖的剑宗与气宗之争</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/26/quantitative_investment11.html" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/26/order_and_match.html" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Holbrook</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">105</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/holbrook" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:wanghaikuo@tsinghua.org.cn" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.douban.com/people/168633248/" target="_blank" title="豆瓣">
+                    
+                      <i class="fa fa-fw fa-douban"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Q-度量和-P-度量"><span class="nav-number">1.</span> <span class="nav-text">Q 度量和 P 度量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#量化投资模型的分类"><span class="nav-number">2.</span> <span class="nav-text">量化投资模型的分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Q-测度"><span class="nav-number">2.1.</span> <span class="nav-text">Q 测度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#P-测度"><span class="nav-number">2.2.</span> <span class="nav-text">P 测度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二者关系"><span class="nav-number">2.3.</span> <span class="nav-text">二者关系</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模型角度"><span class="nav-number">3.</span> <span class="nav-text">模型角度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#算法角度"><span class="nav-number">4.</span> <span class="nav-text">算法角度</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Holbrook</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7-rc3/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'zUfVbs5n4oyicDn3XvALUDTT-gzGzoHsz',
+        app_key: '0jvfoj6veWsDfOsYNd976DMC',
+        placeholder: 'Comment input placeholder'
+    });
+  </script>
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("zUfVbs5n4oyicDn3XvALUDTT-gzGzoHsz", "0jvfoj6veWsDfOsYNd976DMC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
