@@ -367,7 +367,6 @@ OpenStack通过一系列的开源软件组成”战斗群“，实现了搭建�
 - Ceilometer：监控和计量服务，为报警、统计或计费提供数据。
 - Horizon：为用户提供一个 Web 的自服务 Portal。
 
-
 通过OpenStack，可以搭建任何类型的云平台，比如：
 
 - Web应用
