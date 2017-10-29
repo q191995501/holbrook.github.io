@@ -1,4 +1,4 @@
 [submodule "data"]
-	path =  source/_posts/dataology/python-for-data-analysis/data
+	path =  source/_posts/dataology/python-for-data-analysis_data
 	url = https://github.com/wesm/pydata-book.git
 
