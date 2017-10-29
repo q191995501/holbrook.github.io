@@ -4,7 +4,7 @@ title: "keepalived实现双机互备"
 description: ""
 category: 基础设施
 tags: [HA, keepalived, 负载均衡, cluster]
-lastmod: 
+updated:
 ---
 
 # 目标：高可用
@@ -80,70 +80,70 @@ keepalived的配置文件（`/etc/keepalived/keepalived.conf`)中包含3部分�
 
 - 节点1
 
-{% highlight nginx %}
+```
 
-vrrp_instance VI_1 { 
-    state MASTER 
-    interface eth0 
-    virtual_router_id 51 
-    priority 100 
-    advert_int 1 
-    authentication { 
-        auth_type PASS 
-        auth_pass password 
-    } 
-    virtual_ipaddress { 
-        192.168.1.8 
-    } 
-} 
-vrrp_instance VI_2 { 
-    state BACKUP 
-    interface eth0 
-    virtual_router_id 52 
-    priority 99 
-    advert_int 1 
-    authentication { 
-        auth_type PASS 
-        auth_pass password 
-    } 
-    virtual_ipaddress { 
-        192.168.1.9 
-    } 
+vrrp_instance VI_1 {
+    state MASTER
+    interface eth0
+    virtual_router_id 51
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass password
+    }
+    virtual_ipaddress {
+        192.168.1.8
+    }
+}
+vrrp_instance VI_2 {
+    state BACKUP
+    interface eth0
+    virtual_router_id 52
+    priority 99
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass password
+    }
+    virtual_ipaddress {
+        192.168.1.9
+    }
 }
 
-{% endhighlight %}
+```
 
 - 节点2
 
-{% highlight nginx %}
+```
 
-vrrp_instance VI_1 { 
-    state BACKUP 
-    interface eth0 
-    virtual_router_id 51 
-    priority 99 
-    advert_int 1 
-    authentication { 
-        auth_type PASS 
-        auth_pass password 
-    } 
-    virtual_ipaddress { 
-        192.168.1.8                   
-    } 
-} 
-vrrp_instance VI_2 { 
-    state MASTER 
-    interface eth0 
-    virtual_router_id 52 
-    priority 100 
-    advert_int 1 
-    authentication { 
-        auth_type PASS 
-        auth_pass password 
-    } 
-    virtual_ipaddress { 
-        192.168.1.9                   
-    } 
+vrrp_instance VI_1 {
+    state BACKUP
+    interface eth0
+    virtual_router_id 51
+    priority 99
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass password
+    }
+    virtual_ipaddress {
+        192.168.1.8
+    }
+}
+vrrp_instance VI_2 {
+    state MASTER
+    interface eth0
+    virtual_router_id 52
+    priority 100
+    advert_int 1
+    authentication {
+        auth_type PASS
+        auth_pass password
+    }
+    virtual_ipaddress {
+        192.168.1.9
+    }
 }
 
-{% endhighlight nginx %}
+```

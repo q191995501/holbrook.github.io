@@ -37,7 +37,7 @@ DRBD在服务器之间对块设备（如硬盘，分区，逻辑卷等）进行�
 
 对于RHEL/CentOS，配置了[EL库](http://elrepo.org)就可以从包管理器安装DRBD了：
 
-{% highlight bash %}
+```
 rpm -Uvh http://elrepo.org/elrepo-release-6-5.el6.elrepo.noarch.rpm
 yum update
 yum search drbd
@@ -47,7 +47,7 @@ reboot
 lsmod | grep -i drbd
 modprobe -l | grep -i drbd
 
-{% endhighlight %}
+```
 
 会安装`/sbin/drbdadm`, `/sbin/drbdmeta`, `/sbin/drbdsetup`, `/usr/sbin/drbd-overview`等命令行工具以及`/etc/drbd.conf`, `/etc/drbd.d/*`配置文件和 `/etc/init.d/drbd` 启动脚本。
 
@@ -55,7 +55,7 @@ modprobe -l | grep -i drbd
 
 其实`/etc/drbd.conf`不重要，只是include了`drbd.d/global_common.conf`和`drbd.d/*.res`。`drbd.d/global_common.conf`是全局配置，先不去管它，就用默认值，我们要做的是增加一个.res资源文件，比如`drbd.d/r0.res`:
 
-{% highlight c %}
+```
 
 resource r0 {
   on server1 {
@@ -73,7 +73,7 @@ resource r0 {
   }
 }
 
-{% endhighlight %}
+```
 
 
 配置很简单，就是指定在两台服务器（可以是多台）上将要创建的DRBD设备文件、使用的块设备、通信的IP地址和端口等。需要注意的是server1和server2必须与各自的主机名一致。

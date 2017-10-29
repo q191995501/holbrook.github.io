@@ -4,7 +4,7 @@ title: "subversion安装、配置和管理"
 description: "尽管svn已经被历史所抛弃，但同样由于历史原因，还要整理一下svn的配置文档。"
 category: 基础设施
 tags: [版本管理]
-lastmod: 
+updated:
 ---
 
 # 安装
@@ -26,13 +26,13 @@ yum install subversion
 ```bash
   mkdir $SVN_REPOSITORIES_ROOT
   cd $SVN_REPOSITORIES_ROOT
-  
+
   # 创建dev库
   svnadmin create dev
-  
+
   # 创建文档库
   svnadmin create doc
-  
+
   ……
 ```
 
@@ -69,15 +69,15 @@ authz-db = authz
   # <用户组名> = <用户1>,<用户2>
   harry_and_sally = harry,sally
   harry_sally_and_joe = harry,sally,&joe
-  
+
   # [<版本库>:/项目/目录]
   # @<用户组名> = <权限>
   # <用户名> = <权限>
-  
+
   [/foo/bar]
   harry = rw
   * = r
-  
+
   [repository:/baz/fuz]
   @harry_and_sally = rw
   * = r
@@ -111,7 +111,7 @@ svn可以通过WebDAV的方式与Apache集成。配置步骤如下：
    LoadModule dav_svn_module     modules/mod_dav_svn.so
    LoadModule authz_svn_module   modules/mod_authz_svn.so
    ```
-   
+
    并将相应的模块文件安装到Apache的模块目录(`/etc/httpd/modules/`)。
 
 

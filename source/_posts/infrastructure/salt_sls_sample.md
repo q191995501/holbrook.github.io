@@ -32,7 +32,7 @@ tags: [salt]
 
 # apache/init.sls
 
-{% highlight yaml %}
+```
 
  apache:
     pkg:
@@ -54,7 +54,7 @@ tags: [salt]
       - gid: 87
       - require:
         - pkg: apache
- 
+
   /etc/httpd/conf/httpd.conf:
     file.managed:
       - source: salt://apache/httpd.conf
@@ -67,8 +67,8 @@ tags: [salt]
       - defaults:
         custom_var: "default value"
         other_var: 123
- 
-{% endhighlight %}
+
+```
 
 说明：
 
@@ -111,10 +111,10 @@ tags: [salt]
 
 # ssh/init.sls
 
-{% highlight yaml %}
+```
  openssh-client:
     pkg.installed
- 
+
   /etc/ssh/ssh_config:
     file.managed:
       - user: root
@@ -124,18 +124,18 @@ tags: [salt]
       - require:
         - pkg: openssh-client
 
-{% endhighlight %}
+```
 
 说明：
 
 
 # ssh/server.sls
 
-{% highlight yaml %}
+```
 
  include:
     - ssh
- 
+
  openssh-server:
    pkg.installed
 
@@ -166,12 +166,12 @@ tags: [salt]
      - require:
        - pkg: openssh-server
 
-{% endhighlight %}
+```
 
 说明：
 
 - include语句将别的state添加到当前文件中，使得state可以跨文件引用。
-   
+
   使用include相当于把被引用的内容文件添加到自身，可以require、watch或extend被引用的SLS中定义的内容。
 
   这里引用了`ssh`state。
@@ -183,7 +183,7 @@ tags: [salt]
 
 # ssh/custom-server.sls
 
-{% highlight yaml %}
+```
  include:
    - ssh.server
 
@@ -191,7 +191,7 @@ tags: [salt]
    /etc/ssh/banner:
      file:
        - source: salt://ssh/custom-banner
-{% endhighlight %}
+```
 
 说明：
 

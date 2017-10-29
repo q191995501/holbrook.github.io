@@ -5,7 +5,7 @@ description: "实在是厌倦了对大量服务器日复一日的重复操作。
 当我发现Salt的时候，我的眼前一亮：这正是我所需要的东西。"
 category: 基础设施
 tags: [devops, salt]
-lastmod: 2013-06-25
+updated:  2013-06-25
 ---
 
 # 引言：一个”非专职运维人员“的烦恼
@@ -77,56 +77,56 @@ Mac OS X 先使用HomeBrew解决依赖包：`brew install swig zmq`，然后用P
 
 ### 安装管理端(master)
 
-{% highlight bash %}
+```
 
  # 安装EPEL,注意选择合适的版本
  rpm -ivh http://mirrors.sohu.com/fedora-epel/6/x86_64/epel-release-6-8.noarch.rpm
  yum update
- 
+
  # 安装master
- yum install salt-master      
- 
+ yum install salt-master
+
  # 修改配置
  vim /etc/salt/master
- 
+
  # 最基本的设定服务端监听的IP(比如使用VIP做master的高可用时)：
  # interface: 服务端监听IP
  # 其他配置参考[官方文档](http://docs.saltstack.com/ref/configuration/master.html)
- 
+
  # 启动服务(以下命令等效)
  salt-master -d
  /etc/init.d/salt-master start
  service salt-master start
 
-{% endhighlight %}
+```
 
 
 ### 安装被管理端(minion)
 
-{% highlight bash %}
+```
 
  # 安装EPEL,注意选择合适的版本
  rpm -ivh http://mirrors.sohu.com/fedora-epel/6/x86_64/epel-release-6-8.noarch.rpm
  yum update
- 
+
  # 安装minion
- yum install salt-minion   
- 
+ yum install salt-minion
+
  # 修改配置
  vim /etc/salt/minion
- 
+
  # 最基本的设定是指定master地址，以及本机标识符：
  # master: master的主机名或IP地址
  # id: 本机标识符
  # 其他配置参考[官方文档](http://docs.saltstack.com/ref/configuration/minion.html)
- 
- 
+
+
  # 启动服务(以下命令等效)
  salt-minion -d
  /etc/init.d/salt-minion start
  service salt-minion start
 
-{% endhighlight %}
+```
 
 
 ### 接受minion的托管请求
@@ -135,12 +135,12 @@ minion向master投诚后，还需要master接受才行。这个过程叫做“�
 
 Salt底层使用公钥-私钥证书来保证通信信道的安全。具体的机制可以参考ZeroMQ的相关内容。Salt已经屏蔽了底层的细节，只需要使用封装好的命令：
 
-{% highlight bash %}
+```
 
  # 在master上运行
  # 查看所有minion
  salt-key -L
- 
+
  Accepted Keys:
  windows
  bond_app_server_main
@@ -154,7 +154,7 @@ Salt底层使用公钥-私钥证书来保证通信信道的安全。具体的机
  #其中Unaccepted Keys是未许可的minion。可以使用下面的命令通过认证：
  salt-key -a minion1
 
-{% endhighlight %}
+```
 
 
 
@@ -165,7 +165,7 @@ Salt底层使用公钥-私钥证书来保证通信信道的安全。具体的机
 
 再举一些例子：
 
-{% highlight bash %}
+```
 
  # 查询主机运行了多长时间
  sudo salt '*' cmd.run "uptime"
@@ -178,12 +178,12 @@ Salt底层使用公钥-私钥证书来保证通信信道的安全。具体的机
  salt '*' cmd.run "ab -n 10 -c 2 http://www.google.com/"
 
 
-{% endhighlight %}
+```
 
 
 注意，默认情况下master和minion之间使用以下端口进行通信：
- 
-- 4505(publish_port): salt的消息发布系统   
+
+- 4505(publish_port): salt的消息发布系统
 - 4506(ret_port):salt客户端与服务端通信的端口
 
 网络的设置需要保证这些端口可以访问。
@@ -205,7 +205,7 @@ Salt对上述三个方面提供了完美的支持，事实上，Salt提供的功
 
 具体的功能使用在[这篇文章](/2013/06/25/salt_usage.html)中详细说明。
 
-  
+
 # Salt的网络资源
 
 ## 网站
@@ -224,7 +224,7 @@ Salt对上述三个方面提供了完美的支持，事实上，Salt提供的功
   + [salty-vagrant](https://github.com/saltstack/salty-vagrant), 用Salt管理[Vagrant虚拟环境](http://www.vagrantup.com/)的扩展
   + [salt-api](https://github.com/saltstack/salt-api)，基于Salt进行二次开发的包
   + [salt-ui](https://github.com/saltstack/salt-ui), 一个图形界面
-  + [pepper](https://github.com/saltstack/pepper),  Stand-alone CLI tools that mimic Salt's CLI tools but proxy Salt commands through salt-api 
+  + [pepper](https://github.com/saltstack/pepper), Stand-alone CLI tools that mimic Salt's CLI tools but proxy Salt commands through salt-api 
   + [ salt-contrib](https://github.com/saltstack/salt-contrib), Salt Module Contributions 
   + [ sublime-text](https://github.com/saltstack/sublime-text), Salt-related syntax highlighting and snippets for Sublime Text 
   + [ formulae](https://github.com/saltstack/formulae), 

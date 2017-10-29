@@ -5,7 +5,7 @@ description: "Salt的state配置比较复杂，官方文档也比较零散。初
 配置的目标是通过master管理多个mision的状态，最终配置的实现是使用文件夹和文件。而Salt state的设计就是在二者之间建立逻辑关系。"
 category: 基础设施
 tags: [salt]
-lastmod: 2013-07-07
+updated:  2013-07-07
 ---
 
 Salt的state配置比较复杂，官方文档也比较零散。初学者不易掌握。但是如果把Salt的state配置看做是编写代码，就很容易掌握其脉络。
@@ -31,7 +31,7 @@ Salt环境与目录的对应关系在salt master的配置文件`/etc/salt/master
 
 一个典型的配置如下：
 
-{% highlight yaml %}
+```
  file_roots:
    base:
      - /srv/salt/
@@ -41,7 +41,7 @@ Salt环境与目录的对应关系在salt master的配置文件`/etc/salt/master
    prod:
      - /srv/salt/prod/services
      - /srv/salt/prod/states
-{% endhighlight %}
+```
 
 # state定义
 
@@ -55,14 +55,14 @@ state之间还可以使用require, include, extend等关系进行关联。
 
 Salt在一个`top.sls`文件中定义这种映射关系。比如：
 
-{% highlight yaml %}
+```
 base:
   '*':
     - servers
 dev:
   '*nodb*':
     - mongodb
-{% endhighlight %}
+```
 
 # 小结
 

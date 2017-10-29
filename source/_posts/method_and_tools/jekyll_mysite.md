@@ -221,15 +221,15 @@ jekyll把_layouts目录中的文档看做是模板，如果某个文档中的头
 
 ```
 <ul class="nav">
-  {/% for item in site.menuitems %/}
-    {/% if item.url == page.url %/}
+  &#123;% for item in site.menuitems %&#125;
+    &#123;% if item.url == page.url %&#125;
     <li class="active">
-    {/% else %/}
+    &#123;% else %&#125;
     <li>
-    {/% endif %/}
+    &#123;% endif %&#125;
     <a href="{{item.url}}">{{item.name}}</a>
     </li>
-  {/% endfor %/}
+  &#123;% endfor %&#125;
 </ul>
 ```
 
@@ -265,15 +265,15 @@ jekyll把_layouts目录中的文档看做是模板，如果某个文档中的头
               diffFont = maxFont - minFont,
               size = 0;
 
-          {/% assign max = 1.0 %/}
-          {/% for tag in site.tags %/}
-             {/% if tag[1].size > max %/}
-                {/% assign max = tag[1].size %/}
-             {/% endif %/}
-          {/% endfor %/}
+          &#123;% assign max = 1.0 %/}
+          &#123;% for tag in site.tags %/}
+             &#123;% if tag[1].size > max %/}
+                &#123;% assign max = tag[1].size %/}
+             &#123;% endif %/}
+          &#123;% endfor %/}
 
-          {/% for tag in site.tags %/}
-             size = (Math.log({{ tag[1].size }}) / Math.log({{ max }})) * diffFont + minFont;
+          &#123;% for tag in site.tags %/}
+             size = (Math.log(&#123;&#123; tag[1].size &#125;&#125;) / Math.log({{ max }})) * diffFont + minFont;
              $("#{{ forloop.index }}").css("font-size", size + "px");
           {/% endfor %/}
        });
@@ -373,10 +373,8 @@ end
 
 设置一个IMAGE_ROOT变量，可以可以在post中设置，也可以在post的模板中通过指定的规则capture（或者assign）。
 
-则引可以使用{{page.IMAGE_ROOT}}/xxx.png的形式插入图片，便于以后的调整和管理。
+则引可以使用/images/xxx.png的形式插入图片，便于以后的调整和管理。
 
-{{page.url}}
-page_url
 
 ## 处理表格(TODO)
 

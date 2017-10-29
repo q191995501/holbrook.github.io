@@ -80,7 +80,7 @@ keepalived的配置文件（`/etc/keepalived/keepalived.conf`)中包含3部分�
 
 - 节点1
 
-{% highlight nginx %}
+```
 
 vrrp_instance VI_1 {
     state MASTER
@@ -111,11 +111,11 @@ vrrp_instance VI_2 {
     }
 }
 
-{% endhighlight %}
+```
 
 - 节点2
 
-{% highlight nginx %}
+```
 
 vrrp_instance VI_1 {
     state BACKUP
@@ -146,4 +146,4 @@ vrrp_instance VI_2 {
     }
 }
 
-{% endhighlight nginx %}
+```

@@ -4,7 +4,7 @@ title: "NoSQL数据库选型指引"
 description: ""
 category: 基础设施
 tags: [NoSQL]
-lastmod: 
+updated:
 ---
 
 # 什么是NoSQL
@@ -47,7 +47,7 @@ NoSQL与关系数据库的原则不同：NoSQL牺牲高一致性，换取获得�
    - 对象数据库
 
 2. 是否持久化
-   
+
    有的NoSQL是纯内存存储，不支持持久化
 
 3. 是否支持嵌入式

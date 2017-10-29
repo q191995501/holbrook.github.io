@@ -21,7 +21,7 @@ tags: [devops, salt]
 
    假如你开发了一个Django应用，数据库连接信息在应用的settings.py中定义：
 
-   {% highlight python %}
+   ```
    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -29,11 +29,11 @@ tags: [devops, salt]
         'USER': 'root',
         'PASSWORD': 'password',
         'HOST': 'localhost',
-        'PORT': '3306', 
+        'PORT': '3306',
     }
    }
 
-   {% endhighlight %}
+   ```
 
    显然，数据库连接信息在开发环境、测试环境、生成环境中各不相同。如果把该应用作为一个state，如何实现在不同环境中的自动部署？
 
@@ -47,27 +47,27 @@ Salt Pillar就是为了解决类似上述的问题而提供的组件。
 
 比如，在上一节的第一个问题中，我们可以这样定义State:
 
-{% highlight yaml %}
+```
 
   apache:
     pkg.installed:
-      - name: {{ pillar['apache'] }}
+      - name: &#123;&#123; pillar['apache'] &#125;&#125;
 
-{% endhighlight %}
+```
 
 其中，`salt.states.pkg.installed`函数的`name`参数就是引用了Pillar中定义的变量`apache`。
 
 而该变量在Pillar中的定义如下：
 
-{% highlight yaml %}
+```
 
-{ % if grains['os_family'] == 'RedHat' % }
+&#123;% if grains['os_family'] == 'RedHat' %&#125;
 apache: httpd
-{ % elif grains['os_family'] == 'Debian' % }
+&#123;% elif grains['os_family'] == 'Debian' %&#125;
 apache: apache2
-{ % endif % }
+&#123;% endif %&#125;
 
-{% endhighlight %}
+```
 
 
 # Pillar的配置结构
@@ -80,17 +80,17 @@ Pillar与State就像是配置管理的左右手，所以Pillar的配置结构与
 
 Pillar Tree定义在salt master的配置文件`/etc/salt/master`的`pillar_roots`变量中：
 
-{% highlight yaml %}
+```
 
  pillar_roots:
    base:
      - /srv/pillar
- 
+
    ext_pillar:
      - hiera: /etc/hiera.yaml
      - cmd_yaml: cat /etc/salt/yaml
 
-{% endhighlight %}
+```
 
 ## Pillar定义
 
@@ -104,18 +104,18 @@ Pillar是一组key-value，使用yaml的语法格式。
 
 复杂的定义比如：
 
-{% highlight yaml %}
+```
 users:
   thatch: 1000
   shouse: 1001
   utahdave: 1002
-  redbeard: 1003  
+  redbeard: 1003
 
-{% endhighlight %}
+```
 
 可以使用包含jinja语法的yaml进行引用：
 
-{% highlight yaml %}
+```
 
  { % for user, uid in pillar.get('users', {}).items() % }
    { {user} }:
@@ -123,7 +123,7 @@ users:
        - uid: { {uid} }
  { % endfor % }
 
-{% endhighlight %}
+```
 
 定义好的pillar数据保存在Pillar Tree下面的某个`sls`文件中。为了能够在State中引用Pillar数据，
 Pillar的目录结构和文件名需要与State能够对应。
@@ -139,7 +139,7 @@ Pillar的数据不仅仅可以来自SLS文件，还可以从其他数据源获�
 与[minion与state之间的映射](/2013/07/02/salt_state_config_structure.html#menuIndex2)一样，
 在Pillar的base目录中也存在一个名为`top.sls`的入口文件，定义minion与Pillar的映射关系，例如：
 
-{% highlight yaml %}
+```
 
 base:
   '*':
@@ -147,7 +147,7 @@ base:
   'alpha':
     - database
 
-{% endhighlight %}
+```
 
 上边的例子定义了packages对所有的minion有效，database只对名字为'alpha'的minion有效.
 
@@ -157,11 +157,11 @@ base:
 
 1. 查询pillar数据
 
-   {% highlight yaml %}
+   ```
     salt 'client2' pillar.data
     salt '*' pillar.data
     salt '*' pillar.raw key='roles'
-   {% endhighlight %} 
+   ```
 
 更多的函数可以参考[pillar模块的文档](https://salt.readthedocs.org/en/latest/ref/modules/all/salt.modules.pillar.html)。
 

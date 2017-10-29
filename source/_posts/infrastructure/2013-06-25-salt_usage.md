@@ -5,7 +5,7 @@ description: "本文介绍Salt的主要功能和基本使用，包括minion节�
 掌握了这些内容，可以使用Salt极大提高运维的效率（事实上，Salt对于开发阶段也能提供很大的帮助，开发和运维的界限正在逐渐模糊）。"
 category: 基础设施
 tags: [devops, salt]
-lastmod: 2013-07-05
+updated:  2013-07-05
 ---
 
 [Salt的介绍](/2013/06/24/salt_intro.html)中提到了Salt支持变更操作、配置管理、状态监控所需的一些功能，如下图：
@@ -20,7 +20,7 @@ lastmod: 2013-07-05
 
 再回顾一下[前文中的例子](http://thinkinside.tk/2013/06/24/salt_intro.html#测试-ref):
 
-{% highlight bash %}
+```
 
  # 测试连通性
  salt '*' test.ping
@@ -36,7 +36,7 @@ lastmod: 2013-07-05
  salt '*' cmd.run "ab -n 10 -c 2 http://www.google.com/"
 
 
-{% endhighlight %}
+```
 
 上面的例子都是对多个节点进行批量操作：使用通配符"'*'"对所有注册的节点进行操作。Salt支持多种方式对节点id(minion id)进行匹配。包括：
 
@@ -48,7 +48,7 @@ lastmod: 2013-07-05
 
 先看一下通配符、正则表达式和列表的例子：
 
-{% highlight bash %}
+```
 
  # 通配符是最常用的匹配方式。Salt使用[linux风格的通配符](http://docs.python.org/2/library/fnmatch.html)
  salt '*' test.ping
@@ -57,14 +57,14 @@ lastmod: 2013-07-05
  salt 'web?.example.net' test.ping
  salt 'web[1-5]' test.ping
  salt 'web-[x-z]' test.ping
- 
+
  # 正则表达式可以适应更复杂的情况。使用[python的re模块](http://docs.python.org/2/library/re.html#module-re)进行匹配
  salt -E 'web1-(prod|devel)' test.ping
- 
+
  # 最直接的方式是自己指定多个minion，即列表
  salt -L 'web1,web2,web3' test.ping
 
-{% endhighlight %}
+```
 
 [复合匹配(Compound matchers)](http://docs.saltstack.com/topics/targeting/compound.html)有点复杂，后续会在其他文章中专门介绍。
 
@@ -81,12 +81,12 @@ groups定义在master的配置文件`/etc/salt/master`中。
 
 group 的定义可以使用各种匹配规则，比如：
 
-{% highlight bash %}
+```
 
 group1: 'L@foo.domain.com, bar.domain.com,baz.domain.com or bl*.domain.com'
 group2: 'G@os:Debian and foo.domain.com'
 
-{% endhighlight %}
+```
 
 
 同样的，使用复合匹配(Compound matchers)定义group的内容不在本文范围之内。
@@ -109,15 +109,15 @@ Salt可以执行的命令也可以分为两种：
 
 比如：
 
-{% highlight bash %}
+```
 
  # 执行系统命令
  salt '*' cmd.run 'hostname'
- 
+
  # 执行Salt模块
  salt '*' disk.usage
 
-{% endhighlight %}
+```
 
 
 使用Salt模块的好处是能够做到一致。比如同样是查看磁盘使用情况，`salt '*' cmd.run "df -h"`只能用于*NIX节点，而`salt '*' disk.usage`对*NIX和Windows都适用，并且采用相同结构返回数据，便于批量处理。
@@ -140,18 +140,18 @@ Salt已经内置了[大量的模块](http://docs.saltstack.com/ref/modules/all/i
 
 grains的基本使用举例如下：
 
-{% highlight bash %}
+```
 
  # 查看grains分类
- salt '*' grains.ls  
+ salt '*' grains.ls
 
  # 查看grains所有信息
  salt '*' grains.items
- 
+
  # 查看grains某个信息
  salt '*' grains.item osrelease
 
-{% endhighlight %}
+```
 
 # 配置管理（state)
 
@@ -172,7 +172,7 @@ Salt使用SLS文件（SaLt State file）描述状态。SLS使用[YAML](http://ya
 
 下边是一个简单的SLS文件例子:
 
-{% highlight yaml %}
+```
 
  apache:
    pkg:
@@ -182,7 +182,7 @@ Salt使用SLS文件（SaLt State file）描述状态。SLS使用[YAML](http://ya
      - require:
        - pkg: apache
 
-{% endhighlight %}
+```
 
 该文件描述一个ID为`apache`的配置状态：
 
@@ -203,20 +203,19 @@ state可以使用[jinja](http://jinja.pocoo.org/)模板引擎进行扩展，其�
 
 下面是一个更复杂的例子：
 
-{% highlight html+jinja %}
-
+```
 vim:
-  pkg:    
-    { % if grains['os_family'] == 'RedHat' % } 
-    - name: vim-enhanced    
-    { % elif grains['os'] == 'Debian' % }
-    - name: vim-nox    
-    { % elif grains['os'] == 'Ubuntu' % }
-    - name: vim-nox    
-    { % endif % }
+  pkg:
+    &#123;% if grains['os_family'] == 'RedHat' %&#125;
+    - name: vim-enhanced
+    &#123;% elif grains['os'] == 'Debian' %&#125;
+    - name: vim-nox
+    &#123;% elif grains['os'] == 'Ubuntu' %&#125;
+    - name: vim-nox
+    &#123;% endif %&#125;
     - installed
-    
-{% endhighlight %}
+
+```
 
 该state增加了判断逻辑：如果是redhard系列的就安装 vim-enhanced，如果系统是Debian或者Ubuntu就安装vim-nox。
 
@@ -226,7 +225,7 @@ state之间可以有[逻辑关系](http://docs.saltstack.com/ref/states/ordering
 
 - require：依赖某个state，在运行此state前，先运行依赖的state，依赖可以有多个
 
-{% highlight yaml %}
+```
  httpd:
    pkg:
      - installed
@@ -235,11 +234,11 @@ state之间可以有[逻辑关系](http://docs.saltstack.com/ref/states/ordering
      - source: salt://httpd/httpd.conf
      - require:
        - pkg: httpd
-{% endhighlight %}
+```
 
 - watch：在某个state变化时运行此模块
 
-{% highlight yaml %}
+```
 redis:
   pkg:
     - latest
@@ -253,18 +252,18 @@ redis:
       - watch:
       - file: /etc/redis.conf
       - pkg: redis
-{% endhighlight %}
+```
 
 watch除具备require功能外，还增了关注状态的功能
 
 
 - order：优先级比require和watch低，有order指定的state比没有order指定的优先级高
 
-{% highlight yaml %}
+```
 vim:
   pkg.installed:
     - order: 1
-{% endhighlight %}
+```
 
 想让某个state最后一个运行，可以用last
 
@@ -281,7 +280,7 @@ vim:
 
 Salt master的配置文件(`/etc/salt/master`)中可以通过`file_roots`参数指定状态文件的保存路径。可以为不同的环境（如开发环境、UAT环境、生产环境、灾备环境等）分别指定路径，如下所示：
 
-{% highlight yaml %}
+```
 
 file_roots:
   base:
@@ -293,7 +292,7 @@ file_roots:
     - /srv/salt/prod/services
     - /srv/salt/prod/states
 
-{% endhighlight %}
+```
 
 其中,base环境是必须的。
 
@@ -304,7 +303,7 @@ file_roots:
 
 Top文件建立配置环境、节点和状态配置之间的映射关系。比如一个简单的top.sls文件：
 
-{% highlight yaml %}
+```
 
 base:
   '*':
@@ -313,7 +312,7 @@ dev:
   '*nodb*':
     - mongodb
 
-{% endhighlight %}
+```
 
 该文件指定了：
 - 所有节点使用base环境的servers配置
@@ -333,13 +332,13 @@ top.sls中的可配置内容非常丰富，具体内容可以参考[官方文档
 
 master上对状态进行定义，最终这些状态要传递到minion节点上。在本节的例子中，如果定义好了状态文件`/srv/salt/dev/mongodb.sls`：
 
-{% highlight yaml %}
+```
 
 mongodb:
   pkg:
     - installed
 
-{% endhighlight %}
+```
 
 
 可以使用命令`salt "minion1" state.highstate -v`使得所有针对"minion1"的state生效；

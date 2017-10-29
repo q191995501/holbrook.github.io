@@ -1,18 +1,20 @@
 ---
-layout: post
 title: "用nginX+keepalived实现高可用的负载均衡"
 date: 2013-05-27
-update: 2013-07-30
-description: "实施nginx和keepalived的规划、安装、配置等步骤"
+description: ""
 category: 基础设施
 tags: [HA, nginx, keepalived, 负载均衡, cluster]
+updated: 2013-07-30
 ---
 
-前面的[《统一web访问层方案》](http://thinkinside.tk/weblayer_nginx_keepalived/)中就目的、目标和整体方案进行了讨论，本文讨论具体的实施。简单来说就是在两台服务器上分别部署NginX，并通过keepalived实现高可用。
+实施nginx和keepalived的规划、安装、配置等步骤。
+
+<!-- more -->
+
+前面的 {% post_link weblayer_nginx_keepalived 《统一web访问层方案》%} 中就目的、目标和整体方案进行了讨论，本文讨论具体的实施。简单来说就是在两台服务器上分别部署NginX，并通过keepalived实现高可用。
 
 
 # 1 规划和准备
----
 
 需要统一访问的应用系统：
 <table>
@@ -39,15 +41,14 @@ web访问服务器
 
 两台接入服务器分别安装NginX和keepalived:
 
-```bash
-
+```
     #准备依赖包：
     yum -y install gcc pcre-devel zlib-devel openssl-devel
-    
+
     #下载
-    wget http://nginx.org/download/nginx-1.2.4.tar.gz 
+    wget http://nginx.org/download/nginx-1.2.4.tar.gz
     wget http://www.keepalived.org/software/keepalived-1.2.7.tar.gz
-    
+
     #安装NginX
     tar zxvf nginx-1.2.4.tar.gz
     cd nginx-1.2.4
@@ -58,7 +59,7 @@ web访问服务器
     tar zxvf keepalived-1.2.7.tar.gz
     cd keepalived-1.2.7
     ./configure
-    make 
+    make
     make install
 
     cp /usr/local/etc/rc.d/init.d/keepalived /etc/rc.d/init.d/
@@ -70,52 +71,52 @@ web访问服务器
     #加入启动
     echo "/usr/local/nginx/sbin/nginx" >> /etc/rc.local
     echo "/etc/init.d/keepalived start" >> /etc/rc.local
- 
+
 ```
 
 # 3 配置
- 
+
 ## 3.1 配置NginX
 
 两台接入服务器的NginX的配置完全一样,主要是配置/usr/local/nginx/conf/nginx.conf的http。其中多域名指向是通过虚拟主机（配置http下面的server）实现；同一域名的不同虚拟目录通过每个server下面的不同location实现；到后端的服务器在http下面配置upstream,然后在server或location中通过proxypass引用。要实现前面规划的接入方式，http的配置如下：
 
-{% highlight c %}
+```
     http {
         include       mime.types;
         default_type  application/octet-stream;
-    
+
         sendfile        on;
-    
+
         upstream dev.hysec.com {
             server 50.1.1.21:80;
         }
-    
-    
+
+
         upstream www.hysec.com {
           ip_hash;
           server 50.1.1.10:80;
           server 50.1.1.11:80;
           server 50.1.1.12:80;
         }
-    
+
         upstream oa.hysec.com {
           ip_hash;
           server 50.1.1.13:8080;
           server 50.1.1.14:8080;
-          
-    
+
+
         server {
             listen      80;
             server_name dev.hysec.com;
             location /svn {
                 proxy_pass http://dev.hysec.com;
             }
-    
+
             location /submin {
                 proxy_pass http://dev.hysec.com;
             }
         }
-    
+
         server {
             listen       80;
             server_name  www.hysec.com;
@@ -129,8 +130,8 @@ web访问服务器
                 proxy_pass http://oa.hysec.com;
             }
     }
-{% endhighlight %}
- 
+```
+
 
 验证方法：
 
@@ -143,7 +144,7 @@ web访问服务器
 
 - Master配置
 
-  {% highlight c %}
+```
 
     ! Configuration File for keepalived
 
@@ -174,11 +175,11 @@ web访问服务器
             50.1.1.2
         }
     }
-  {% endhighlight %}    
+```
 
 - Backup配置
 
-  {% highlight c %}
+```
     ! Configuration File for keepalived
 
     global_defs {
@@ -208,22 +209,22 @@ web访问服务器
             50.1.1.2
         }
     }
-  {% endhighlight %}    
+```
 
 
 验证：
 
-1. 先后在主、从服务器上启动keepalived: 
+1. 先后在主、从服务器上启动keepalived:
 
     /etc/init.d/keepalived start
 
-2. 在主服务器上查看是否已经绑定了虚拟IP： 
+2. 在主服务器上查看是否已经绑定了虚拟IP：
 
     ip addr
 
-3. 停止主服务器上的keepalived: 
-    
-    /etc/init.d/keepalived stop 
+3. 停止主服务器上的keepalived:
+
+    /etc/init.d/keepalived stop
 
 4. 然后在从服务器上查看是否已经绑定了虚拟IP
 
@@ -243,7 +244,7 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
 
 根据上述策略很容易写出监控脚本。这里使用nmap检查nginx端口来判断nginx的状态，记得要首先安装nmap。监控脚本如下:
 
-{% highlight bash %}
+```
 
     #!/bin/sh
     # check nginx server status
@@ -260,12 +261,13 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
         [ $? -ne 0 ] && /etc/init.d/keepalived stop
     fi
 
- {% endhighlight %}
+ ```
 
 不要忘了设置脚本的执行权限，否则不起作用。
 
 假设上述脚本放在/opt/chk_nginx.sh，则keepalived.conf中增加如下配置：
-{% highlight c %}
+
+```
 
     vrrp_script chk_http_port {
         script "/opt/chk_nginx.sh"
@@ -276,11 +278,11 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
     track_script {
         chk_http_port
     }
-{% endhighlight %}
+```
 
 更进一步，为了避免启动keepalived之前没有启动nginx , 可以在/etc/init.d/keepalived的start中首先启动nginx:
-{% highlight c %}
 
+```
     start() {
         /usr/local/nginx/sbin/nginx
         sleep 3
@@ -291,7 +293,7 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
         [ $RETVAL -eq 0 ] && touch /var/lock/subsys/$prog
     }
 
- {% endhighlight %}
+```
 
 # 4 还可以做什么
 
@@ -300,12 +302,12 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
 # 5 支持https
 
 需要安装openSSL：
-    
+
     yum install openssl-devel
 
 在nginx/conf下生成秘钥：
 
-{% highlight bash %}
+```
     #生成RSA密钥
     openssl dsaparam -rand -genkey -out myRSA.key 1024
 
@@ -321,12 +323,12 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
     #生成免密码文件
     openssl rsa -in cert.key -out cert.key.unsecure
 
-{% endhighlight %}    
+```
 
 如果要启用SSL，首先在安装nginx是要增加配置参数：--with-http_ssl_module ，
 然后在nginx中进行如下配置：
 
-{% highlight c %}
+```
     # 这里是SSL的相关配置
     server {
       listen 443;
@@ -334,13 +336,13 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
       root /home/www;
       ssl on;
       ssl_certificate cert.perm;
-      #使用.unsecure文件可以在nginx启动时不输入密码  
+      #使用.unsecure文件可以在nginx启动时不输入密码
       ssl_certificate_key cert.key.unsecure;
       location / {
       #...
       }
     }
-{% endhighlight %}    
+```
 
 公共证书的申请过程：
 
@@ -349,7 +351,7 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
     `openssl genrsa -des3 -out myRSA.key 2048`
 
 2. 生成csr文件：
- 
+
     `openssl req -new -key myRSA.key -out my.csr`
 
 3. 将csr提交给证书机构，比如GlobalSign。
@@ -360,12 +362,12 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
 
 6. 在nginx中配置证书：
 
-{% highlight c %}
+```
     ssl_certificate /etc/ssl/my.crt;
     ssl_certificate_key /etc/ssl/myRSA.key;
     ssl_client_certificate /etc/ssl/root_CA.cer;
 
-{% endhighlight %}    
+```
 
 # 6 支持webservice
 
@@ -375,7 +377,7 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
 
 步骤：
 
-{% highlight bash %}
+```
     git clone https://github.com/agentzh/chunkin-nginx-module.git
 
     #重新编译nginx
@@ -383,19 +385,19 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
     ./configure xxx --add-module=/PATH/TO/chunkin-nginx-module
     make && make install
 
-{% endhighlight %}    
+```
 
 在nginx的server{}节点中增加配置：
-{% highlight c %}
+```
 
-    chunkin on; 
- 
-    error_page 411 = @my_411_error; 
+    chunkin on;
 
-    location @my_411_error { 
-        chunkin_resume; 
-    } 
-{% endhighlight %}    
+    error_page 411 = @my_411_error;
+
+    location @my_411_error {
+        chunkin_resume;
+    }
+```
 
 # 7 状态监控
 
@@ -404,7 +406,8 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
 查看编译参数：使用命令`/usr/local/nginx/sbin/nginx -V`
 
 安装好之后增加配置：
-{% highlight nginx %}
+
+```
 
     location /nginx_status {
         stub_status on;
@@ -413,7 +416,7 @@ keepalived支持配置监控脚本，我们可以通过脚本监控NginX的状�
         allow all;
     }
 
-{% endhighlight %} 
+```
 
 重新加载配置后，会看到一些文本：
 

@@ -4,7 +4,7 @@ title: "Apache Camel的核心概念"
 description: ""
 category: 企业架构
 tags: [SOA, ESB]
-lastmod: 
+updated:
 ---
 
 # Apache Camel的整体架构
@@ -132,7 +132,7 @@ CamelContext是对Camel运行时的抽象，提供了API用于管理Component、
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
     ">
- 
+
     <!-- this is an included XML file where we only the the routeContext -->
     <routeContext id="myCoolRoutes" xmlns="http://camel.apache.org/schema/spring">
         <!-- we can have a route -->
@@ -146,7 +146,7 @@ CamelContext是对Camel运行时的抽象，提供了API用于管理Component、
             <to uri="mock:bar"/>
         </route>
     </routeContext>
- 
+
   </beans>
 ```
 
@@ -154,4 +154,4 @@ CamelContext是对Camel运行时的抽象，提供了API用于管理Component、
 
  FuseSource提供Camel的经测试、认证并提供支持的企业级版本，称作[FUSE Mediation Router](http://fusesource.com/products/enterprise-camel/)。
 
- 
+

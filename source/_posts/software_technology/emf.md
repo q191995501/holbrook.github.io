@@ -1,10 +1,9 @@
 ---
-layout: post
 title: "仰望MDA，拥抱EMF"
 date: 2014-01-12
 category: 软件技术
 tags: [OSGi]
-lastmod:
+
 ---
 EMF与MOF的理想是类似的，只不过MOF在“仰望星空”，EMF更加“脚踏实地”。"
 

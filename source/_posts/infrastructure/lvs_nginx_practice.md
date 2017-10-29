@@ -22,9 +22,9 @@ tags: [负载均衡, cluster, lvs, nginx]
 - pulse: LVS守护进程
 - piranha: LVS的web管理工具，包括状态监控和配置
 
-{% highlight bash %}
+```
 yum install pulse piranha
-{% endhighlight %}
+```
 
 
 
@@ -38,14 +38,14 @@ yum install pulse piranha
 
 配置文件位于`/etc/sysconfig/ha/lvs.cf`，使用piranha可以以图形界面的方式进行配置。
 
-{% highlight bash %}
+```
  # 设置管理密码
  piranha-passwd
 
  # 启动piranha服务
  /etc/init.d/piranha-gui start
 
-{% endhighlight %}
+```
 
 接下来可以用浏览器访问: http://IP_OF_LVS:3636（记得配置LVS上的防火墙，否则只能本机访问）。
 
@@ -70,7 +70,7 @@ yum install pulse piranha
 
 RS需要进行一系列的设置才能与LVS协同工作，参考如下脚本：
 
-{% highlight bash %}
+```
 
 #!/bin/bash
 
@@ -92,7 +92,7 @@ sysctl -p
 
 /sbin/service iptables stop
 
-{% endhighlight %}
+```
 
 
 ## 启动LVS服务
@@ -105,7 +105,7 @@ LVS和RS都配置好之后，可以启动LVS服务。前面提到，pulse是LVS�
 
 `ipvsadm`是LVS的命令行管理工具，可以用于更改运行时状态或更改配置文件。主要功能包括：
 
-{% highlight bash %}
+```
 
  # 增加/编辑虚拟服务器（VS）
  ipvsadm -A|E -t|u|f virutal-service-address:port [-s scheduler] [-p [timeout]] [-M netmask]
@@ -146,7 +146,7 @@ LVS和RS都配置好之后，可以启动LVS服务。前面提到，pulse是LVS�
  # 查看帮助
  ipvsadm -h
 
-{% endhighlight %}
+```
 
 # 功能验证
 

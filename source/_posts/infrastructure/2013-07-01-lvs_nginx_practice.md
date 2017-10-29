@@ -4,12 +4,12 @@ title: "lvs+nginx的负载均衡实验"
 description: "LVS+NginX是构建大型B/S应用的典型方式。本文记录在实验环境搭建这样一个架构，并进行功能、可靠性、性能等方面的测试的过程。"
 category: 基础设施
 tags: [负载均衡, cluster, lvs, nginx]
-lastmod: 2013-07-03
+updated:  2013-07-03
 ---
 
 # 准备环境
 
-2 LVS(cluster) + 2 NginX 
+2 LVS(cluster) + 2 NginX
 （图）
 
 # 配置
@@ -21,9 +21,9 @@ lastmod: 2013-07-03
 - pulse: LVS守护进程
 - piranha: LVS的web管理工具，包括状态监控和配置
 
-{% highlight bash %}
+```
 yum install pulse piranha
-{% endhighlight %}
+```
 
 
 
@@ -32,19 +32,19 @@ yum install pulse piranha
 - 在`/etc/sysctl.conf`中设置`net.ipv4.ip_forward = 1`
 - `/sbin/sysctl -w net.ipv4.ip_forward=1` 或者`echo 1 > /proc/sys/net/ipv4/ip_forward`
 - 查看状态：`/sbin/sysctl net.ipv4.ip_forward` 或者`cat /proc/sys/net/ipv4/ip_forward`
- 
+
 3. 配置LVS
 
 配置文件位于`/etc/sysconfig/ha/lvs.cf`，使用piranha可以以图形界面的方式进行配置。
 
-{% highlight bash %}
+```
  # 设置管理密码
  piranha-passwd
- 
+
  # 启动piranha服务
  /etc/init.d/piranha-gui start
 
-{% endhighlight %}
+```
 
 接下来可以用浏览器访问: http://IP_OF_LVS:3636（记得配置LVS上的防火墙，否则只能本机访问）。
 
@@ -69,7 +69,7 @@ yum install pulse piranha
 
 RS需要进行一系列的设置才能与LVS协同工作，参考如下脚本：
 
-{% highlight bash %}
+```
 
 #!/bin/bash
 
@@ -91,7 +91,7 @@ sysctl -p
 
 /sbin/service iptables stop
 
-{% endhighlight %}
+```
 
 
 ## 启动LVS服务
@@ -104,7 +104,7 @@ LVS和RS都配置好之后，可以启动LVS服务。前面提到，pulse是LVS�
 
 `ipvsadm`是LVS的命令行管理工具，可以用于更改运行时状态或更改配置文件。主要功能包括：
 
-{% highlight bash %}
+```
 
  # 增加/编辑虚拟服务器（VS）
  ipvsadm -A|E -t|u|f virutal-service-address:port [-s scheduler] [-p [timeout]] [-M netmask]
@@ -145,7 +145,7 @@ LVS和RS都配置好之后，可以启动LVS服务。前面提到，pulse是LVS�
  # 查看帮助
  ipvsadm -h
 
-{% endhighlight %}
+```
 
 # 功能验证
 
@@ -162,7 +162,7 @@ LVS和RS都配置好之后，可以启动LVS服务。前面提到，pulse是LVS�
 使用Apache Bench进行简单的性能测试，得出如下结论：
 
 1. 单个nginx的最佳并发：1900，最大并发：2900；使用LVS+2台nginx的最佳并发：3000，最大并发：5900。
-   
+
    说明通过LVS做负载均衡能提高并发能力，但不是线性增加，会有一定的损失。具体数据需要进一步测试。
 
 2. 经过LVS访问nginx比直接访问nginx会增加50毫秒左右的响应时间。

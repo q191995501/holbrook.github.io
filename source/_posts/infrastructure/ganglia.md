@@ -53,7 +53,7 @@ Ganglia的整体架构如下图所示：
 2. 组播模式 or 单播模式
 
    组播模式是ganglia的默认模式，同一集群的多个gmond之间互相交换数据，gmetad中可以指定集群中的任意一个或多个节点作为"data_source"；
-   
+
    组播模式可能会带来网络的 “抖动（Jitter）”。据说设置节点的时钟同步可以避免抖动的问题； 但如果网络环境不支持组播（比如Amazon’s AWS EC2），就需要使用单播模式。单播模式时，将大部分节点的gmond.conf中,global的deaf设置改为"yes"，则这些节点只发生数据，不接收其他节点的数据，同样也不能作为gmetad中的"data_source"。
 
    单播模式中还需要设置“send_metadata_interval”，比如30秒。以强制发送元数据。
@@ -126,7 +126,7 @@ Ganglia默认只监控一些通用的性能指标，如果要监控自定义的�
 
 如果安装了`ganglia-gmond-python`软件包，会创建一个`/etc/ganglia/conf.d/modpython.conf`文件：
 
-{% highlight nginx %}
+```
 modules {
   module {
     name = "python_module"
@@ -136,7 +136,7 @@ modules {
 }
 
 include ('/etc/ganglia/conf.d/*.pyconf')
-{% endhighlight %}
+```
 
 这样，就可以用python编写自定义的插件。
 

@@ -78,7 +78,7 @@ Mac OS X 先使用HomeBrew解决依赖包：`brew install swig zmq`，然后用P
 
 ### 安装管理端(master)
 
-{% highlight bash %}
+```
 
  # 安装EPEL,注意选择合适的版本
  rpm -ivh http://mirrors.sohu.com/fedora-epel/6/x86_64/epel-release-6-8.noarch.rpm
@@ -99,12 +99,12 @@ Mac OS X 先使用HomeBrew解决依赖包：`brew install swig zmq`，然后用P
  /etc/init.d/salt-master start
  service salt-master start
 
-{% endhighlight %}
+```
 
 
 ### 安装被管理端(minion)
 
-{% highlight bash %}
+```
 
  # 安装EPEL,注意选择合适的版本
  rpm -ivh http://mirrors.sohu.com/fedora-epel/6/x86_64/epel-release-6-8.noarch.rpm
@@ -127,7 +127,7 @@ Mac OS X 先使用HomeBrew解决依赖包：`brew install swig zmq`，然后用P
  /etc/init.d/salt-minion start
  service salt-minion start
 
-{% endhighlight %}
+```
 
 
 ### 接受minion的托管请求
@@ -136,7 +136,7 @@ minion向master投诚后，还需要master接受才行。这个过程叫做“�
 
 Salt底层使用公钥-私钥证书来保证通信信道的安全。具体的机制可以参考ZeroMQ的相关内容。Salt已经屏蔽了底层的细节，只需要使用封装好的命令：
 
-{% highlight bash %}
+```
 
  # 在master上运行
  # 查看所有minion
@@ -155,7 +155,7 @@ Salt底层使用公钥-私钥证书来保证通信信道的安全。具体的机
  #其中Unaccepted Keys是未许可的minion。可以使用下面的命令通过认证：
  salt-key -a minion1
 
-{% endhighlight %}
+```
 
 
 
@@ -166,7 +166,7 @@ Salt底层使用公钥-私钥证书来保证通信信道的安全。具体的机
 
 再举一些例子：
 
-{% highlight bash %}
+```
 
  # 查询主机运行了多长时间
  sudo salt '*' cmd.run "uptime"
@@ -179,7 +179,7 @@ Salt底层使用公钥-私钥证书来保证通信信道的安全。具体的机
  salt '*' cmd.run "ab -n 10 -c 2 http://www.google.com/"
 
 
-{% endhighlight %}
+```
 
 
 注意，默认情况下master和minion之间使用以下端口进行通信：

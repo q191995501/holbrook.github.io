@@ -32,7 +32,7 @@ Salt环境与目录的对应关系在salt master的配置文件`/etc/salt/master
 
 一个典型的配置如下：
 
-{% highlight yaml %}
+```
  file_roots:
    base:
      - /srv/salt/
@@ -42,7 +42,7 @@ Salt环境与目录的对应关系在salt master的配置文件`/etc/salt/master
    prod:
      - /srv/salt/prod/services
      - /srv/salt/prod/states
-{% endhighlight %}
+```
 
 # state定义
 
@@ -56,14 +56,14 @@ state之间还可以使用require, include, extend等关系进行关联。
 
 Salt在一个`top.sls`文件中定义这种映射关系。比如：
 
-{% highlight yaml %}
+```
 base:
   '*':
     - servers
 dev:
   '*nodb*':
     - mongodb
-{% endhighlight %}
+```
 
 # 小结
 
