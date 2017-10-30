@@ -2,9 +2,8 @@ GNU缩写习惯
 
 http://i.linuxtoy.org/docs/guide/ch02s02.html
 
-无聊和乏味的工作是罪恶
-
--- Eric S. Raymond
+        无聊和乏味的工作是罪恶
+            -- Eric S. Raymond
 
 构建于图形界面之上的操作系统，使用鼠标作为主输入设备， 是否使用缩写并不重要。比如 Windows 系统中的目录，几乎都是全称…… 点击两次鼠标进入文件夹 pf， 并不意味着点击13次才能进入文件夹 Program Files
 

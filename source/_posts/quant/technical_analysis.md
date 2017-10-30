@@ -1,11 +1,14 @@
 ---
-layout: post
 title: "技术分析的理论体系"
-description: "100个股民可能有101种分析手段，但通常都是采用技术分析（Technical Analysis,TA)。本文视图整理技术分析理论的总体理论框架，以便对于研究内容有一个定位和界定，并作为今后学习的索引。"
-category: 量化金融
-tags: [交易系统]
-
+date: 2013-01-26
+postslug: technical_analysis
+category: 量化交易
+tags: [交易系统,]
 ---
+
+100个股民可能有101种分析手段，但通常都是采用技术分析（Technical Analysis,TA)。本文视图整理技术分析理论的总体理论框架，以便对于研究内容有一个定位和界定，并作为今后学习的索引。
+
+<!-- more -->
 
 # 价值投资和趋势投资
 

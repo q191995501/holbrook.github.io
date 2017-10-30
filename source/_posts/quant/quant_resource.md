@@ -1,11 +1,15 @@
 ---
-layout: post
 title: "量化金融相关的网络资源"
-description: "量化金融相关的网络资源，不断补充中..."
-category: 量化金融
+date: 2013-05-28
+postslug: quant_resource
+category: 量化交易
 tags: [resource, 量化金融]
 lastmod: 2013-06-10
 ---
+
+量化金融相关的网络资源，不断补充中...
+
+<!-- more -->
 
 ## 网络资源
 

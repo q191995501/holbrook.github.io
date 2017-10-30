@@ -4,9 +4,6 @@ postslug: trading_strategy
 date: 2013-12-19
 category: 量化交易
 tags: [交易系统, 规则引擎,]
-
-
-
 ---
 
 # 交易策略的要点
