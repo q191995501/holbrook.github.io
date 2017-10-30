@@ -1,7 +1,8 @@
+---
 title: 用nginX+keepalived实现高可用的负载均衡
 date: 2013-05-27
 category: 软件技术
-tags: cluster
+tags: [cluster,]
 ---
 
  实施nginx和keepalived的规划、安装、配置等步骤。

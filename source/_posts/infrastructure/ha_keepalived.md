@@ -1,7 +1,8 @@
+---
 title: keepalived实现双机互备
 date: 2013-07-16
 category: 软件技术
-tags: cluster
+tags: [cluster,]
 ---
 
 # 目标：高可用

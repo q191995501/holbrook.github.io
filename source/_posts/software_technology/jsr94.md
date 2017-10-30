@@ -4,11 +4,9 @@ category: 软件技术
 tags: [规则引擎,Java]
 ---
 
- Java World似乎总会出现一些接口规范，这样做的好处是可以面向接口编程，可以在实现了该接口的产品/组件之间自由切换，避免被厂商绑架。 本文要介绍的JSR94:Java Rule Engine API，Java规则引擎API规范。
+Java World似乎总会出现一些接口规范，这样做的好处是可以面向接口编程，可以在实现了该接口的产品/组件之间自由切换，避免被厂商绑架。 本文要介绍的[JSR94:Java Rule Engine API](http://jcp.org/aboutJava/communityprocess/final/jsr094/index.html)，Java规则引擎API规范。
 
-
-Java World似乎总会出现一些接口规范，这样做的好处是可以面向接口编程，可以在实现了该接口的产品/组件之间自由切换，避免被厂商绑架。 本文要介绍的[JSR94:Java Rule Engine API](http://jcp.org/aboutJava/communityprocess/final/jsr094/index.html)，
-Java规则引擎API规范。
+<!-- more -->
 
 # 概述
 

@@ -1,3 +1,4 @@
+---
 title: Blueprint：OSGi的依赖注入(DI)容器
 date: 2014-01-22
 category: 软件技术

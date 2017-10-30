@@ -1,3 +1,4 @@
+---
 title: Salt state 配置结构
 date: 2013-07-01
 category: 软件技术

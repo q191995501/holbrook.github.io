@@ -1,3 +1,4 @@
+---
 title: Salt state实例解析
 date: 2013-06-30
 category: 软件技术

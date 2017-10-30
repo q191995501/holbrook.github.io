@@ -1,3 +1,4 @@
+---
 title: Eclipse e4：从OSGi-DS到依赖注入
 date: 2014-01-12
 category: 软件技术

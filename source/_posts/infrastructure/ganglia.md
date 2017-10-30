@@ -1,7 +1,8 @@
+---
 title: 用Ganglia监控集群的性能
 date: 2013-07-30
 category: 软件技术
-tags: 运维,  cluster
+tags: [运维,  cluster,]
 ---
 
  对基础设施的监控主要包括三个方面：状态，性能和可用性。通俗的讲就是：是否在干活，干了多少活，还能干多少。与Cacti、Nagios、Zabbix等工具相比，Ganglia更关注整个集群的性能和可用性。可以用于集群的性能监控、分析和优化。

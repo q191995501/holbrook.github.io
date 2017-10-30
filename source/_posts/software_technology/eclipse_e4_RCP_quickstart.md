@@ -1,7 +1,8 @@
+---
 title: Eclipse e4 概览
 date: 2014-01-07
 category: 软件技术
-tags: GUI,java
+tags: [GUI,java,]
 ---
 
  尽管至今为止，仍然处于孵化器阶段(Incubation Phase)，但是e4代表了Eclipse的未来。e4提供的新特性包括：

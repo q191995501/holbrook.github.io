@@ -1,7 +1,8 @@
+---
 title: NoSQL数据库选型指引
 date: 2012-11-06
 category: 软件技术
-tags: NoSQL
+tags: [NoSQL,]
 ---
 
     从设计原则上，NoSQL不再强调ACID（酸），而是强调BASE（碱）。

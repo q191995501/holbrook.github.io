@@ -1,3 +1,4 @@
+---
 title: Pillar：定义Salt配置管理的数据
 date: 2013-07-07
 category: 软件技术

@@ -1,3 +1,4 @@
+---
 title: salt的主要功能及使用
 date: 2013-06-25
 category: 软件技术

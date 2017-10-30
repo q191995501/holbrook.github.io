@@ -1,3 +1,4 @@
+---
 title: 开发和部署JBoss FUSE中的路由(Route)
 date: 2012-04-14
 category: 软件技术

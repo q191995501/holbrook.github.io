@@ -1,3 +1,4 @@
+---
 title: Apache Karaf：OSGi中间件
 date: 2014-02-20
 category: 软件技术

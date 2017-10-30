@@ -1,3 +1,4 @@
+---
 title: JPA概要
 date: 2012-12-30
 category: 软件技术
@@ -6,6 +7,7 @@ tags: [java,]
 
 JPA定义了Java ORM及实体操作API的标准。本文摘录了JPA的一些关键信息以备查阅。如果有hibernate的基础，通过本文也可以快速掌握JPA的基本概念及使用。
 
+<!-- more -->
 
 # 1 JPA概述
 JPA（Java Persistence API，Java持久化API），定义了对象-关系映射（ORM）以及实体对象持久化的标准接口。
