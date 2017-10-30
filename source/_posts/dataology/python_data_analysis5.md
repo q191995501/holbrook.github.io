@@ -1,5 +1,6 @@
 title: 利用Python进行数据分析(5)：Pandas 入门
 date: 2017-02-23
+postslug: python_data_analysis5
 category: 数据分析
 tags: [读书笔记, python]
 ---

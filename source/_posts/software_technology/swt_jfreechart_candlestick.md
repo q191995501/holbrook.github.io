@@ -1,5 +1,6 @@
 ---
 title: 在SWT中用JFreeChart实现K线图
+postslug: swt_jfreechart_candlestick
 date: 2014-01-18
 category: 软件技术
 tags: [chart, java]

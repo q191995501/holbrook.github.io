@@ -1,5 +1,6 @@
 ---
 title: 配置管理规范需要考虑的内容
+postslug: cm_features
 date: 2014-04-24
 category: 软件技术
 tags: [配置管理,]

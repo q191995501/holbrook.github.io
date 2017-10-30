@@ -1,5 +1,6 @@
 ---
 title: 用Ganglia监控集群的性能
+postslug: ganglia
 date: 2013-07-30
 category: 软件技术
 tags: [运维,  cluster,]

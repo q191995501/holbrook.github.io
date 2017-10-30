@@ -1,5 +1,6 @@
 title: 机器学习总结
 date: 2017-10-13
+postslug: ML_index
 category: 机器学习
 tags: [机器学习]
 ---

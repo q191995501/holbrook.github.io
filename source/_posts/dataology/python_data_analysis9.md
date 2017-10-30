@@ -1,5 +1,6 @@
 title: 利用Python进行数据分析(9)：数据聚合和分组运算
 date: 2017-07-19
+postslug: python_data_analysis9
 category: 数据分析
 tags: [读书笔记, python]
 ---

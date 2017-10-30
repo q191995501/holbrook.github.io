@@ -1,5 +1,6 @@
 ---
 title: ZeroMQ简介
+postslug: zeromq_intro
 date: 2013-07-03
 category: 软件技术
 tags: [EDA,]

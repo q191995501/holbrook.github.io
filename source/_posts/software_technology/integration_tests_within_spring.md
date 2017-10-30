@@ -1,5 +1,6 @@
 ---
 title: "Spring对集成测试的支持"
+postslug: integration_tests_within_spring
 date: 2014-01-06
 category: 软件技术
 tags: [spring, 测试]

@@ -1,5 +1,6 @@
 title: 《统计学》读书笔记(8/17:列连表，x^2检验和对数线性模型)
 date: 2013-09-05
+postslug: statistics_intro_8
 category: 数据分析
 tags: [读书笔记, 统计学]
 ---

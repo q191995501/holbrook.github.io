@@ -1,5 +1,6 @@
 ---
 title: Eclipse e4：从OSGi-DS到依赖注入
+postslug: dependency_injection_in_e4
 date: 2014-01-12
 category: 软件技术
 tags: [OSGi, java, GUI]

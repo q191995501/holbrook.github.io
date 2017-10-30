@@ -1,5 +1,6 @@
 title: 数据科学的知识体系
 date: 2017-02-05
+postslug: dataology_index
 category: 数据分析
 tags: [数据分析,]
 ---

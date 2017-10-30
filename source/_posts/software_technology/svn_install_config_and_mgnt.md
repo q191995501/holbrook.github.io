@@ -1,5 +1,6 @@
 ---
 title: "subversion安装、配置和管理"
+postslug: svn_install_config_and_mgnt
 date: 2014-01-29
 category: 软件技术
 tags: [版本管理]

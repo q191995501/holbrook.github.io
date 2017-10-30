@@ -1,5 +1,6 @@
 ---
 title: Graphviz概述
+postslug: graphviz_intro
 date: 2014-02-17
 category: 方法工具
 tags: [graph,]

@@ -1,5 +1,6 @@
 ---
 title: 规则引擎中常用的模式匹配算法
+postslug: algorithm_of_pattern_match
 date: 2012-12-05
 category: 软件技术
 tags: [规则引擎,]

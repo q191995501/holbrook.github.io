@@ -1,5 +1,6 @@
 ---
 title: AngularJS+Flask的例子
+postslug: angular_flask_restful_sample
 date: 2013-06-03
 category: 软件技术
 tags: [angularjs, flask, scrum,]

@@ -1,5 +1,6 @@
 ---
 title: Tycho：用Maven构建Eclipse Plugin项目
+postslug: build_osgi_bundle_with_tycho_maven_plugin
 date: 2014-01-08
 category: 软件技术
 tags: [OSGi, java, GUI]

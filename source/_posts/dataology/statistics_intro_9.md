@@ -1,5 +1,6 @@
 title: 《统计学》读书笔记(9/17:方差分析)
 date: 2013-12-11
+postslug: statistics_intro_9
 category: 数据分析
 tags: [读书笔记, 统计学]
 ---

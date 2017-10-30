@@ -1,5 +1,6 @@
 ---
 title: 用nginX+keepalived实现高可用的负载均衡
+postslug: nginx_keepalived
 date: 2013-05-27
 category: 软件技术
 tags: [cluster,]

@@ -1,5 +1,6 @@
 ---
 title: "Spring对单元测试的支持"
+postslug: unit_tests_within_spring
 date: 2014-01-05
 category: 软件技术
 tags: [spring, 测试]

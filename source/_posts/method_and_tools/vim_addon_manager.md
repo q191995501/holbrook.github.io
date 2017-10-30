@@ -1,5 +1,6 @@
 ---
 title: 重拾vim
+postslug: vim_addon_manager
 date: 2013-05-23
 category: 方法工具
 tags: [vim,]

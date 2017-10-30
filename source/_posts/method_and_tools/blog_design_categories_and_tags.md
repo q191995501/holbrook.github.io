@@ -1,5 +1,6 @@
 ---
 title: 如何规划blog的分类和标签
+postslug: blog_design_categories_and_tags
 date: 2012-11-05
 category: 方法工具
 tags: [blog, 知识管理]

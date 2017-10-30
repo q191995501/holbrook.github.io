@@ -1,5 +1,6 @@
 title: lvs+nginx的负载均衡实验
 date: 2013-07-01
+postslug: lvs_nginx_practice
 category: 软件技术
 tags: [cluster,]
 ---

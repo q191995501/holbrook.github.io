@@ -1,5 +1,6 @@
 title: 基于Python的数据科学环境
 date: 2017-02-11
+postslug: dataology_python_env
 Modified: 2017-03-09
 category: 数据分析
 tags: [python, env]

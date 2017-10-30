@@ -1,5 +1,6 @@
 ---
 title: 多线程的基本概念
+postslug: multi_thread
 date: 2012-02-23
 category: 软件技术
 tags: [多线程,]

@@ -1,5 +1,6 @@
 ---
 title: 系统交易和交易系统
+postslug: trade_system
 date: 2013-12-16
 category: 量化交易
 tags: [交易系统,]

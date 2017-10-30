@@ -1,5 +1,6 @@
 ---
 title: salt的主要功能及使用
+postslug: salt_usage
 date: 2013-06-25
 category: 软件技术
 tags: [运维,]

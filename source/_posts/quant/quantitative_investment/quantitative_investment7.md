@@ -1,5 +1,6 @@
 ---
 title: 《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记第7章：分类方法
+postslug: quantitative_investment7
 date: 2017-10-12
 category: 量化交易
 tags: [数据分析, 读书笔记,]

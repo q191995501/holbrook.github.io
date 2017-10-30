@@ -1,5 +1,6 @@
 ---
 title: 在markdown中嵌入graphviz
+postslug: graphviz_in_markdown
 date: 2014-02-17
 category: 方法工具
 tags: [graph, markdown,]

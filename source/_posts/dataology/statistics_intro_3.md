@@ -1,5 +1,6 @@
 title: 《统计学》读书笔记(3/17:数据的描述)
 date: 2013-05-31
+postslug: statistics_intro_3
 category: 数据分析
 tags: [读书笔记, 统计学]
 ---

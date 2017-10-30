@@ -1,5 +1,6 @@
 title: 利用Python进行数据分析(8)：绘图和可视化
 date: 2017-03-15
+postslug: python_data_analysis8
 category: 数据分析
 tags: [读书笔记, python]
 ---

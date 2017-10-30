@@ -1,5 +1,6 @@
 title: 《统计学》读书笔记(5/17:简单统计推断：总体参数的估计)
 date: 2013-07-09
+postslug: statistics_intro_5
 category: 数据分析
 tags: [读书笔记, 统计学]
 ---

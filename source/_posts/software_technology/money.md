@@ -1,5 +1,6 @@
 ---
 title: 你真的会数钱吗？
+postslug: money
 date: 2013-01-01
 updated: 2013-01-01
 category: 软件技术

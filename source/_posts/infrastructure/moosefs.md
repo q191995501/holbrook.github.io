@@ -1,5 +1,6 @@
 ---
 title: "MooseFS：屌丝的存储"
+postslug: moosefs
 date: 2013-08-02
 category: 基础设施
 tags: [HA, keepalived, cluster, DFS]

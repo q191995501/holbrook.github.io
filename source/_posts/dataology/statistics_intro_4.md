@@ -1,5 +1,6 @@
 title: 《统计学》读书笔记(4/17:机会的度量：概率和分布)
 date: 2013-06-07
+postslug: statistics_intro_4
 category: 数据分析
 tags: [读书笔记, 统计学]
 ---

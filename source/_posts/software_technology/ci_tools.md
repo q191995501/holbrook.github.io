@@ -1,5 +1,6 @@
 ---
 title: 持续集成(CI)工具的作用
+postslug: ci_tools
 date: 2014-03-04
 category: 软件技术
 tags: [软件过程,]

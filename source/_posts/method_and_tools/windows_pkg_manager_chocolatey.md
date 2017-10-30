@@ -1,5 +1,6 @@
 title: windows下面的包管理器：Chocolatey
 date: 2017-02-11
+postslug: windows_pkg_manager_chocolatey
 category: 方法工具
 tags: env
 ---

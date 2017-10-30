@@ -1,5 +1,6 @@
 ---
 title: 统一web访问层方案
+postslug: weblayer_nginx_keepalived
 date: 2012-10-16
 updated: 2013-06-10
 category: 软件技术

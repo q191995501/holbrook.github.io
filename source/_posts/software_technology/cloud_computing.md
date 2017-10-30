@@ -1,6 +1,7 @@
 ---
 title: 云计算简介
 date: 2017-10-25
+postslug: cloud_computing
 category: 基础设施
 tags: [云计算,]
 ---

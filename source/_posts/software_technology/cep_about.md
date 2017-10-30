@@ -1,5 +1,6 @@
 ---
 title: CEP：鱼与熊掌可以兼得
+postslug: cep_about
 date: 2012-11-06
 update: 2014-01-01
 category: 软件技术

@@ -1,5 +1,6 @@
 ---
 title: "SOA：理解什么是服务"
+postslug: soa_whats_service
 date: 2013-07-08
 category: 软件技术
 tags: [SOA]

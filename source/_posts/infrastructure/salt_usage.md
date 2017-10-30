@@ -1,5 +1,6 @@
 ---
 layout: post
+postslug: salt_usage
 title: "salt的主要功能及使用"
 date: 2013-06-25
 updated: 2013-07-05

@@ -1,5 +1,6 @@
 ---
 title: "Web负载均衡的几种实现方式"
+postslug: lb_solutions_list
 date: 2013-06-03
 category: 基础设施
 tags: [负载均衡, lvs,]

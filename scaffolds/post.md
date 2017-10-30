@@ -1,5 +1,7 @@
 ---
 title: {{ title }}
 date: {{ date }}
-tags:
+postslug: {{ title }}
+category: 
+tags: [,]
 ---

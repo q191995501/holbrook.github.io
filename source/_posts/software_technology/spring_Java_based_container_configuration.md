@@ -1,5 +1,6 @@
 ---
 title: 基于Java代码配置Spring容器
+postslug: spring_Java_based_container_configuration
 date: 2014-01-01
 category: 软件技术
 tags: [spring]

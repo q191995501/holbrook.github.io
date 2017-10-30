@@ -1,5 +1,6 @@
 ---
 title: 规则，推理机和规则引擎
+postslug: rule_engine_1
 date: 2012-03-20
 category: 软件技术
 tags: 规则引擎

@@ -1,5 +1,6 @@
 ---
 title: 使用Oracle Berkeley DB持久化股票行情数据
+postslug: Berkeley_DB
 date: 2013-12-19
 category: 量化交易
 tags: [交易系统,]

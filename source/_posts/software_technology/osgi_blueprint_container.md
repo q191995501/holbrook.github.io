@@ -1,5 +1,6 @@
 ---
 title: Blueprint：OSGi的依赖注入(DI)容器
+postslug: osgi_blueprint_container
 date: 2014-01-22
 category: 软件技术
 tags: [OSGi, java]

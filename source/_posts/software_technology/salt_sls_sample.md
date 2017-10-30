@@ -1,5 +1,6 @@
 ---
 title: Salt state实例解析
+postslug: salt_sls_sample
 date: 2013-06-30
 category: 软件技术
 tags: [运维,]

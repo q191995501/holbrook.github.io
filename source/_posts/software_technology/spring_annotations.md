@@ -1,5 +1,6 @@
 ---
 title: "Sping中的注解"
+postslug: spring_annotations
 date: 2014-01-05
 category: 软件技术
 tags: [spring]

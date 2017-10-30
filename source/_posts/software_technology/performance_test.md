@@ -1,5 +1,6 @@
 ---
 title: QQ 餐厅与系统性能模型(续)：如何评价系统的性能
+postslug: performance_test
 date: 2012-10-29
 category: 软件技术
 tags: [测试,]

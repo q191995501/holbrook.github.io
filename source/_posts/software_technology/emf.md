@@ -1,5 +1,6 @@
 ---
 title: "仰望MDA，拥抱EMF"
+postslug: emf
 date: 2014-01-12
 category: 软件技术
 tags: [OSGi]

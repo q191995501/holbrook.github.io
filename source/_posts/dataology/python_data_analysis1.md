@@ -1,5 +1,6 @@
 title: 利用Python进行数据分析(1)：简单介绍
 date: 2017-02-14
+postslug: python_data_analysis1
 category: 数据分析
 tags: [读书笔记, python, env]
 ---

@@ -1,5 +1,6 @@
 ---
 title: 用salt管理成千上万的服务器
+postslug: salt-intro
 date: 2013-06-24
 category: 软件技术
 tags: [运维,]

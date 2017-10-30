@@ -1,5 +1,6 @@
 ---
 title: CEP中的事件(Event)
+postslug: event_in_CEP
 date: 2013-12-21
 category: 软件技术
 tags: [CEP,EDA,]

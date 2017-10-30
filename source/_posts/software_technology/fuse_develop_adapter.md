@@ -1,5 +1,6 @@
 ---
 title: 开发Camel组件
+postslug: fuse_develop_adapter
 date: 2014-03-10
 tags: [SOA, OSGi, Maven, FUSE, Camel,]
 ---

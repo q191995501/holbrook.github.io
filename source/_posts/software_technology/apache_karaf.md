@@ -1,5 +1,6 @@
 ---
 title: Apache Karaf：OSGi中间件
+postslug: apache_karaf
 date: 2014-02-20
 category: 软件技术
 tags: [OSGi]

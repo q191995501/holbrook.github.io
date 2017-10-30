@@ -1,5 +1,6 @@
 ---
 title: 证券行情数据模型
+postslug: quotation_model
 date: 2013-12-18
 category: 量化交易
 tags: [交易系统,]

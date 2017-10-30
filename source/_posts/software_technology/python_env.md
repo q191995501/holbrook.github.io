@@ -1,5 +1,6 @@
 ---
 title: python的环境管理
+postslug: python_env
 date: 2012-12-05
 category: 软件技术
 tags: [python, pip, virtualenv]

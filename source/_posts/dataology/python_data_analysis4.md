@@ -1,5 +1,6 @@
 title: 利用Python进行数据分析(4)：NumPy
 date: 2017-02-17
+postslug: python_data_analysis4
 category: 数据分析
 tags: [读书笔记, python]
 ---

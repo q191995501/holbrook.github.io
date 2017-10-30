@@ -1,5 +1,6 @@
 ---
 title: 命令行界面设计
+postslug: cli_design
 date: 2014-01-30
 category: 软件技术
 tags: [CLI,]

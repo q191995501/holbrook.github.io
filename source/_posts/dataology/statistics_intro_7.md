@@ -1,5 +1,6 @@
 title: 《统计学》读书笔记(7/17:相关和回归分析)
 date: 2013-08-05
+postslug: statistics_intro_7
 category: 数据分析
 tags: [读书笔记, 统计学]
 ---

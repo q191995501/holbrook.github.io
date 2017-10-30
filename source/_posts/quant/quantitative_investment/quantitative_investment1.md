@@ -1,5 +1,6 @@
 ---
 title: 《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记第1章：绪论
+postslug: quantitative_investment1
 date: 2017-07-29
 category: 量化交易
 tags: [数据分析, 读书笔记,]

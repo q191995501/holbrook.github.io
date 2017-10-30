@@ -1,5 +1,6 @@
 ---
 title: Drools规则引擎API概述
+postslug: drools_API
 date: 2013-12-20
 category: 软件技术
 tags: [规则引擎,]

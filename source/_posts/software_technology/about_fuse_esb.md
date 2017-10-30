@@ -1,5 +1,6 @@
 ---
 title: "JBOSS FUSE:你必须知道的那些事"
+postslug: about_fuse_esb
 date: 2014-01-20
 category: 软件技术
 tags: [SOA, FUSE]

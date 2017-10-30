@@ -1,5 +1,6 @@
 ---
 title: 《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记第6章：数据回归方法
+postslug: quantitative_investment6
 date: 2017-10-08
 category: 量化交易
 tags: [数据分析, 读书笔记,]

@@ -1,5 +1,6 @@
 ---
 title: Eclipse e4 概览
+postslug: eclipse_e4_RCP_quickstart
 date: 2014-01-07
 category: 软件技术
 tags: [GUI,java,]

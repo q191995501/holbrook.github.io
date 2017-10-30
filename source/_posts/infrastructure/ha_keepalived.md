@@ -1,5 +1,6 @@
 ---
 title: keepalived实现双机互备
+postslug: ha_keepalived
 date: 2013-07-16
 category: 软件技术
 tags: [cluster,]

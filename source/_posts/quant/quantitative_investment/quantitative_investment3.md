@@ -1,5 +1,6 @@
 ---
 title: 《量化投资：数据挖掘技术与实践(MatLab版)》读书笔记第3章：数据的准备
+postslug: quantitative_investment3
 date: 2017-09-23
 category: 量化交易
 tags: [数据分析, 读书笔记,]

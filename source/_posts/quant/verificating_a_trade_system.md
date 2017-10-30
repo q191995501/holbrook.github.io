@@ -1,5 +1,6 @@
 ---
 title: 交易策略的基本检验
+postslug: verificating_a_trade_system
 date: 2014-01-05
 category: 量化交易
 tags: [交易系统,]

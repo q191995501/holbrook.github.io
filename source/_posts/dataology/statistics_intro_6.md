@@ -1,5 +1,6 @@
 title: 《统计学》读书笔记(6/17:简单统计推断：总体参数的假设检验)
 date: 2013-08-02
+postslug: statistics_intro_6
 category: 数据分析
 tags: [读书笔记, 统计学]
 ---

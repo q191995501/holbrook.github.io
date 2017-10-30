@@ -1,5 +1,6 @@
 ---
 title: scrum和分支管理策略
+postslug: git_branch_within_scrum
 date: 2015-05-05
 category: 软件技术
 tags: [scrum, git,]

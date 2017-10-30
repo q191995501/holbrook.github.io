@@ -1,5 +1,6 @@
 ---
 title: Salt state 配置结构
+postslug: salt_state_config_structure
 date: 2013-07-01
 category: 软件技术
 tags: [运维,]

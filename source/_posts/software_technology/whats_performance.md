@@ -1,5 +1,6 @@
 ---
 title: "QQ餐厅与系统性能模型"
+postslug: whats_performance
 date: 2012-10-23
 category: 软件技术
 tags: [测试]

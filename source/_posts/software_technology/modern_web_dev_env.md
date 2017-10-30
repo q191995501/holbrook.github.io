@@ -1,5 +1,6 @@
 ---
 title: 搭建一个“现代化”的web开发环境
+postslug: modern_web_dev_env
 date: 2015-05-04
 category: 软件技术
 tags: [web, env]

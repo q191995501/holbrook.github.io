@@ -1,5 +1,6 @@
 ---
 title: Apache Camel的核心概念
+postslug: apache_camel
 date: 2014-02-10
 category: 软件技术
 tags: [EDA,]

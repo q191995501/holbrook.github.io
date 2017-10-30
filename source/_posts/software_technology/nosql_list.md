@@ -1,5 +1,6 @@
 ---
 title: NoSQL数据库选型指引
+postslug: nosql_list
 date: 2012-11-06
 category: 软件技术
 tags: [NoSQL,]

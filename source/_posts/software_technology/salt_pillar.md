@@ -1,5 +1,6 @@
 ---
 title: Pillar：定义Salt配置管理的数据
+postslug: salt_pillar
 date: 2013-07-07
 category: 软件技术
 tags: [运维,]

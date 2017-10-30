@@ -1,5 +1,6 @@
 title: 利用Python进行数据分析(3)：IPython
 date: 2017-02-16
+postslug: python_data_analysis3
 category: 数据分析
 tags: [读书笔记, python]
 ---

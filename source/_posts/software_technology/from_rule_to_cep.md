@@ -1,5 +1,6 @@
 ---
 title: 从规则引擎到复杂事件处理(CEP)
+postslug: from_rule_to_cep
 date: 2013-12-22
 category: 软件技术
 tags: [CEP,规则引擎,]

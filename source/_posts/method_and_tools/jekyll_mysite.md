@@ -1,5 +1,6 @@
 ---
 title: Jekyll建站过程
+postslug: jekyll_mysite
 date: 2013-05-27
 category: 方法工具
 tags: blog

@@ -1,5 +1,6 @@
 ---
 title: CEP中的时间推理（Temporal）
+postslug: Temporal_of_CEP
 date: 2013-12-21
 category: 软件技术
 tags: [CEP,]

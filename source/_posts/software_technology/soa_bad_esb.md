@@ -1,5 +1,6 @@
 ---
 title: "糟糕的ESB"
+postslug: soa_bad_esb
 date: 2013-07-11
 category: 软件技术
 tags: [SOA, ESB]

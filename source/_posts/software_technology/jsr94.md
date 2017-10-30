@@ -1,5 +1,6 @@
 title: Java规则引擎规范：JSR94
 date: 2012-12-07
+postslug: jsr94
 category: 软件技术
 tags: [规则引擎,Java]
 ---

@@ -1,5 +1,6 @@
 ---
 title: "Drools规则描述语言快速手册"
+postslug: rule_language
 date: 2012-12-06
 category: 软件技术
 tags: [规则引擎,]

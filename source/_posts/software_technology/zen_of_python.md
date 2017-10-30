@@ -1,5 +1,6 @@
 ---
 title: Python之禅(The Zen of Python)
+postslug: zen_of_python
 date: 2012-02-12
 category: 软件技术
 tags: [python,]

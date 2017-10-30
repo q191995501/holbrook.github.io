@@ -1,5 +1,6 @@
 ---
 title: "JBoss Fuse: 开发和部署Web Service"
+postslug: develop_a_fuse_webservice
 date: 2014-01-23
 category: 软件技术
 tags: [SOA, OSGi, Maven, FUSE]

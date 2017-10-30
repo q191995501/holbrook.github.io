@@ -1,5 +1,6 @@
 ---
 title: 基于决策表实现交易策略
+postslug: strategy_based_on_decision_table
 date: 2017-02-21
 category: 量化交易
 tags: [策略平台, C#,]

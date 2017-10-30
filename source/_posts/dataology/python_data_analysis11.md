@@ -1,5 +1,6 @@
 title: 利用Python进行数据分析(11)：金融和经济数据应用
 date: 2017-07-24
+postslug: python_data_analysis11
 category: 数据分析
 tags: [读书笔记, python]
 ---

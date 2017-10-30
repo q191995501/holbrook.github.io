@@ -1,5 +1,6 @@
 ---
 title: JPA概要
+postslug: JPA_intro
 date: 2012-12-30
 category: 软件技术
 tags: [java,]

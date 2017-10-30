@@ -1,5 +1,6 @@
 ---
 title: "JFreeChart概述"
+postslug: jfreechart
 date: 2014-01-17
 category: 软件技术
 tags: [chart]

@@ -1,5 +1,6 @@
 title: 利用Python进行数据分析(12)：NumPy高级应用
 date: 2017-07-24
+postslug: python_data_analysis12
 category: 数据分析
 tags: [读书笔记, python]
 ---

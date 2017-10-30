@@ -1,5 +1,6 @@
 ---
 title: "DRBD:基于软件的存储解决方案"
+postslug: ha_drbd
 date: 2013-07-17
 category: 基础设施
 tags: [HA, keepalived, 负载均衡, cluster]
