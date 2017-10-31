@@ -1,6 +1,5 @@
 title: 机器学习-1：绪论
 date: 2017-03-04
-postslug: machine-learning1
 category: 机器学习
 tags: [读书笔记, 机器学习]
 ---
