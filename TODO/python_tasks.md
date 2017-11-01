@@ -1,7 +1,7 @@
 ---
 title: python 任务调度框架
 date: 2015-06-04
-category: 开发
+categories: [软件技术,]
 tags: [python, 分布式, MQ,]
 ---
 
@@ -90,7 +90,7 @@ demotask.demo.delay('some messages...')
 
 # 芹菜花Celery Flower
 
-Celery [Flower](https://github.com/mher/flower/)是Celery的一个Web监控和管理界面。
+[Celery Flower](https://github.com/mher/flower/)是Celery的一个Web监控和管理界面。
 对于本应用来说，有两个使用场景：
 
 1. 在应用中嵌入Flower的监控界面
