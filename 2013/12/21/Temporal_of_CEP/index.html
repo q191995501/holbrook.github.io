@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="CEP," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="心内求法" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="时间推理（Temporal）是CEP中特有的条件判断（LHS）。本文介绍13种时间推理运算符及其DRL表示。 CEP中的事件(Event)具有两个与时间相关的属性。一个是timestamp，标记事件发生的时间；另一个是duration，标记事件持续的时间间隔。 由这两个时间属性，还可以计算出事件结束的事件。 时间推理(Temporal)是CEP中特有的条件判断(LHS，其判断的要素正是基于事件的上">
+<meta name="keywords" content="CEP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CEP中的时间推理（Temporal）">
+<meta property="og:url" content="http://holbrook.github.io/2013/12/21/Temporal_of_CEP/index.html">
+<meta property="og:site_name" content="心内求法">
+<meta property="og:description" content="时间推理（Temporal）是CEP中特有的条件判断（LHS）。本文介绍13种时间推理运算符及其DRL表示。 CEP中的事件(Event)具有两个与时间相关的属性。一个是timestamp，标记事件发生的时间；另一个是duration，标记事件持续的时间间隔。 由这两个时间属性，还可以计算出事件结束的事件。 时间推理(Temporal)是CEP中特有的条件判断(LHS，其判断的要素正是基于事件的上">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://holbrook.github.io/2013/12/21/Temporal_of_CEP/index.html/temporal-after_and_before.png">
+<meta property="og:image" content="http://holbrook.github.io/2013/12/21/Temporal_of_CEP/index.html/temporal-coincides.png">
+<meta property="og:image" content="http://holbrook.github.io/2013/12/21/Temporal_of_CEP/index.html/temporal-during.png">
+<meta property="og:image" content="http://holbrook.github.io/2013/12/21/Temporal_of_CEP/index.html/temporal-finishes.png">
+<meta property="og:image" content="http://holbrook.github.io/2013/12/21/Temporal_of_CEP/index.html/temporal-after_and_before.png">
+<meta property="og:image" content="http://holbrook.github.io/2013/12/21/Temporal_of_CEP/index.html/temporal-overlaps.png">
+<meta property="og:image" content="http://holbrook.github.io/2013/12/21/Temporal_of_CEP/index.html/temporal-starts.png">
+<meta property="og:updated_time" content="2017-10-30T06:12:32.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="CEP中的时间推理（Temporal）">
+<meta name="twitter:description" content="时间推理（Temporal）是CEP中特有的条件判断（LHS）。本文介绍13种时间推理运算符及其DRL表示。 CEP中的事件(Event)具有两个与时间相关的属性。一个是timestamp，标记事件发生的时间；另一个是duration，标记事件持续的时间间隔。 由这两个时间属性，还可以计算出事件结束的事件。 时间推理(Temporal)是CEP中特有的条件判断(LHS，其判断的要素正是基于事件的上">
+<meta name="twitter:image" content="http://holbrook.github.io/2013/12/21/Temporal_of_CEP/index.html/temporal-after_and_before.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":true,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '2D390ZMGCJ',
+      apiKey: '98fe25d384567f4447d37429b35a233e',
+      indexName: 'thinkinside',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://holbrook.github.io/2013/12/21/Temporal_of_CEP/"/>
+
+
+
+
+
+  <title>CEP中的时间推理（Temporal） | 心内求法</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?16d951e9b49ded5f2e821a0e61d77797";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">心内求法</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Holbrook的个人博客</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://holbrook.github.io/2013/12/21/Temporal_of_CEP/index.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Holbrook">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="心内求法">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">CEP中的时间推理（Temporal）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-12-21T00:00:00+08:00">
+                2013-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/软件技术/" itemprop="url" rel="index">
+                    <span itemprop="name">软件技术</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2013/12/21/Temporal_of_CEP/index.html" class="leancloud_visitors" data-flag-title="CEP中的时间推理（Temporal）">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>时间推理（Temporal）是CEP中特有的条件判断（LHS）。本文介绍13种时间推理运算符及其DRL表示。</p>
+<p><a href="/2012/11/06/about_cep.html">CEP</a>中的<a href="/2013/12/21/event_in_CEP.html">事件(Event)</a>具有两个与时间相关的属性。一个是timestamp，标记事件发生的时间；另一个是duration，标记事件持续的时间间隔。</p>
+<p>由这两个时间属性，还可以计算出事件结束的事件。</p>
+<p>时间推理(Temporal)是CEP中特有的条件判断(<a href="{filename}../develop/rule_language.md">LHS</a>，其判断的要素正是基于事件的上述时间属性。</p>
+<p>Allen在《An Interval-based Representation of Temporal Knowledge》中描述了13种时间推理的运算符。</p>
+<p>下面用DRL语言介绍这13种运算符。其中，运算符的参数格式均为<code>[#d][#h][#m][#s][#[ms]]</code>。比如<code>3m30s</code>、<code>4m</code>等。</p>
+<h1 id="After-和-Before-之前和之后"><a href="#After-和-Before-之前和之后" class="headerlink" title="After 和 Before(之前和之后)"></a>After 和 Before(之前和之后)</h1><img src="/2013/12/21/Temporal_of_CEP/index.html/temporal-after_and_before.png" alt="After 和 Before" title="After 和 Before">
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// x∈[a,b]时，满足以下条件</span></div><div class="line"><span class="comment">//A发生在B之前</span></div><div class="line"><span class="variable">$eventA</span> : EventA( this before[<span class="selector-tag">a</span>,b] <span class="variable">$eventB</span> )</div><div class="line"><span class="comment">//B发生在A之后</span></div><div class="line"><span class="variable">$eventB</span> : EventB( this after[<span class="selector-tag">a</span>,b] <span class="variable">$eventA</span> )</div></pre></td></tr></table></figure>
+<ul>
+<li>如果没有给出参数，则a=1ms, b=+∞</li>
+<li>如果只给出一个参数a,则b=+∞</li>
+</ul>
+<h1 id="Coincides（同时发生）"><a href="#Coincides（同时发生）" class="headerlink" title="Coincides（同时发生）"></a>Coincides（同时发生）</h1><img src="/2013/12/21/Temporal_of_CEP/index.html/temporal-coincides.png" alt="Coincides" title="Coincides">
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// x∈[0,a]，且y∈[0,b]时，满足以下条件</span></div><div class="line"><span class="variable">$eventA</span> : EventA( this coincides[<span class="selector-tag">a</span>,b] <span class="variable">$eventB</span> )</div><div class="line"><span class="variable">$eventB</span> : EventB( this coincides[<span class="selector-tag">a</span>,b] <span class="variable">$eventA</span> )</div></pre></td></tr></table></figure>
+<ul>
+<li>如果只给出一个参数a,则b=a</li>
+<li>如果不给出参数，则a=0,b=0</li>
+</ul>
+<h1 id="During-和-Includes（包含）"><a href="#During-和-Includes（包含）" class="headerlink" title="During 和 Includes（包含）"></a>During 和 Includes（包含）</h1><img src="/2013/12/21/Temporal_of_CEP/index.html/temporal-during.png" alt="During 和 Includes" title="During 和 Includes">
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// x∈[a,b]，且y∈[c,d]时，满足以下条件</span></div><div class="line"><span class="comment">//A在B期间发生</span></div><div class="line"><span class="variable">$eventA</span> : EventA( this during[<span class="selector-tag">a</span>,<span class="selector-tag">b</span>,c,d] <span class="variable">$eventB</span> )</div><div class="line"><span class="comment">//B包含A</span></div><div class="line"><span class="variable">$eventB</span> : EventB( this includes[<span class="selector-tag">a</span>,<span class="selector-tag">b</span>,c,d] <span class="variable">$eventA</span> )</div></pre></td></tr></table></figure>
+<ul>
+<li>如果只给出二个参数a,b,则c=a,d=b</li>
+<li>如果只给出一个参数b,则a=0,c=0,d=b</li>
+<li>如果不给出参数，则a=0,b=+∞, c=0,d=+∞</li>
+</ul>
+<h1 id="Finishes-和-Finished-by（同时结束）"><a href="#Finishes-和-Finished-by（同时结束）" class="headerlink" title="Finishes 和 Finished by（同时结束）"></a>Finishes 和 Finished by（同时结束）</h1><img src="/2013/12/21/Temporal_of_CEP/index.html/temporal-finishes.png" alt="Finishes 和 Finished by" title="Finishes 和 Finished by">
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// x∈[0,a]时，满足以下条件</span></div><div class="line"><span class="comment">//A在B之后开始，和B同时结束</span></div><div class="line">$eventA : EventA( this finishes[a] $eventB )</div><div class="line"><span class="comment">//B在A之前开始，和B同时结束</span></div><div class="line">$eventB : EventB( this finishedby[a] $eventA )</div></pre></td></tr></table></figure>
+<ul>
+<li>如果不给出参数，则a=0</li>
+</ul>
+<h1 id="Meets-和-Met-by（相邻）"><a href="#Meets-和-Met-by（相邻）" class="headerlink" title="Meets 和 Met by（相邻）"></a>Meets 和 Met by（相邻）</h1><img src="/2013/12/21/Temporal_of_CEP/index.html/temporal-after_and_before.png" alt="Meets 和 Met by" title="Meets 和 Met by">
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// x∈[0,a]时，满足以下条件</span></div><div class="line"><span class="comment">//A结束时B开始</span></div><div class="line">$eventA : EventA( this meets[a] $eventB )</div><div class="line"><span class="comment">//A结束时B开始</span></div><div class="line">$eventB : EventB( this metby[a] $eventA )</div></pre></td></tr></table></figure>
+<ul>
+<li>如果没有给出参数，则a=0</li>
+</ul>
+<h1 id="Overlaps-和-Overlappd-by（相交）"><a href="#Overlaps-和-Overlappd-by（相交）" class="headerlink" title="Overlaps 和 Overlappd by（相交）"></a>Overlaps 和 Overlappd by（相交）</h1><img src="/2013/12/21/Temporal_of_CEP/index.html/temporal-overlaps.png" alt="Overlaps 和 Overlappd by" title="Overlaps 和 Overlappd by">
+  <figure class="highlight stylus"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// x∈[a,b]时，满足以下条件</span></div><div class="line"><span class="comment">//A在B之前开始，在B之后结束</span></div><div class="line"><span class="variable">$eventA</span> : EventA( this overlaps[<span class="selector-tag">a</span>,b] <span class="variable">$eventB</span> )</div><div class="line"><span class="comment">//B在A之后开始，在A之前结束</span></div><div class="line"><span class="variable">$eventB</span> : EventB( this overlappedby[<span class="selector-tag">a</span>,b] <span class="variable">$eventA</span> )</div></pre></td></tr></table></figure>
+<ul>
+<li>如果只给出一个参数b,则a=0</li>
+<li>如果不给出参数，则a=0,b=0</li>
+</ul>
+<h1 id="Starts-和-Started-by（同时开始）"><a href="#Starts-和-Started-by（同时开始）" class="headerlink" title="Starts 和 Started by（同时开始）"></a>Starts 和 Started by（同时开始）</h1><img src="/2013/12/21/Temporal_of_CEP/index.html/temporal-starts.png" alt="Starts 和 Started by" title="Starts 和 Started by">
+  <figure class="highlight php"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// x∈[0,a]时，满足以下条件</span></div><div class="line"><span class="comment">//A和B同时开始，A先结束</span></div><div class="line">$eventA : EventA( this starts[a] $eventB )</div><div class="line"><span class="comment">//B和A同时开始，B后结束</span></div><div class="line">$eventB : EventB( this startedby[a] $eventA )</div></pre></td></tr></table></figure>
+<ul>
+<li>如果不给出参数，则a=+∞</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CEP/" rel="tag"># CEP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2013/12/21/event_in_CEP/index.html" rel="next" title="CEP中的事件(Event)">
+                <i class="fa fa-chevron-left"></i> CEP中的事件(Event)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2013/12/22/from_rule_to_cep/index.html" rel="prev" title="从规则引擎到复杂事件处理(CEP)">
+                从规则引擎到复杂事件处理(CEP) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+        
+  <div class="bdsharebuttonbox">
+    <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博"></a>
+    <a href="#" class="bds_douban" data-cmd="douban" title="分享到豆瓣网"></a>
+    <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友"></a>
+    <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间"></a>
+    <a href="#" class="bds_weixin" data-cmd="weixin" title="分享到微信"></a>
+    <a href="#" class="bds_tieba" data-cmd="tieba" title="分享到百度贴吧"></a>
+    <a href="#" class="bds_twi" data-cmd="twi" title="分享到Twitter"></a>
+    <a href="#" class="bds_fbook" data-cmd="fbook" title="分享到Facebook"></a>
+    <a href="#" class="bds_more" data-cmd="more"></a>
+    <a class="bds_count" data-cmd="count"></a>
+  </div>
+  <script>
+    window._bd_share_config = {
+      "common": {
+        "bdText": "",
+        "bdMini": "2",
+        "bdMiniList": false,
+        "bdPic": ""
+      },
+      "share": {
+        "bdSize": "16",
+        "bdStyle": "0"
+      },
+      "image": {
+        "viewList": ["tsina", "douban", "sqq", "qzone", "weixin", "twi", "fbook"],
+        "viewText": "分享到：",
+        "viewSize": "16"
+      }
+    }
+  </script>
+
+<script>
+  with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='//bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
+</script>
+
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="vcomments"></div>
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Holbrook</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">115</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">60</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/holbrook" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:wanghaikuo@tsinghua.org.cn" target="_blank" title="E-Mail">
+                    
+                      <i class="fa fa-fw fa-envelope"></i></a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.douban.com/people/168633248/" target="_blank" title="豆瓣">
+                    
+                      <i class="fa fa-fw fa-douban"></i></a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#After-和-Before-之前和之后"><span class="nav-number">1.</span> <span class="nav-text">After 和 Before(之前和之后)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Coincides（同时发生）"><span class="nav-number">2.</span> <span class="nav-text">Coincides（同时发生）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#During-和-Includes（包含）"><span class="nav-number">3.</span> <span class="nav-text">During 和 Includes（包含）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Finishes-和-Finished-by（同时结束）"><span class="nav-number">4.</span> <span class="nav-text">Finishes 和 Finished by（同时结束）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Meets-和-Met-by（相邻）"><span class="nav-number">5.</span> <span class="nav-text">Meets 和 Met by（相邻）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Overlaps-和-Overlappd-by（相交）"><span class="nav-number">6.</span> <span class="nav-text">Overlaps 和 Overlappd by（相交）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Starts-和-Started-by（同时开始）"><span class="nav-number">7.</span> <span class="nav-text">Starts 和 Started by（同时开始）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Holbrook</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/gh/xcss/valine@v1.1.7-rc3/dist/Valine.min.js"></script>
+  <script type="text/javascript">
+    new Valine({
+        av: AV,
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        app_id: 'zUfVbs5n4oyicDn3XvALUDTT-gzGzoHsz',
+        app_key: '0jvfoj6veWsDfOsYNd976DMC',
+        placeholder: 'Comment input placeholder'
+    });
+  </script>
+
+
+
+  
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("zUfVbs5n4oyicDn3XvALUDTT-gzGzoHsz", "0jvfoj6veWsDfOsYNd976DMC");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="http://cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+  
+
+
+  
+
+  
+
+</body>
+</html>
