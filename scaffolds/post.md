@@ -2,6 +2,6 @@
 title: {{ title }}
 date: {{ date }}
 postslug: {{ title }}
-category: 
+categores: []
 tags: [,]
 ---

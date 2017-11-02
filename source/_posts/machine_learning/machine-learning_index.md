@@ -1,5 +1,8 @@
+---
+layout: post
 title: 《机器学习》
 date: 2017-03-04
+updated: 2017-11-02
 category: 机器学习
 tags: [索引, 读书笔记, 机器学习]
 ---
